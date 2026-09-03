@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Stats — Gatekeeper</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="wrap">
+    <a class="brand" href="index.html"><span class="glyph">▚</span>Gatekeeper</a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="tracker.html">Tracker</a>
+      <a href="stats.html" class="active">Stats</a>
+      <span id="authArea"></span>
+    </div>
+  </div>
+</nav>
+
+<div class="wrap">
+  <header class="page-head">
+    <div class="top-row">
+      <div>
+        <h1>Stats</h1>
+        <p class="sub">The whole plan at a glance — completion pace, streaks, and where you're strong or slipping.</p>
+      </div>
+    </div>
+  </header>
+
+  <div class="stats-grid-top">
+    <div class="cell"><div class="num" id="stDaysComplete">0</div><div class="lbl">Days fully cleared</div></div>
+    <div class="cell"><div class="num" id="stBest">0</div><div class="lbl">Best streak</div></div>
+    <div class="cell"><div class="num" id="stPct">0%</div><div class="lbl">Plan completed</div></div>
+    <div class="cell"><div class="num" id="stRemaining">0</div><div class="lbl">Lectures remaining</div></div>
+  </div>
+
+  <section class="heatmap">
+    <h2 class="section-title">Day-by-day</h2>
+    <div class="heatmap-grid" id="heatmapGrid"></div>
+    <div class="hm-legend">
+      <span>Less</span>
+      <span class="sq" style="background:var(--panel-2);border:1px solid var(--line)"></span>
+      <span class="sq lvl-1" style="background:#33422F;border:1px solid #3E4E3C"></span>
+      <span class="sq lvl-2" style="background:var(--moss-dim);border:1px solid var(--moss)"></span>
+      <span class="sq lvl-3" style="background:var(--moss);border:1px solid #8AAE84"></span>
+      <span>More · each box is one scheduled day</span>
+    </div>
+  </section>
+
+  <section class="achievements">
+    <h2 class="section-title">Milestones</h2>
+    <div class="ach-grid" id="achGrid"></div>
+  </section>
+
+  <section class="subject-breakdown">
+    <h2 class="section-title">Subject breakdown</h2>
+    <div id="sbList"></div>
+  </section>
+</div>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="f-left">Progress is stored only in this browser (localStorage). Clearing site data or switching devices starts fresh.</div>
+    <div class="f-links">
+      <a href="index.html">Home</a>
+      <a href="tracker.html">Tracker</a>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="js/config.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/schedule.js"></script>
+<script>
+(function(){
+  "use strict";
+  function renderStats(){
+  const stats = Gatekeeper.computeStats();
+
+  document.getElementById("stDaysComplete").textContent = stats.daysComplete + " / " + stats.daysTotal;
+  document.getElementById("stBest").textContent = stats.best;
+  document.getElementById("stPct").textContent = Math.round((stats.done/stats.total)*100) + "%";
+  document.getElementById("stRemaining").textContent = stats.total - stats.done;
+
+  // heatmap
+  const grid = document.getElementById("heatmapGrid");
+  grid.innerHTML = "";
+  stats.schedule.forEach(day => {
+    const cell = document.createElement("div");
+    const isFuture = day.date > stats.todayISO;
+    const total = day.lectures.length;
+    const done = day.lectures.filter(l => Gatekeeper.isDone(l.id)).length;
+    let lvl = 0;
+    if(done > 0 && done < total) lvl = 1;
+    else if(done === total && total > 0) lvl = total > 1 ? 3 : 2;
+    cell.className = "hm-cell" + (lvl ? " lvl-" + lvl : "") + (isFuture ? " future" : "");
+    const dt = new Date(day.date + "T00:00:00");
+    const dateLabel = dt.toLocaleDateString("en-US", { month:"short", day:"numeric" });
+    cell.title = dateLabel + " — " + done + "/" + total + " done" + (day.dayCount ? " (Day " + day.dayCount + ")" : "");
+    grid.appendChild(cell);
+  });
+
+  // achievements
+  const ACHIEVEMENTS = [
+    { id:"first", title:"First lecture", desc:"Tick your first lecture", test: s => s.done >= 1 },
+    { id:"streak3", title:"3-day streak", desc:"Clear three days in a row", test: s => s.best >= 3 },
+    { id:"streak7", title:"7-day streak", desc:"A full week, no gaps", test: s => s.best >= 7 },
+    { id:"quarter", title:"Quarter done", desc:"25% of all lectures cleared", test: s => s.done / s.total >= 0.25 },
+    { id:"half", title:"Halfway", desc:"50% of all lectures cleared", test: s => s.done / s.total >= 0.5 },
+    { id:"streak14", title:"14-day streak", desc:"Two weeks straight", test: s => s.best >= 14 },
+    { id:"threeq", title:"Three-quarters", desc:"75% of all lectures cleared", test: s => s.done / s.total >= 0.75 },
+    { id:"allsubj", title:"Every subject touched", desc:"At least one lecture done in each subject", test: s => Object.keys(s.bySubjectTotal).every(k => (s.bySubjectDone[k]||0) > 0) },
+    { id:"done", title:"Plan complete", desc:"Every scheduled lecture cleared", test: s => s.done === s.total },
+  ];
+  const achGrid = document.getElementById("achGrid");
+  achGrid.innerHTML = "";
+  ACHIEVEMENTS.forEach(a => {
+    const unlocked = a.test(stats);
+    const card = document.createElement("div");
+    card.className = "ach" + (unlocked ? " unlocked" : "");
+    card.innerHTML =
+      '<div class="ach-title"><span class="mark">' + (unlocked ? "✓" : "○") + '</span>' + a.title + '</div>' +
+      '<div class="ach-desc">' + a.desc + '</div>';
+    achGrid.appendChild(card);
+  });
+
+  // subject breakdown
+  const sbList = document.getElementById("sbList");
+  sbList.innerHTML = "";
+  Object.keys(stats.bySubjectTotal).forEach(key => {
+    const meta = Gatekeeper.metaFor(key);
+    const total = stats.bySubjectTotal[key];
+    const done = stats.bySubjectDone[key] || 0;
+    const pct = Math.round((done/total)*100);
+    const row = document.createElement("div");
+    row.className = "sb-row";
+    row.style.setProperty("--sub", meta.color);
+    row.innerHTML =
+      '<span class="name"><span class="dot"></span>' + meta.name + '</span>' +
+      '<span class="bar"><span style="width:' + pct + '%"></span></span>' +
+      '<span class="pct">' + done + '/' + total + ' · ' + pct + '%</span>';
+    sbList.appendChild(row);
+  });
+  }
+  renderStats();
+  window.addEventListener("gatekeeper:progress-ready", renderStats);
+})();
+</script>
+</body>
+</html>

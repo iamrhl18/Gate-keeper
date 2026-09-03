@@ -1,0 +1,313 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Tracker — Gatekeeper</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="wrap">
+    <a class="brand" href="index.html"><span class="glyph">▚</span>Gatekeeper</a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="tracker.html" class="active">Tracker</a>
+      <a href="stats.html">Stats</a>
+      <span id="authArea"></span>
+    </div>
+  </div>
+</nav>
+
+<div class="wrap">
+  <header class="page-head">
+    <div class="top-row">
+      <div>
+        <h1>Tracker</h1>
+        <p class="sub">Tick off today's lectures, or catch up on any day in the ledger below.</p>
+      </div>
+      <div class="today-chip">
+        <span class="big" id="todayDateBig">—</span>
+        <span id="todayDayLabel">—</span>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="stat-grid">
+      <div class="stat" id="streakFlame">
+        <div class="num"><span id="statStreak">0</span><span class="unit">days</span></div>
+        <div class="label">Current streak</div>
+      </div>
+      <div class="stat">
+        <div class="num"><span id="statBest">0</span><span class="unit">days</span></div>
+        <div class="label">Best streak</div>
+      </div>
+      <div class="stat">
+        <div class="num"><span id="statDone">0</span><span class="unit" id="statDoneUnit">/ 71</span></div>
+        <div class="label">Lectures cleared</div>
+      </div>
+    </div>
+    <div class="quote-panel">
+      <span class="quote-eyebrow">For today</span>
+      <blockquote id="quoteText">Loading…</blockquote>
+      <span class="quote-sub" id="quoteSub"></span>
+    </div>
+  </section>
+
+  <section class="today-block">
+    <div class="today-head">
+      <h2 id="todayTitle">Today</h2>
+      <span class="date-str" id="todayDateStr"></span>
+    </div>
+    <div class="today-body" id="todayBody"></div>
+  </section>
+
+  <section class="subjects">
+    <h2 class="section-title">By subject</h2>
+    <div class="subj-grid" id="subjGrid"></div>
+  </section>
+
+  <section class="ledger">
+    <div class="ledger-head">
+      <h2 class="section-title" style="margin:0;">Full schedule</h2>
+      <button class="btn btn-ghost btn-sm" id="resetBtn">Reset all progress</button>
+    </div>
+    <div class="ledger-list" id="ledgerList"></div>
+  </section>
+</div>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="f-left">Progress is stored only in this browser (localStorage). Clearing site data or switching devices starts fresh.</div>
+    <div class="f-links">
+      <a href="index.html">Home</a>
+      <a href="stats.html">Stats</a>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="js/config.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/schedule.js"></script>
+<script>
+(function(){
+  "use strict";
+
+  const QUOTES = [
+    ["The syllabus doesn't care how you feel. Show up anyway.", "on discipline"],
+    ["One lecture a day is a plan. Zero lectures a day is a habit too.", "on consistency"],
+    ["You don't need a perfect week. You need today.", "on momentum"],
+    ["Rank is decided in silence, months before the result.", "on the long game"],
+    ["Nobody sees the 6 AM lecture. Everybody sees the rank.", "on invisible work"],
+    ["A streak isn't motivation. It's a system that doesn't ask how you feel.", "on systems"],
+    ["Skipping one day is a rest. Skipping two is a pattern.", "on the second miss"],
+    ["Your competition is asleep or scrolling. Either way, you're ahead right now.", "on showing up"],
+    ["Understand it slow today so you don't relearn it in panic later.", "on pacing"],
+    ["The playlist doesn't move on its own. Neither does the rank.", "on starting"],
+  ];
+
+  function fmtDate(d){ return d.toLocaleDateString("en-US", { weekday:"short", month:"short", day:"numeric", year:"numeric" }); }
+  function fmtDateShort(d){ return d.toLocaleDateString("en-US", { month:"short", day:"numeric" }); }
+
+  function renderHeader(stats){
+    const now = new Date();
+    document.getElementById("todayDateBig").textContent = fmtDateShort(now);
+    document.getElementById("todayDayLabel").textContent = now.toLocaleDateString("en-US",{ weekday:"long" });
+    document.getElementById("statStreak").textContent = stats.current;
+    document.getElementById("statBest").textContent = stats.best;
+    document.getElementById("statDone").textContent = stats.done;
+    document.getElementById("statDoneUnit").textContent = "/ " + stats.total;
+    const flame = document.getElementById("streakFlame");
+    if(stats.current >= 3) flame.classList.add("hot"); else flame.classList.remove("hot");
+  }
+
+  function renderQuote(){
+    const dayIndex = Math.floor(Date.now() / 86400000);
+    const q = QUOTES[dayIndex % QUOTES.length];
+    document.getElementById("quoteText").textContent = "\u201C" + q[0] + "\u201D";
+    document.getElementById("quoteSub").textContent = q[1];
+  }
+
+  function renderLectureRow(lec){
+    const meta = Gatekeeper.metaFor(lec.subjectKey, lec.name);
+    const row = document.createElement("div");
+    row.className = "lecture-row";
+    row.style.setProperty("--sub", meta.color);
+
+    const tag = document.createElement("span");
+    tag.className = "dot";
+    row.appendChild(tag);
+
+    const label = document.createElement("label");
+    const done = Gatekeeper.isDone(lec.id);
+    if(done) label.classList.add("done");
+    const cb = document.createElement("input");
+    cb.type = "checkbox";
+    cb.className = "chk";
+    cb.checked = done;
+    cb.setAttribute("aria-label", lec.name + " " + lec.label);
+    cb.addEventListener("change", () => {
+      Gatekeeper.setDone(lec.id, cb.checked);
+      cb.classList.add("stamp");
+      renderAll();
+    });
+    label.appendChild(cb);
+
+    const subj = document.createElement("span");
+    subj.className = "subj";
+    subj.textContent = lec.name;
+    label.appendChild(subj);
+
+    const name = document.createElement("span");
+    name.className = "lec-name";
+    name.textContent = lec.label;
+    label.appendChild(name);
+
+    row.appendChild(label);
+
+    if(lec.link){
+      const a = document.createElement("a");
+      a.className = "link";
+      a.href = lec.link;
+      a.target = "_blank";
+      a.rel = "noopener noreferrer";
+      a.textContent = "open playlist";
+      row.appendChild(a);
+    } else {
+      const span = document.createElement("span");
+      span.className = "no-link";
+      span.textContent = "no link";
+      row.appendChild(span);
+    }
+    return row;
+  }
+
+  function renderToday(stats){
+    const titleEl = document.getElementById("todayTitle");
+    const dateStrEl = document.getElementById("todayDateStr");
+    const body = document.getElementById("todayBody");
+    body.innerHTML = "";
+    const schedule = stats.schedule;
+    const todayISO = stats.todayISO;
+    const exactDay = schedule.find(d => d.date === todayISO);
+
+    if(exactDay){
+      titleEl.textContent = "Today" + (exactDay.dayCount ? " — Day " + exactDay.dayCount : "");
+      dateStrEl.textContent = fmtDate(new Date(todayISO + "T00:00:00"));
+      exactDay.lectures.forEach(lec => body.appendChild(renderLectureRow(lec)));
+    } else if(schedule.length && todayISO < schedule[0].date){
+      titleEl.textContent = "Not started yet";
+      dateStrEl.textContent = "Schedule begins " + fmtDate(new Date(schedule[0].date + "T00:00:00"));
+      const p = document.createElement("p");
+      p.className = "empty-note";
+      p.textContent = "First lecture day hasn't arrived. The ledger below is ready when you are.";
+      body.appendChild(p);
+    } else if(schedule.length){
+      titleEl.textContent = "No lectures scheduled today";
+      dateStrEl.textContent = fmtDate(new Date(todayISO + "T00:00:00"));
+      const p = document.createElement("p");
+      p.className = "empty-note";
+      p.textContent = "Nothing planned for today. Check the ledger, or add the next block from the home page.";
+      body.appendChild(p);
+    }
+  }
+
+  function renderSubjects(stats){
+    const grid = document.getElementById("subjGrid");
+    grid.innerHTML = "";
+    Object.keys(stats.bySubjectTotal).forEach(key => {
+      const meta = Gatekeeper.metaFor(key);
+      const total = stats.bySubjectTotal[key];
+      const done = stats.bySubjectDone[key] || 0;
+      const pct = Math.round((done/total)*100);
+      const card = document.createElement("div");
+      card.className = "subj-card";
+      card.style.setProperty("--sub", meta.color);
+      card.innerHTML =
+        '<div class="row1">' +
+          '<span class="name"><span class="dot"></span>' + meta.name + '</span>' +
+          '<span class="count">' + done + ' / ' + total + '</span>' +
+        '</div>' +
+        '<div class="bar"><span style="width:' + pct + '%"></span></div>';
+      grid.appendChild(card);
+    });
+  }
+
+  function renderLedger(stats){
+    const list = document.getElementById("ledgerList");
+    list.innerHTML = "";
+    stats.schedule.forEach(day => {
+      const complete = Gatekeeper.isDayComplete(day);
+      const row = document.createElement("div");
+      row.className = "day-row" + (complete ? " complete" : "") + (day.added ? " added" : "");
+
+      const dateCol = document.createElement("div");
+      dateCol.className = "date-col";
+      const dt = new Date(day.date + "T00:00:00");
+      dateCol.innerHTML = fmtDateShort(dt) + (day.dayCount ? '<br><span class="day-n">Day ' + day.dayCount + '</span>' : "");
+      row.appendChild(dateCol);
+
+      const lecCol = document.createElement("div");
+      lecCol.className = "lec-col";
+      day.lectures.forEach(lec => {
+        const meta = Gatekeeper.metaFor(lec.subjectKey, lec.name);
+        const done = Gatekeeper.isDone(lec.id);
+        const chip = document.createElement("label");
+        chip.className = "chip" + (done ? " done" : "");
+        chip.style.setProperty("--sub", meta.color);
+        const cb = document.createElement("input");
+        cb.type = "checkbox";
+        cb.checked = done;
+        cb.addEventListener("change", () => {
+          Gatekeeper.setDone(lec.id, cb.checked);
+          renderAll();
+        });
+        chip.appendChild(cb);
+        const dot = document.createElement("span");
+        dot.className = "dot";
+        chip.appendChild(dot);
+        const lbl = document.createElement("span");
+        lbl.className = "lbl";
+        lbl.textContent = lec.name + " " + lec.label;
+        chip.appendChild(lbl);
+        lecCol.appendChild(chip);
+      });
+      row.appendChild(lecCol);
+
+      const statusCol = document.createElement("div");
+      statusCol.className = "status-col";
+      statusCol.textContent = complete ? "cleared" : "pending";
+      row.appendChild(statusCol);
+
+      list.appendChild(row);
+    });
+  }
+
+  function renderAll(){
+    const stats = Gatekeeper.computeStats();
+    renderHeader(stats);
+    renderToday(stats);
+    renderSubjects(stats);
+    renderLedger(stats);
+  }
+  window.addEventListener("gatekeeper:progress-ready", renderAll);
+
+  document.getElementById("resetBtn").addEventListener("click", () => {
+    if(confirm("Reset all ticked lectures and streaks? This can't be undone.")){
+      Gatekeeper.resetTicks();
+      renderAll();
+    }
+  });
+
+  renderQuote();
+  renderAll();
+})();
+</script>
+</body>
+</html>

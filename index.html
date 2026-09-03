@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Gatekeeper — GATE Prep Tracker</title>
+<meta name="description" content="A day-by-day lecture tracker for GATE CS preparation. Tick off lectures, hold your streak, don't leave the gate unguarded." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="wrap">
+    <a class="brand" href="index.html"><span class="glyph">▚</span>Gatekeeper</a>
+    <div class="nav-links">
+      <a href="index.html" class="active">Home</a>
+      <a href="tracker.html">Tracker</a>
+      <a href="stats.html">Stats</a>
+      <a href="tracker.html" class="nav-cta">Open today</a>
+      <span id="authArea"></span>
+    </div>
+  </div>
+</nav>
+
+<div class="wrap">
+  <header class="hero-land">
+    <span class="eyebrow">GATE CS · Sep 3 – Oct 11</span>
+    <h1>Show up daily.<br><em>Don't break the gate.</em></h1>
+    <p class="sub">A day-by-day lecture tracker built from your own study plan — Engineering Maths, OS, Data Structures, Algorithms and DBMS, one lecture at a time, with a streak that keeps you honest.</p>
+    <div class="hero-actions">
+      <a href="tracker.html" class="btn btn-primary">Open today's lectures</a>
+      <a href="stats.html" class="btn btn-ghost">View progress</a>
+    </div>
+
+    <div class="hero-stats" id="heroStats">
+      <div class="cell"><div class="num" id="hsStreak">0</div><div class="lbl">Current streak</div></div>
+      <div class="cell"><div class="num" id="hsBest">0</div><div class="lbl">Best streak</div></div>
+      <div class="cell"><div class="num" id="hsDone">0</div><div class="lbl">Lectures cleared</div></div>
+      <div class="cell"><div class="num" id="hsDays">39</div><div class="lbl">Days in this plan</div></div>
+    </div>
+  </header>
+
+  <section class="how">
+    <h2 class="section-title">How it works</h2>
+    <div class="how-grid">
+      <div class="step">
+        <span class="n">01</span>
+        <h3>Open today</h3>
+        <p>The tracker shows exactly what's scheduled for the real date — no scrolling to find your place.</p>
+      </div>
+      <div class="step">
+        <span class="n">02</span>
+        <h3>Tick as you finish</h3>
+        <p>Mark each lecture done with one tap. The playlist link sits right next to it, so there's no hunting.</p>
+      </div>
+      <div class="step">
+        <span class="n">03</span>
+        <h3>Hold the streak</h3>
+        <p>Clear every lecture in a day and the streak grows. Miss a day and it resets — that's the whole system.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="coverage">
+    <h2 class="section-title">What's covered</h2>
+    <div class="subj-pill-grid" id="subjPillGrid"></div>
+  </section>
+
+  <section class="extend">
+    <div class="extend-box">
+      <h2>When Month 2 is ready, add it here</h2>
+      <p>This plan currently runs Sep 3 – Oct 11. When you plan the next block — Computer Networks, TOC, COA, whatever comes next — paste it below as JSON and it slots straight into the tracker, stats page, and streak calculation. Nothing here needs code edits.</p>
+
+      <div class="extend-form">
+        <textarea id="extraInput" placeholder='[
+  {
+    "date": "2026-10-12",
+    "lectures": [
+      { "subjectKey": "cn", "name": "CN", "label": "Lec-1", "link": "https://youtube.com/..." }
+    ]
+  }
+]'></textarea>
+        <div class="extend-actions">
+          <button class="btn btn-primary btn-sm" id="addDaysBtn">Add to schedule</button>
+          <button class="btn btn-ghost btn-sm" id="clearAddedBtn">Remove all added days</button>
+          <span class="extend-msg" id="extraMsg"></span>
+        </div>
+      </div>
+
+      <details>
+        <summary>Field reference</summary>
+        <pre>date        "YYYY-MM-DD", must not already exist on the schedule
+lectures    array, at least one entry
+  subjectKey  short id, e.g. "cn", "toc" — reused subjects (math/os/ds/algo/dbms) keep their color
+  name        display name, e.g. "Computer Networks"
+  label       e.g. "Lec-1" or "Revision"
+  link        optional — playlist / video URL</pre>
+      </details>
+    </div>
+  </section>
+</div>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="f-left">Progress lives only in this browser's storage. Clearing site data, or opening on another device, starts fresh.</div>
+    <div class="f-links">
+      <a href="tracker.html">Tracker</a>
+      <a href="stats.html">Stats</a>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="js/config.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/schedule.js"></script>
+<script>
+(function(){
+  "use strict";
+  function renderHome(){
+    const stats = Gatekeeper.computeStats();
+    document.getElementById("hsStreak").textContent = stats.current;
+    document.getElementById("hsBest").textContent = stats.best;
+    document.getElementById("hsDone").textContent = stats.done;
+    document.getElementById("hsDays").textContent = stats.daysTotal;
+
+    const grid = document.getElementById("subjPillGrid");
+    grid.innerHTML = "";
+    Object.keys(stats.bySubjectTotal).forEach(key => {
+    const meta = Gatekeeper.metaFor(key);
+    const total = stats.bySubjectTotal[key];
+    const done = stats.bySubjectDone[key] || 0;
+    const pill = document.createElement("div");
+    pill.className = "subj-pill";
+    pill.style.setProperty("--sub", meta.color);
+    pill.innerHTML =
+      '<span class="left"><span class="dot"></span>' + meta.name + '</span>' +
+      '<span class="count">' + done + ' / ' + total + '</span>';
+      grid.appendChild(pill);
+    });
+  }
+  renderHome();
+  window.addEventListener("gatekeeper:progress-ready", renderHome);
+
+  const msg = document.getElementById("extraMsg");
+  document.getElementById("addDaysBtn").addEventListener("click", () => {
+    const text = document.getElementById("extraInput").value.trim();
+    if(!text){ msg.textContent = "Paste some JSON first."; msg.className = "extend-msg err"; return; }
+    const res = Gatekeeper.addExtraDays(text);
+    if(res.ok){
+      msg.textContent = "Added " + res.count + " day(s). Check the tracker.";
+      msg.className = "extend-msg ok";
+      document.getElementById("extraInput").value = "";
+      const s = Gatekeeper.computeStats();
+      document.getElementById("hsDays").textContent = s.daysTotal;
+    } else {
+      msg.textContent = res.error;
+      msg.className = "extend-msg err";
+    }
+  });
+  document.getElementById("clearAddedBtn").addEventListener("click", () => {
+    if(!Gatekeeper.hasExtraDays()){ msg.textContent = "Nothing added yet."; msg.className = "extend-msg"; return; }
+    if(confirm("Remove every day you've added beyond the original plan?")){
+      Gatekeeper.resetExtraDays();
+      msg.textContent = "Added days removed.";
+      msg.className = "extend-msg ok";
+      const s = Gatekeeper.computeStats();
+      document.getElementById("hsDays").textContent = s.daysTotal;
+    }
+  });
+})();
+</script>
+</body>
+</html>

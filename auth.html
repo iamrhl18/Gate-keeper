@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Sign in — Gatekeeper</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<nav class="site-nav"><div class="wrap">
+  <a class="brand" href="index.html"><span class="glyph">▚</span>Gatekeeper</a>
+  <div class="nav-links"><a href="index.html">Home</a><a href="tracker.html">Tracker</a><a href="stats.html">Stats</a></div>
+</div></nav>
+<main class="wrap auth-page">
+  <section class="auth-box">
+    <span class="eyebrow">YOUR PRIVATE LEDGER</span>
+    <h1 id="authTitle">Sign in</h1>
+    <p class="sub" id="authIntro">Keep your lectures and streak synced across devices.</p>
+    <form id="authForm">
+      <label for="email">Email</label>
+      <input id="email" type="email" autocomplete="email" required placeholder="you@example.com">
+      <label for="password">Password</label>
+      <input id="password" type="password" autocomplete="current-password" minlength="6" required placeholder="At least 6 characters">
+      <button class="btn btn-primary" id="submitBtn" type="submit">Sign in</button>
+    </form>
+    <p class="auth-message" id="authMessage" role="status"></p>
+    <button class="auth-switch" id="switchBtn" type="button">Need an account? Create one</button>
+  </section>
+</main>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="js/config.js"></script>
+<script src="js/auth.js"></script>
+<script>
+(function(){
+  "use strict";
+  const form = document.getElementById("authForm");
+  const message = document.getElementById("authMessage");
+  const switchBtn = document.getElementById("switchBtn");
+  let signup = false;
+
+  if (!GatekeeperAuth.isConfigured()) {
+    message.textContent = "Add your Supabase URL and anon key in js/auth.js before using accounts.";
+    message.className = "auth-message err";
+    form.querySelector("button").disabled = true;
+    switchBtn.disabled = true;
+  }
+
+  switchBtn.addEventListener("click", () => {
+    signup = !signup;
+    document.getElementById("authTitle").textContent = signup ? "Create account" : "Sign in";
+    document.getElementById("authIntro").textContent = signup ? "One account for your plan, wherever you study." : "Keep your lectures and streak synced across devices.";
+    document.getElementById("submitBtn").textContent = signup ? "Create account" : "Sign in";
+    switchBtn.textContent = signup ? "Already have an account? Sign in" : "Need an account? Create one";
+    document.getElementById("password").autocomplete = signup ? "new-password" : "current-password";
+    message.textContent = "";
+  });
+
+  form.addEventListener("submit", async (event) => {
+    event.preventDefault();
+    message.className = "auth-message";
+    message.textContent = "Working...";
+    const email = document.getElementById("email").value.trim();
+    const password = document.getElementById("password").value;
+    const result = signup ? await GatekeeperAuth.signUp(email, password) : await GatekeeperAuth.signIn(email, password);
+    if (result.error) {
+      message.textContent = result.error.message;
+      message.className = "auth-message err";
+      return;
+    }
+    if (signup && !result.data.session) {
+      message.textContent = "Account created. Check your email to confirm it, then sign in.";
+      message.className = "auth-message ok";
+      return;
+    }
+    location.href = "tracker.html";
+  });
+})();
+</script>
+</body>
+</html>
