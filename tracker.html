@@ -177,7 +177,7 @@
       a.href = lec.link;
       a.target = "_blank";
       a.rel = "noopener noreferrer";
-      a.textContent = "open playlist";
+      a.textContent = (lec.link.includes("list=") && !lec.link.includes("watch?v=")) ? "open playlist" : "watch lecture";
       row.appendChild(a);
     } else {
       const span = document.createElement("span");

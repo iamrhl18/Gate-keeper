@@ -6,11 +6,104 @@
     math: "https://www.youtube.com/playlist?list=PLvTTv60o7qj_tdY9zH7YceES7jfXiZkAz",
     os: "https://www.youtube.com/playlist?list=PL3eEXnCBViH8VzPps-6bxQUhwZ0MnYqTT",
     algo: "https://youtube.com/playlist?list=PLOG_8OlGMp71sEpjL2T7p8eAvuScptLWl",
-    ds: null,
+    ds: "https://www.youtube.com/playlist?list=PL3eEXnCBViH_v3UqA7bY7Fh8sIe-a2H-S",
     dbms: null,
   };
+
+  const LECTURE_LINKS = {
+    math: {
+      1: "https://www.youtube.com/watch?v=b-UZJVdLbXc",
+      2: "https://www.youtube.com/watch?v=OWykXurjpFU",
+      3: "https://www.youtube.com/watch?v=HyaeoGZyX10",
+      4: "https://www.youtube.com/watch?v=tUDr-4sVOf4",
+      5: "https://www.youtube.com/watch?v=UbNtMrCDAKA",
+      6: "https://www.youtube.com/watch?v=lriozzCRpHY",
+      7: "https://www.youtube.com/watch?v=zZ5OXIeYtYQ",
+      8: "https://www.youtube.com/watch?v=GRdSTBaAZMY",
+      9: "https://www.youtube.com/watch?v=0DpfmzwAvjE",
+      10: "https://www.youtube.com/watch?v=dN42j0bGOjs",
+      11: "https://www.youtube.com/watch?v=1mw7fpPbYMU",
+      12: "https://www.youtube.com/watch?v=SzMQzgQHIkg",
+      13: "https://www.youtube.com/watch?v=Cg71bRRYZsc",
+      14: "https://www.youtube.com/watch?v=r1p8pUd7AWs",
+      15: "https://www.youtube.com/watch?v=W8uG3SUGjVM",
+      16: "https://www.youtube.com/watch?v=YCBD6_NK3T4",
+      17: "https://www.youtube.com/watch?v=yLcmMa33Ydc",
+      18: "https://www.youtube.com/watch?v=T0MwNyNBuw4",
+      19: "https://www.youtube.com/watch?v=J7pdWz2M3zg",
+      20: "https://www.youtube.com/watch?v=5y70mUdzHT4",
+      21: "https://www.youtube.com/watch?v=Z5S3tLEUgjQ",
+      22: "https://www.youtube.com/watch?v=uwYi9MVBTcc",
+      23: "https://www.youtube.com/watch?v=HtuVQxzT73k",
+      24: "https://www.youtube.com/watch?v=jZqXMuwiGTI",
+      25: "https://www.youtube.com/watch?v=iAyZFAX_FCk",
+      26: "https://www.youtube.com/watch?v=JQOKmUnfdVk",
+      27: "https://www.youtube.com/watch?v=t8kqlaslMBk",
+      28: "https://www.youtube.com/watch?v=qWZAwOUJNDQ",
+      29: "https://www.youtube.com/watch?v=Wal1EA_rYhE",
+      30: "https://www.youtube.com/watch?v=H1sXMwVUgpE",
+      31: "https://www.youtube.com/watch?v=NrwpmbIS-Os",
+      32: "https://www.youtube.com/watch?v=f3MkZBFLuHs",
+      33: "https://www.youtube.com/watch?v=2oEVuehArX4",
+      34: "https://www.youtube.com/watch?v=GFuaHgR3OEQ",
+      35: "https://www.youtube.com/watch?v=Jhz5wt4W0AQ",
+      36: "https://www.youtube.com/watch?v=gGzklL88YI8",
+      37: "https://www.youtube.com/watch?v=OMjIOGXQhpk",
+      38: "https://www.youtube.com/watch?v=Ucmpugts1dw",
+    },
+    os: {
+      1: "https://www.youtube.com/watch?v=_yYxoqsEGo0",
+      2: "https://www.youtube.com/watch?v=JD9Q8jWW6iM",
+      3: "https://www.youtube.com/watch?v=K71pRtq7aB4",
+      4: "https://www.youtube.com/watch?v=-_oQS2ACtY4",
+      5: "https://www.youtube.com/watch?v=uVzaPlD69Y4",
+      6: "https://www.youtube.com/watch?v=hoBLxlcxhXs",
+      7: "https://www.youtube.com/watch?v=Ak1a0MnvTH0",
+    },
+    ds: {
+      1: "https://www.youtube.com/watch?v=GicSPlosq-I",
+      2: "https://www.youtube.com/watch?v=55W7AOLL3-U",
+      3: "https://www.youtube.com/watch?v=HDolI680pr8",
+      4: "https://www.youtube.com/watch?v=v7emeyxACjE",
+      5: "https://www.youtube.com/watch?v=iU-WT3DPSf4",
+      6: "https://www.youtube.com/watch?v=VnZPAS0Cfas",
+      7: "https://www.youtube.com/watch?v=3STggS0LVTQ",
+      8: "https://www.youtube.com/watch?v=jFbpavkuF6A",
+      9: "https://www.youtube.com/watch?v=bj3Z5SPF70I",
+      10: "https://www.youtube.com/watch?v=LYek8Rhl-o0",
+      11: "https://www.youtube.com/watch?v=rn-Yo162kjU",
+    },
+    algo: {
+      1: "https://www.youtube.com/watch?v=o-_z_p7dS_A",
+      2: "https://www.youtube.com/watch?v=EjUNRTc4iao",
+      3: "https://www.youtube.com/watch?v=Yfs4EVXYl74",
+      4: "https://www.youtube.com/watch?v=QLG9w4DAIFg",
+      5: "https://www.youtube.com/watch?v=BMA_aaok58g",
+      6: "https://www.youtube.com/watch?v=iFSeErtrk-E",
+      7: "https://www.youtube.com/watch?v=wZelDjl3LmE",
+      8: "https://www.youtube.com/watch?v=t_06o5t-zEQ",
+      9: "https://www.youtube.com/watch?v=kXXQvRkBjQc",
+      10: "https://www.youtube.com/watch?v=2ZECXmq3_nc",
+      11: "https://www.youtube.com/watch?v=TGdeRn3Yr4A",
+      12: "https://www.youtube.com/watch?v=QmMqvrFRi0I",
+      13: "https://www.youtube.com/watch?v=kmPLQ_E82dk",
+      14: "https://www.youtube.com/watch?v=XEo79g8ggzI",
+      15: "https://www.youtube.com/watch?v=_c1BrHhTxr4",
+      16: "https://www.youtube.com/watch?v=QXVGlRedhJE",
+      17: "https://www.youtube.com/watch?v=Y-UDSqPwPRM",
+    },
+    dbms: {},
+  };
+
   function L(subjectKey, name, label, link) {
-    return { subjectKey, name, label, link: link !== undefined ? link : LINKS[subjectKey] || null };
+    if (link !== undefined) {
+      return { subjectKey, name, label, link };
+    }
+    const match = label && label.match(/Lec-(\d+)/i);
+    if (match && LECTURE_LINKS[subjectKey] && LECTURE_LINKS[subjectKey][match[1]]) {
+      return { subjectKey, name, label, link: LECTURE_LINKS[subjectKey][match[1]] };
+    }
+    return { subjectKey, name, label, link: LINKS[subjectKey] || null };
   }
 
   // Known subjects get a fixed, deliberate color. Anything added later gets one
