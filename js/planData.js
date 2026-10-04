@@ -1,0 +1,2489 @@
+/* Gatekeeper 30-Day GATE CSE Plan Data (Generated from GATE_CSE_30_Day_Final_Plan.csv) */
+(function (global) {
+  "use strict";
+  global.GATE_30_DAY_PLAN = {
+  "version": "2026-30-DAY-GATE-V2",
+  "planName": "30-Day GATE CSE Plan",
+  "totalDays": 30,
+  "totalItems": 185,
+  "subjectMeta": {
+    "aptitude": {
+      "name": "Aptitude",
+      "shortName": "Aptitude",
+      "color": "#F9A826"
+    },
+    "de": {
+      "name": "Digital Electronics",
+      "shortName": "DE",
+      "color": "#E58E26"
+    },
+    "coa": {
+      "name": "Computer Organization & Architecture",
+      "shortName": "COA",
+      "color": "#4A90E2"
+    },
+    "cn": {
+      "name": "Computer Networks",
+      "shortName": "CN",
+      "color": "#2ECC71"
+    },
+    "toc": {
+      "name": "Theory of Computation",
+      "shortName": "TOC",
+      "color": "#9B5DE5"
+    },
+    "cd": {
+      "name": "Compiler Design",
+      "shortName": "CD",
+      "color": "#E056FD"
+    },
+    "practice": {
+      "name": "Practice / PYQs",
+      "shortName": "Practice",
+      "color": "#8E9AA8"
+    },
+    "revision": {
+      "name": "Daily Revision",
+      "shortName": "Revision",
+      "color": "#A4B0BE"
+    },
+    "mock": {
+      "name": "Mock Test",
+      "shortName": "Mock Test",
+      "color": "#FF5252"
+    }
+  },
+  "days": [
+    {
+      "day": 1,
+      "dayTitle": "Day 1",
+      "isFinalDay": false,
+      "lectures": [
+        {
+          "id": "day1_aptitude_11",
+          "day": 1,
+          "time": "07:00-08:30",
+          "subject": "Aptitude",
+          "subjectKey": "aptitude",
+          "lecture": 11,
+          "topic": "Logarithms Basics Part 1",
+          "youtubeLink": "https://www.youtube.com/watch?v=uVnd48hTx_I",
+          "task": "Watch lecture + solve questions",
+          "isLecture": true
+        },
+        {
+          "id": "day1_aptitude_12",
+          "day": 1,
+          "time": "07:00-08:30",
+          "subject": "Aptitude",
+          "subjectKey": "aptitude",
+          "lecture": 12,
+          "topic": "Logarithms Basics Part 2",
+          "youtubeLink": "https://www.youtube.com/watch?v=HzksdNZLgi4",
+          "task": "Watch lecture + solve questions",
+          "isLecture": true
+        },
+        {
+          "id": "day1_de_1",
+          "day": 1,
+          "time": "10:00-12:00",
+          "subject": "Digital Electronics",
+          "subjectKey": "de",
+          "lecture": 1,
+          "topic": "Boolean Theorems & Logic Gates Part 1",
+          "youtubeLink": "https://www.youtube.com/watch?v=iuw4Wfa70xs",
+          "task": "Watch lecture + make short notes",
+          "isLecture": true
+        },
+        {
+          "id": "day1_coa_1",
+          "day": 1,
+          "time": "14:00-16:00",
+          "subject": "COA",
+          "subjectKey": "coa",
+          "lecture": 1,
+          "topic": "Disk Organization & Memory Organization",
+          "youtubeLink": "https://www.youtube.com/watch?v=Ow6nOdrBvTw",
+          "task": "Watch lecture + make short notes",
+          "isLecture": true
+        },
+        {
+          "id": "day1_practice_4",
+          "day": 1,
+          "time": "18:00-19:00",
+          "subject": "Practice",
+          "subjectKey": "practice",
+          "lecture": null,
+          "topic": "Daily practice / PYQs",
+          "youtubeLink": null,
+          "task": "Solve 15–30 questions",
+          "isLecture": false
+        },
+        {
+          "id": "day1_revision_5",
+          "day": 1,
+          "time": "21:00-21:30",
+          "subject": "Revision",
+          "subjectKey": "revision",
+          "lecture": null,
+          "topic": "Daily revision",
+          "youtubeLink": null,
+          "task": "Review notes + formulas",
+          "isLecture": false
+        }
+      ]
+    },
+    {
+      "day": 2,
+      "dayTitle": "Day 2",
+      "isFinalDay": false,
+      "lectures": [
+        {
+          "id": "day2_aptitude_13",
+          "day": 2,
+          "time": "07:00-08:30",
+          "subject": "Aptitude",
+          "subjectKey": "aptitude",
+          "lecture": 13,
+          "topic": "AP & GP Part 1",
+          "youtubeLink": "https://www.youtube.com/watch?v=Vj5Mj5yZnbo",
+          "task": "Watch lecture + solve questions",
+          "isLecture": true
+        },
+        {
+          "id": "day2_aptitude_14",
+          "day": 2,
+          "time": "07:00-08:30",
+          "subject": "Aptitude",
+          "subjectKey": "aptitude",
+          "lecture": 14,
+          "topic": "AP & GP Part 2",
+          "youtubeLink": "https://www.youtube.com/watch?v=hI3aWy42-Y8",
+          "task": "Watch lecture + solve questions",
+          "isLecture": true
+        },
+        {
+          "id": "day2_aptitude_15",
+          "day": 2,
+          "time": "07:00-08:30",
+          "subject": "Aptitude",
+          "subjectKey": "aptitude",
+          "lecture": 15,
+          "topic": "AP & GP Part 3",
+          "youtubeLink": "https://www.youtube.com/watch?v=srKDOjV6yvA",
+          "task": "Watch lecture + solve questions",
+          "isLecture": true
+        },
+        {
+          "id": "day2_de_2",
+          "day": 2,
+          "time": "10:00-12:00",
+          "subject": "Digital Electronics",
+          "subjectKey": "de",
+          "lecture": 2,
+          "topic": "Boolean Theorems & Logic Gates Part 2",
+          "youtubeLink": "https://www.youtube.com/watch?v=P4mydbZ6Jos",
+          "task": "Watch lecture + make short notes",
+          "isLecture": true
+        },
+        {
+          "id": "day2_coa_2",
+          "day": 2,
+          "time": "14:00-16:00",
+          "subject": "COA",
+          "subjectKey": "coa",
+          "lecture": 2,
+          "topic": "IO Organization",
+          "youtubeLink": "https://www.youtube.com/watch?v=3PH9_SB-1p8",
+          "task": "Watch lecture + make short notes",
+          "isLecture": true
+        },
+        {
+          "id": "day2_practice_11",
+          "day": 2,
+          "time": "18:00-19:00",
+          "subject": "Practice",
+          "subjectKey": "practice",
+          "lecture": null,
+          "topic": "Daily practice / PYQs",
+          "youtubeLink": null,
+          "task": "Solve 15–30 questions",
+          "isLecture": false
+        },
+        {
+          "id": "day2_revision_12",
+          "day": 2,
+          "time": "21:00-21:30",
+          "subject": "Revision",
+          "subjectKey": "revision",
+          "lecture": null,
+          "topic": "Daily revision",
+          "youtubeLink": null,
+          "task": "Review notes + formulas",
+          "isLecture": false
+        }
+      ]
+    },
+    {
+      "day": 3,
+      "dayTitle": "Day 3",
+      "isFinalDay": false,
+      "lectures": [
+        {
+          "id": "day3_aptitude_16",
+          "day": 3,
+          "time": "07:00-08:30",
+          "subject": "Aptitude",
+          "subjectKey": "aptitude",
+          "lecture": 16,
+          "topic": "Quadratic Equations Part 1",
+          "youtubeLink": "https://www.youtube.com/watch?v=ttQ6taiAn0A",
+          "task": "Watch lecture + solve questions",
+          "isLecture": true
+        },
+        {
+          "id": "day3_aptitude_17",
+          "day": 3,
+          "time": "07:00-08:30",
+          "subject": "Aptitude",
+          "subjectKey": "aptitude",
+          "lecture": 17,
+          "topic": "Quadratic Equations Part 2",
+          "youtubeLink": "https://www.youtube.com/watch?v=sg-0o8M1i84",
+          "task": "Watch lecture + solve questions",
+          "isLecture": true
+        },
+        {
+          "id": "day3_aptitude_18",
+          "day": 3,
+          "time": "07:00-08:30",
+          "subject": "Aptitude",
+          "subjectKey": "aptitude",
+          "lecture": 18,
+          "topic": "Quadratic Equations Part 3",
+          "youtubeLink": "https://www.youtube.com/watch?v=4H4lRm4w-SA",
+          "task": "Watch lecture + solve questions",
+          "isLecture": true
+        },
+        {
+          "id": "day3_de_3",
+          "day": 3,
+          "time": "10:00-12:00",
+          "subject": "Digital Electronics",
+          "subjectKey": "de",
+          "lecture": 3,
+          "topic": "Boolean Theorems & Logic Gates Part 3",
+          "youtubeLink": "https://www.youtube.com/watch?v=65shNCMIK1s",
+          "task": "Watch lecture + make short notes",
+          "isLecture": true
+        },
+        {
+          "id": "day3_coa_3",
+          "day": 3,
+          "time": "14:00-16:00",
+          "subject": "COA",
+          "subjectKey": "coa",
+          "lecture": 3,
+          "topic": "CPU & Control Unit",
+          "youtubeLink": "https://www.youtube.com/watch?v=ijShHmA8nDU",
+          "task": "Watch lecture + make short notes",
+          "isLecture": true
+        },
+        {
+          "id": "day3_practice_18",
+          "day": 3,
+          "time": "18:00-19:00",
+          "subject": "Practice",
+          "subjectKey": "practice",
+          "lecture": null,
+          "topic": "Daily practice / PYQs",
+          "youtubeLink": null,
+          "task": "Solve 15–30 questions",
+          "isLecture": false
+        },
+        {
+          "id": "day3_revision_19",
+          "day": 3,
+          "time": "21:00-21:30",
+          "subject": "Revision",
+          "subjectKey": "revision",
+          "lecture": null,
+          "topic": "Daily revision",
+          "youtubeLink": null,
+          "task": "Review notes + formulas",
+          "isLecture": false
+        }
+      ]
+    },
+    {
+      "day": 4,
+      "dayTitle": "Day 4",
+      "isFinalDay": false,
+      "lectures": [
+        {
+          "id": "day4_aptitude_19",
+          "day": 4,
+          "time": "07:00-08:30",
+          "subject": "Aptitude",
+          "subjectKey": "aptitude",
+          "lecture": 19,
+          "topic": "Average Part 1",
+          "youtubeLink": "https://www.youtube.com/watch?v=aS6uj3AbUnQ",
+          "task": "Watch lecture + solve questions",
+          "isLecture": true
+        },
+        {
+          "id": "day4_aptitude_20",
+          "day": 4,
+          "time": "07:00-08:30",
+          "subject": "Aptitude",
+          "subjectKey": "aptitude",
+          "lecture": 20,
+          "topic": "Average Part 2",
+          "youtubeLink": "https://www.youtube.com/watch?v=PYpPVM3XKaA",
+          "task": "Watch lecture + solve questions",
+          "isLecture": true
+        },
+        {
+          "id": "day4_aptitude_21",
+          "day": 4,
+          "time": "07:00-08:30",
+          "subject": "Aptitude",
+          "subjectKey": "aptitude",
+          "lecture": 21,
+          "topic": "Average Part 3",
+          "youtubeLink": "https://www.youtube.com/watch?v=NEH_dBaXh1Y",
+          "task": "Watch lecture + solve questions",
+          "isLecture": true
+        },
+        {
+          "id": "day4_de_4",
+          "day": 4,
+          "time": "10:00-12:00",
+          "subject": "Digital Electronics",
+          "subjectKey": "de",
+          "lecture": 4,
+          "topic": "Boolean Theorems & Logic Gates Part 4",
+          "youtubeLink": "https://www.youtube.com/watch?v=5gMl47US00M",
+          "task": "Watch lecture + make short notes",
+          "isLecture": true
+        },
+        {
+          "id": "day4_coa_4",
+          "day": 4,
+          "time": "14:00-16:00",
+          "subject": "COA",
+          "subjectKey": "coa",
+          "lecture": 4,
+          "topic": "Instructions & Addressing Modes",
+          "youtubeLink": "https://www.youtube.com/watch?v=CGOHx9jNUPM",
+          "task": "Watch lecture + make short notes",
+          "isLecture": true
+        },
+        {
+          "id": "day4_practice_25",
+          "day": 4,
+          "time": "18:00-19:00",
+          "subject": "Practice",
+          "subjectKey": "practice",
+          "lecture": null,
+          "topic": "Daily practice / PYQs",
+          "youtubeLink": null,
+          "task": "Solve 15–30 questions",
+          "isLecture": false
+        },
+        {
+          "id": "day4_revision_26",
+          "day": 4,
+          "time": "21:00-21:30",
+          "subject": "Revision",
+          "subjectKey": "revision",
+          "lecture": null,
+          "topic": "Daily revision",
+          "youtubeLink": null,
+          "task": "Review notes + formulas",
+          "isLecture": false
+        }
+      ]
+    },
+    {
+      "day": 5,
+      "dayTitle": "Day 5",
+      "isFinalDay": false,
+      "lectures": [
+        {
+          "id": "day5_aptitude_22",
+          "day": 5,
+          "time": "07:00-08:30",
+          "subject": "Aptitude",
+          "subjectKey": "aptitude",
+          "lecture": 22,
+          "topic": "Percentage Part 1",
+          "youtubeLink": "https://www.youtube.com/watch?v=j5Nyzmpu_2Q",
+          "task": "Watch lecture + solve questions",
+          "isLecture": true
+        },
+        {
+          "id": "day5_aptitude_23",
+          "day": 5,
+          "time": "07:00-08:30",
+          "subject": "Aptitude",
+          "subjectKey": "aptitude",
+          "lecture": 23,
+          "topic": "Percentage Part 2",
+          "youtubeLink": "https://www.youtube.com/watch?v=O39uUviWPrU",
+          "task": "Watch lecture + solve questions",
+          "isLecture": true
+        },
+        {
+          "id": "day5_aptitude_24",
+          "day": 5,
+          "time": "07:00-08:30",
+          "subject": "Aptitude",
+          "subjectKey": "aptitude",
+          "lecture": 24,
+          "topic": "Percentage Part 3",
+          "youtubeLink": "https://www.youtube.com/watch?v=P4SkJ5U7NFc",
+          "task": "Watch lecture + solve questions",
+          "isLecture": true
+        },
+        {
+          "id": "day5_de_5",
+          "day": 5,
+          "time": "10:00-12:00",
+          "subject": "Digital Electronics",
+          "subjectKey": "de",
+          "lecture": 5,
+          "topic": "Boolean Theorems & Logic Gates Part 5",
+          "youtubeLink": "https://www.youtube.com/watch?v=n8mh_jM9fyg",
+          "task": "Watch lecture + make short notes",
+          "isLecture": true
+        },
+        {
+          "id": "day5_coa_5",
+          "day": 5,
+          "time": "14:00-16:00",
+          "subject": "COA",
+          "subjectKey": "coa",
+          "lecture": 5,
+          "topic": "Pipeline Processing & Floating Point Representation",
+          "youtubeLink": "https://www.youtube.com/watch?v=zFDJYWdahI0",
+          "task": "Watch lecture + make short notes",
+          "isLecture": true
+        },
+        {
+          "id": "day5_practice_32",
+          "day": 5,
+          "time": "18:00-19:00",
+          "subject": "Practice",
+          "subjectKey": "practice",
+          "lecture": null,
+          "topic": "Daily practice / PYQs",
+          "youtubeLink": null,
+          "task": "Solve 15–30 questions",
+          "isLecture": false
+        },
+        {
+          "id": "day5_revision_33",
+          "day": 5,
+          "time": "21:00-21:30",
+          "subject": "Revision",
+          "subjectKey": "revision",
+          "lecture": null,
+          "topic": "Daily revision",
+          "youtubeLink": null,
+          "task": "Review notes + formulas",
+          "isLecture": false
+        }
+      ]
+    },
+    {
+      "day": 6,
+      "dayTitle": "Day 6",
+      "isFinalDay": false,
+      "lectures": [
+        {
+          "id": "day6_aptitude_25",
+          "day": 6,
+          "time": "07:00-08:30",
+          "subject": "Aptitude",
+          "subjectKey": "aptitude",
+          "lecture": 25,
+          "topic": "Ratio & Proportion Part 1",
+          "youtubeLink": "https://www.youtube.com/watch?v=pMte5DBNApI",
+          "task": "Watch lecture + solve questions",
+          "isLecture": true
+        },
+        {
+          "id": "day6_aptitude_26",
+          "day": 6,
+          "time": "07:00-08:30",
+          "subject": "Aptitude",
+          "subjectKey": "aptitude",
+          "lecture": 26,
+          "topic": "Ratio & Proportion Part 2",
+          "youtubeLink": "https://www.youtube.com/watch?v=N-Y0QM8lf2w",
+          "task": "Watch lecture + solve questions",
+          "isLecture": true
+        },
+        {
+          "id": "day6_aptitude_27",
+          "day": 6,
+          "time": "07:00-08:30",
+          "subject": "Aptitude",
+          "subjectKey": "aptitude",
+          "lecture": 27,
+          "topic": "Ratio & Proportion Part 3",
+          "youtubeLink": "https://www.youtube.com/watch?v=1mFrK_nb0u4",
+          "task": "Watch lecture + solve questions",
+          "isLecture": true
+        },
+        {
+          "id": "day6_de_6",
+          "day": 6,
+          "time": "10:00-12:00",
+          "subject": "Digital Electronics",
+          "subjectKey": "de",
+          "lecture": 6,
+          "topic": "Boolean Theorems & Logic Gates Part 6",
+          "youtubeLink": "https://www.youtube.com/watch?v=OqstieQEkuo",
+          "task": "Watch lecture + make short notes",
+          "isLecture": true
+        },
+        {
+          "id": "day6_coa_6",
+          "day": 6,
+          "time": "14:00-16:00",
+          "subject": "COA",
+          "subjectKey": "coa",
+          "lecture": 6,
+          "topic": "Pipeline Processing",
+          "youtubeLink": "https://www.youtube.com/watch?v=XN8upbvUxCQ",
+          "task": "Watch lecture + make short notes",
+          "isLecture": true
+        },
+        {
+          "id": "day6_practice_39",
+          "day": 6,
+          "time": "18:00-19:00",
+          "subject": "Practice",
+          "subjectKey": "practice",
+          "lecture": null,
+          "topic": "Daily practice / PYQs",
+          "youtubeLink": null,
+          "task": "Solve 15–30 questions",
+          "isLecture": false
+        },
+        {
+          "id": "day6_revision_40",
+          "day": 6,
+          "time": "21:00-21:30",
+          "subject": "Revision",
+          "subjectKey": "revision",
+          "lecture": null,
+          "topic": "Daily revision",
+          "youtubeLink": null,
+          "task": "Review notes + formulas",
+          "isLecture": false
+        }
+      ]
+    },
+    {
+      "day": 7,
+      "dayTitle": "Day 7",
+      "isFinalDay": false,
+      "lectures": [
+        {
+          "id": "day7_aptitude_28",
+          "day": 7,
+          "time": "07:00-08:30",
+          "subject": "Aptitude",
+          "subjectKey": "aptitude",
+          "lecture": 28,
+          "topic": "Profit & Loss Part 1",
+          "youtubeLink": "https://www.youtube.com/watch?v=RQ7SuM_9Wcc",
+          "task": "Watch lecture + solve questions",
+          "isLecture": true
+        },
+        {
+          "id": "day7_aptitude_29",
+          "day": 7,
+          "time": "07:00-08:30",
+          "subject": "Aptitude",
+          "subjectKey": "aptitude",
+          "lecture": 29,
+          "topic": "Profit & Loss Part 2",
+          "youtubeLink": "https://www.youtube.com/watch?v=cP5rpxSeL3Q",
+          "task": "Watch lecture + solve questions",
+          "isLecture": true
+        },
+        {
+          "id": "day7_de_7",
+          "day": 7,
+          "time": "10:00-12:00",
+          "subject": "Digital Electronics",
+          "subjectKey": "de",
+          "lecture": 7,
+          "topic": "Combinational Circuits Part 1",
+          "youtubeLink": "https://www.youtube.com/watch?v=QULC5Aa5yhc",
+          "task": "Watch lecture + make short notes",
+          "isLecture": true
+        },
+        {
+          "id": "day7_coa_7",
+          "day": 7,
+          "time": "14:00-16:00",
+          "subject": "COA",
+          "subjectKey": "coa",
+          "lecture": 7,
+          "topic": "Cache Mapping Part 02",
+          "youtubeLink": "https://www.youtube.com/watch?v=fOqYRaawTUs",
+          "task": "Watch lecture + make short notes",
+          "isLecture": true
+        },
+        {
+          "id": "day7_practice_45",
+          "day": 7,
+          "time": "18:00-19:00",
+          "subject": "Practice",
+          "subjectKey": "practice",
+          "lecture": null,
+          "topic": "Daily practice / PYQs",
+          "youtubeLink": null,
+          "task": "Solve 15–30 questions",
+          "isLecture": false
+        },
+        {
+          "id": "day7_revision_46",
+          "day": 7,
+          "time": "21:00-21:30",
+          "subject": "Revision",
+          "subjectKey": "revision",
+          "lecture": null,
+          "topic": "Daily revision",
+          "youtubeLink": null,
+          "task": "Review notes + formulas",
+          "isLecture": false
+        }
+      ]
+    },
+    {
+      "day": 8,
+      "dayTitle": "Day 8",
+      "isFinalDay": false,
+      "lectures": [
+        {
+          "id": "day8_aptitude_30",
+          "day": 8,
+          "time": "07:00-08:30",
+          "subject": "Aptitude",
+          "subjectKey": "aptitude",
+          "lecture": 30,
+          "topic": "Profit & Loss Part 3",
+          "youtubeLink": "https://www.youtube.com/watch?v=XrxTfgDtK2c",
+          "task": "Watch lecture + solve questions",
+          "isLecture": true
+        },
+        {
+          "id": "day8_aptitude_31",
+          "day": 8,
+          "time": "07:00-08:30",
+          "subject": "Aptitude",
+          "subjectKey": "aptitude",
+          "lecture": 31,
+          "topic": "Profit & Loss Part 4",
+          "youtubeLink": "https://www.youtube.com/watch?v=7EfjSVUCaa4",
+          "task": "Watch lecture + solve questions",
+          "isLecture": true
+        },
+        {
+          "id": "day8_de_8",
+          "day": 8,
+          "time": "10:00-12:00",
+          "subject": "Digital Electronics",
+          "subjectKey": "de",
+          "lecture": 8,
+          "topic": "Combinational Circuits Part 2",
+          "youtubeLink": "https://www.youtube.com/watch?v=jNWvnL3figg",
+          "task": "Watch lecture + make short notes",
+          "isLecture": true
+        },
+        {
+          "id": "day8_coa_8",
+          "day": 8,
+          "time": "14:00-16:00",
+          "subject": "COA",
+          "subjectKey": "coa",
+          "lecture": 8,
+          "topic": "Cache Mapping Part 01",
+          "youtubeLink": "https://www.youtube.com/watch?v=2__ztBUEkkw",
+          "task": "Watch lecture + make short notes",
+          "isLecture": true
+        },
+        {
+          "id": "day8_practice_51",
+          "day": 8,
+          "time": "18:00-19:00",
+          "subject": "Practice",
+          "subjectKey": "practice",
+          "lecture": null,
+          "topic": "Daily practice / PYQs",
+          "youtubeLink": null,
+          "task": "Solve 15–30 questions",
+          "isLecture": false
+        },
+        {
+          "id": "day8_revision_52",
+          "day": 8,
+          "time": "21:00-21:30",
+          "subject": "Revision",
+          "subjectKey": "revision",
+          "lecture": null,
+          "topic": "Daily revision",
+          "youtubeLink": null,
+          "task": "Review notes + formulas",
+          "isLecture": false
+        }
+      ]
+    },
+    {
+      "day": 9,
+      "dayTitle": "Day 9",
+      "isFinalDay": false,
+      "lectures": [
+        {
+          "id": "day9_aptitude_32",
+          "day": 9,
+          "time": "07:00-08:30",
+          "subject": "Aptitude",
+          "subjectKey": "aptitude",
+          "lecture": 32,
+          "topic": "Mixture & Alligation Part 1",
+          "youtubeLink": "https://www.youtube.com/watch?v=E-0tCz22C88",
+          "task": "Watch lecture + solve questions",
+          "isLecture": true
+        },
+        {
+          "id": "day9_aptitude_33",
+          "day": 9,
+          "time": "07:00-08:30",
+          "subject": "Aptitude",
+          "subjectKey": "aptitude",
+          "lecture": 33,
+          "topic": "Mixture & Alligation Part 2",
+          "youtubeLink": "https://www.youtube.com/watch?v=fSZs8xXEINo",
+          "task": "Watch lecture + solve questions",
+          "isLecture": true
+        },
+        {
+          "id": "day9_de_9",
+          "day": 9,
+          "time": "10:00-12:00",
+          "subject": "Digital Electronics",
+          "subjectKey": "de",
+          "lecture": 9,
+          "topic": "Combinational Circuits Part 3",
+          "youtubeLink": "https://www.youtube.com/watch?v=e-1qqAT1-eA",
+          "task": "Watch lecture + make short notes",
+          "isLecture": true
+        },
+        {
+          "id": "day9_coa_9",
+          "day": 9,
+          "time": "14:00-16:00",
+          "subject": "COA",
+          "subjectKey": "coa",
+          "lecture": 9,
+          "topic": "Cache Memory - Introduction",
+          "youtubeLink": "https://www.youtube.com/watch?v=ISfo8pGCpe0",
+          "task": "Watch lecture + make short notes",
+          "isLecture": true
+        },
+        {
+          "id": "day9_practice_57",
+          "day": 9,
+          "time": "18:00-19:00",
+          "subject": "Practice",
+          "subjectKey": "practice",
+          "lecture": null,
+          "topic": "Daily practice / PYQs",
+          "youtubeLink": null,
+          "task": "Solve 15–30 questions",
+          "isLecture": false
+        },
+        {
+          "id": "day9_revision_58",
+          "day": 9,
+          "time": "21:00-21:30",
+          "subject": "Revision",
+          "subjectKey": "revision",
+          "lecture": null,
+          "topic": "Daily revision",
+          "youtubeLink": null,
+          "task": "Review notes + formulas",
+          "isLecture": false
+        }
+      ]
+    },
+    {
+      "day": 10,
+      "dayTitle": "Day 10",
+      "isFinalDay": false,
+      "lectures": [
+        {
+          "id": "day10_aptitude_34",
+          "day": 10,
+          "time": "07:00-08:30",
+          "subject": "Aptitude",
+          "subjectKey": "aptitude",
+          "lecture": 34,
+          "topic": "Mixture & Alligation Part 3",
+          "youtubeLink": "https://www.youtube.com/watch?v=ibH00R_X55w",
+          "task": "Watch lecture + solve questions",
+          "isLecture": true
+        },
+        {
+          "id": "day10_aptitude_35",
+          "day": 10,
+          "time": "07:00-08:30",
+          "subject": "Aptitude",
+          "subjectKey": "aptitude",
+          "lecture": 35,
+          "topic": "Mixture & Alligation Part 4",
+          "youtubeLink": "https://www.youtube.com/watch?v=MkZaHnX3aUA",
+          "task": "Watch lecture + solve questions",
+          "isLecture": true
+        },
+        {
+          "id": "day10_cn_1",
+          "day": 10,
+          "time": "10:00-12:00",
+          "subject": "Computer Networks",
+          "subjectKey": "cn",
+          "lecture": 1,
+          "topic": "Application Layer Part 02",
+          "youtubeLink": "https://www.youtube.com/watch?v=haIZgThg4F0",
+          "task": "Watch lecture + make short notes",
+          "isLecture": true
+        },
+        {
+          "id": "day10_coa_10",
+          "day": 10,
+          "time": "14:00-16:00",
+          "subject": "COA",
+          "subjectKey": "coa",
+          "lecture": 10,
+          "topic": "Basics of COA & CPU Registers",
+          "youtubeLink": "https://www.youtube.com/watch?v=js8aA0OAqDk",
+          "task": "Watch lecture + make short notes",
+          "isLecture": true
+        },
+        {
+          "id": "day10_practice_63",
+          "day": 10,
+          "time": "18:00-19:00",
+          "subject": "Practice",
+          "subjectKey": "practice",
+          "lecture": null,
+          "topic": "Daily practice / PYQs",
+          "youtubeLink": null,
+          "task": "Solve 15–30 questions",
+          "isLecture": false
+        },
+        {
+          "id": "day10_revision_64",
+          "day": 10,
+          "time": "21:00-21:30",
+          "subject": "Revision",
+          "subjectKey": "revision",
+          "lecture": null,
+          "topic": "Daily revision",
+          "youtubeLink": null,
+          "task": "Review notes + formulas",
+          "isLecture": false
+        }
+      ]
+    },
+    {
+      "day": 11,
+      "dayTitle": "Day 11",
+      "isFinalDay": false,
+      "lectures": [
+        {
+          "id": "day11_aptitude_36",
+          "day": 11,
+          "time": "07:00-08:30",
+          "subject": "Aptitude",
+          "subjectKey": "aptitude",
+          "lecture": 36,
+          "topic": "Interest Calculation Part 1",
+          "youtubeLink": "https://www.youtube.com/watch?v=OjvLitM6i0Q",
+          "task": "Watch lecture + solve questions",
+          "isLecture": true
+        },
+        {
+          "id": "day11_aptitude_37",
+          "day": 11,
+          "time": "07:00-08:30",
+          "subject": "Aptitude",
+          "subjectKey": "aptitude",
+          "lecture": 37,
+          "topic": "Interest Calculation Part 2",
+          "youtubeLink": "https://www.youtube.com/watch?v=V9lQnSbDKeI",
+          "task": "Watch lecture + solve questions",
+          "isLecture": true
+        },
+        {
+          "id": "day11_cn_2",
+          "day": 11,
+          "time": "10:00-12:00",
+          "subject": "Computer Networks",
+          "subjectKey": "cn",
+          "lecture": 2,
+          "topic": "Application Layer Part 01",
+          "youtubeLink": "https://www.youtube.com/watch?v=v_7K_pJfOwU",
+          "task": "Watch lecture + make short notes",
+          "isLecture": true
+        },
+        {
+          "id": "day11_toc_1",
+          "day": 11,
+          "time": "14:00-16:00",
+          "subject": "TOC",
+          "subjectKey": "toc",
+          "lecture": 1,
+          "topic": "TOC Lecture 1",
+          "youtubeLink": "https://www.youtube.com/live/Y0UpuWYOHd8?si=tpXxcYxH3kE3cxiV",
+          "task": "Watch lecture + make short notes",
+          "isLecture": true
+        },
+        {
+          "id": "day11_practice_69",
+          "day": 11,
+          "time": "18:00-19:00",
+          "subject": "Practice",
+          "subjectKey": "practice",
+          "lecture": null,
+          "topic": "Daily practice / PYQs",
+          "youtubeLink": null,
+          "task": "Solve 15–30 questions",
+          "isLecture": false
+        },
+        {
+          "id": "day11_revision_70",
+          "day": 11,
+          "time": "21:00-21:30",
+          "subject": "Revision",
+          "subjectKey": "revision",
+          "lecture": null,
+          "topic": "Daily revision",
+          "youtubeLink": null,
+          "task": "Review notes + formulas",
+          "isLecture": false
+        }
+      ]
+    },
+    {
+      "day": 12,
+      "dayTitle": "Day 12",
+      "isFinalDay": false,
+      "lectures": [
+        {
+          "id": "day12_aptitude_38",
+          "day": 12,
+          "time": "07:00-08:30",
+          "subject": "Aptitude",
+          "subjectKey": "aptitude",
+          "lecture": 38,
+          "topic": "Interest Calculation Part 3",
+          "youtubeLink": "https://www.youtube.com/watch?v=W36Ux60Of-c",
+          "task": "Watch lecture + solve questions",
+          "isLecture": true
+        },
+        {
+          "id": "day12_aptitude_39",
+          "day": 12,
+          "time": "07:00-08:30",
+          "subject": "Aptitude",
+          "subjectKey": "aptitude",
+          "lecture": 39,
+          "topic": "Interest Calculation Part 4",
+          "youtubeLink": "https://www.youtube.com/watch?v=NVkBHwp3X0U",
+          "task": "Watch lecture + solve questions",
+          "isLecture": true
+        },
+        {
+          "id": "day12_cn_3",
+          "day": 12,
+          "time": "10:00-12:00",
+          "subject": "Computer Networks",
+          "subjectKey": "cn",
+          "lecture": 3,
+          "topic": "TCP Part 03",
+          "youtubeLink": "https://www.youtube.com/watch?v=0b3yvoF4TbU",
+          "task": "Watch lecture + make short notes",
+          "isLecture": true
+        },
+        {
+          "id": "day12_toc_2",
+          "day": 12,
+          "time": "14:00-16:00",
+          "subject": "TOC",
+          "subjectKey": "toc",
+          "lecture": 2,
+          "topic": "TOC Lecture 2",
+          "youtubeLink": "https://www.youtube.com/live/Y0UpuWYOHd8?si=tpXxcYxH3kE3cxiV",
+          "task": "Watch lecture + make short notes",
+          "isLecture": true
+        },
+        {
+          "id": "day12_practice_75",
+          "day": 12,
+          "time": "18:00-19:00",
+          "subject": "Practice",
+          "subjectKey": "practice",
+          "lecture": null,
+          "topic": "Daily practice / PYQs",
+          "youtubeLink": null,
+          "task": "Solve 15–30 questions",
+          "isLecture": false
+        },
+        {
+          "id": "day12_revision_76",
+          "day": 12,
+          "time": "21:00-21:30",
+          "subject": "Revision",
+          "subjectKey": "revision",
+          "lecture": null,
+          "topic": "Daily revision",
+          "youtubeLink": null,
+          "task": "Review notes + formulas",
+          "isLecture": false
+        }
+      ]
+    },
+    {
+      "day": 13,
+      "dayTitle": "Day 13",
+      "isFinalDay": false,
+      "lectures": [
+        {
+          "id": "day13_aptitude_41",
+          "day": 13,
+          "time": "07:00-08:30",
+          "subject": "Aptitude",
+          "subjectKey": "aptitude",
+          "lecture": 41,
+          "topic": "Blood Relation",
+          "youtubeLink": "https://www.youtube.com/watch?v=Xry7nrwpIFE",
+          "task": "Watch lecture + solve questions",
+          "isLecture": true
+        },
+        {
+          "id": "day13_aptitude_42",
+          "day": 13,
+          "time": "07:00-08:30",
+          "subject": "Aptitude",
+          "subjectKey": "aptitude",
+          "lecture": 42,
+          "topic": "Dice",
+          "youtubeLink": "https://www.youtube.com/watch?v=zYRDSvbUE_M",
+          "task": "Watch lecture + solve questions",
+          "isLecture": true
+        },
+        {
+          "id": "day13_cn_4",
+          "day": 13,
+          "time": "10:00-12:00",
+          "subject": "Computer Networks",
+          "subjectKey": "cn",
+          "lecture": 4,
+          "topic": "TCP Part 02",
+          "youtubeLink": "https://www.youtube.com/watch?v=3c437uRgo_I",
+          "task": "Watch lecture + make short notes",
+          "isLecture": true
+        },
+        {
+          "id": "day13_toc_3",
+          "day": 13,
+          "time": "14:00-16:00",
+          "subject": "TOC",
+          "subjectKey": "toc",
+          "lecture": 3,
+          "topic": "TOC Lecture 3",
+          "youtubeLink": "https://www.youtube.com/live/Y0UpuWYOHd8?si=tpXxcYxH3kE3cxiV",
+          "task": "Watch lecture + make short notes",
+          "isLecture": true
+        },
+        {
+          "id": "day13_practice_81",
+          "day": 13,
+          "time": "18:00-19:00",
+          "subject": "Practice",
+          "subjectKey": "practice",
+          "lecture": null,
+          "topic": "Daily practice / PYQs",
+          "youtubeLink": null,
+          "task": "Solve 15–30 questions",
+          "isLecture": false
+        },
+        {
+          "id": "day13_revision_82",
+          "day": 13,
+          "time": "21:00-21:30",
+          "subject": "Revision",
+          "subjectKey": "revision",
+          "lecture": null,
+          "topic": "Daily revision",
+          "youtubeLink": null,
+          "task": "Review notes + formulas",
+          "isLecture": false
+        }
+      ]
+    },
+    {
+      "day": 14,
+      "dayTitle": "Day 14",
+      "isFinalDay": false,
+      "lectures": [
+        {
+          "id": "day14_aptitude_43",
+          "day": 14,
+          "time": "07:00-08:30",
+          "subject": "Aptitude",
+          "subjectKey": "aptitude",
+          "lecture": 43,
+          "topic": "Seating Arrangement Part 1",
+          "youtubeLink": "https://www.youtube.com/watch?v=e8wUzEsJd6w",
+          "task": "Watch lecture + solve questions",
+          "isLecture": true
+        },
+        {
+          "id": "day14_aptitude_44",
+          "day": 14,
+          "time": "07:00-08:30",
+          "subject": "Aptitude",
+          "subjectKey": "aptitude",
+          "lecture": 44,
+          "topic": "Seating Arrangement Part 2",
+          "youtubeLink": "https://www.youtube.com/watch?v=fTnSeByvyIo",
+          "task": "Watch lecture + solve questions",
+          "isLecture": true
+        },
+        {
+          "id": "day14_cn_5",
+          "day": 14,
+          "time": "10:00-12:00",
+          "subject": "Computer Networks",
+          "subjectKey": "cn",
+          "lecture": 5,
+          "topic": "TCP Part 01",
+          "youtubeLink": "https://www.youtube.com/watch?v=RPN7cQkZPoI",
+          "task": "Watch lecture + make short notes",
+          "isLecture": true
+        },
+        {
+          "id": "day14_toc_4",
+          "day": 14,
+          "time": "14:00-16:00",
+          "subject": "TOC",
+          "subjectKey": "toc",
+          "lecture": 4,
+          "topic": "TOC Lecture 4",
+          "youtubeLink": "https://www.youtube.com/live/Y0UpuWYOHd8?si=tpXxcYxH3kE3cxiV",
+          "task": "Watch lecture + make short notes",
+          "isLecture": true
+        },
+        {
+          "id": "day14_practice_87",
+          "day": 14,
+          "time": "18:00-19:00",
+          "subject": "Practice",
+          "subjectKey": "practice",
+          "lecture": null,
+          "topic": "Daily practice / PYQs",
+          "youtubeLink": null,
+          "task": "Solve 15–30 questions",
+          "isLecture": false
+        },
+        {
+          "id": "day14_revision_88",
+          "day": 14,
+          "time": "21:00-21:30",
+          "subject": "Revision",
+          "subjectKey": "revision",
+          "lecture": null,
+          "topic": "Daily revision",
+          "youtubeLink": null,
+          "task": "Review notes + formulas",
+          "isLecture": false
+        }
+      ]
+    },
+    {
+      "day": 15,
+      "dayTitle": "Day 15",
+      "isFinalDay": false,
+      "lectures": [
+        {
+          "id": "day15_aptitude_45",
+          "day": 15,
+          "time": "07:00-08:30",
+          "subject": "Aptitude",
+          "subjectKey": "aptitude",
+          "lecture": 45,
+          "topic": "Seating Arrangement Part 3",
+          "youtubeLink": "https://www.youtube.com/watch?v=Vaq1NPoW7ic",
+          "task": "Watch lecture + solve questions",
+          "isLecture": true
+        },
+        {
+          "id": "day15_cn_6",
+          "day": 15,
+          "time": "10:00-12:00",
+          "subject": "Computer Networks",
+          "subjectKey": "cn",
+          "lecture": 6,
+          "topic": "Routing",
+          "youtubeLink": "https://www.youtube.com/watch?v=_-ecLJmOyq8",
+          "task": "Watch lecture + make short notes",
+          "isLecture": true
+        },
+        {
+          "id": "day15_toc_5",
+          "day": 15,
+          "time": "14:00-16:00",
+          "subject": "TOC",
+          "subjectKey": "toc",
+          "lecture": 5,
+          "topic": "TOC Lecture 5",
+          "youtubeLink": "https://www.youtube.com/live/Y0UpuWYOHd8?si=tpXxcYxH3kE3cxiV",
+          "task": "Watch lecture + make short notes",
+          "isLecture": true
+        },
+        {
+          "id": "day15_practice_92",
+          "day": 15,
+          "time": "18:00-19:00",
+          "subject": "Practice",
+          "subjectKey": "practice",
+          "lecture": null,
+          "topic": "Daily practice / PYQs",
+          "youtubeLink": null,
+          "task": "Solve 15–30 questions",
+          "isLecture": false
+        },
+        {
+          "id": "day15_revision_93",
+          "day": 15,
+          "time": "21:00-21:30",
+          "subject": "Revision",
+          "subjectKey": "revision",
+          "lecture": null,
+          "topic": "Daily revision",
+          "youtubeLink": null,
+          "task": "Review notes + formulas",
+          "isLecture": false
+        }
+      ]
+    },
+    {
+      "day": 16,
+      "dayTitle": "Day 16",
+      "isFinalDay": false,
+      "lectures": [
+        {
+          "id": "day16_aptitude_46",
+          "day": 16,
+          "time": "07:00-08:30",
+          "subject": "Aptitude",
+          "subjectKey": "aptitude",
+          "lecture": 46,
+          "topic": "Direction & Distance Part 1",
+          "youtubeLink": "https://www.youtube.com/watch?v=2stQzKmspTY",
+          "task": "Watch lecture + solve questions",
+          "isLecture": true
+        },
+        {
+          "id": "day16_aptitude_47",
+          "day": 16,
+          "time": "07:00-08:30",
+          "subject": "Aptitude",
+          "subjectKey": "aptitude",
+          "lecture": 47,
+          "topic": "Direction & Distance Part 2",
+          "youtubeLink": "https://www.youtube.com/watch?v=VPrM11zbLmM",
+          "task": "Watch lecture + solve questions",
+          "isLecture": true
+        },
+        {
+          "id": "day16_cn_7",
+          "day": 16,
+          "time": "10:00-12:00",
+          "subject": "Computer Networks",
+          "subjectKey": "cn",
+          "lecture": 7,
+          "topic": "IPv4 Header Part 02",
+          "youtubeLink": "https://www.youtube.com/watch?v=GHJ3Ez-SSnE",
+          "task": "Watch lecture + make short notes",
+          "isLecture": true
+        },
+        {
+          "id": "day16_cd_1",
+          "day": 16,
+          "time": "14:00-16:00",
+          "subject": "Compiler Design",
+          "subjectKey": "cd",
+          "lecture": 1,
+          "topic": "Compiler Design Lecture 1",
+          "youtubeLink": "https://www.youtube.com/live/TNRixXGSSkY?si=dKfUA-T2sQsn23S0",
+          "task": "Watch lecture + make short notes",
+          "isLecture": true
+        },
+        {
+          "id": "day16_practice_98",
+          "day": 16,
+          "time": "18:00-19:00",
+          "subject": "Practice",
+          "subjectKey": "practice",
+          "lecture": null,
+          "topic": "Daily practice / PYQs",
+          "youtubeLink": null,
+          "task": "Solve 15–30 questions",
+          "isLecture": false
+        },
+        {
+          "id": "day16_revision_99",
+          "day": 16,
+          "time": "21:00-21:30",
+          "subject": "Revision",
+          "subjectKey": "revision",
+          "lecture": null,
+          "topic": "Daily revision",
+          "youtubeLink": null,
+          "task": "Review notes + formulas",
+          "isLecture": false
+        }
+      ]
+    },
+    {
+      "day": 17,
+      "dayTitle": "Day 17",
+      "isFinalDay": false,
+      "lectures": [
+        {
+          "id": "day17_aptitude_50",
+          "day": 17,
+          "time": "07:00-08:30",
+          "subject": "Aptitude",
+          "subjectKey": "aptitude",
+          "lecture": 50,
+          "topic": "Data Interpretation Part 1",
+          "youtubeLink": "https://www.youtube.com/watch?v=5lfjN5NTRck",
+          "task": "Watch lecture + solve questions",
+          "isLecture": true
+        },
+        {
+          "id": "day17_aptitude_51",
+          "day": 17,
+          "time": "07:00-08:30",
+          "subject": "Aptitude",
+          "subjectKey": "aptitude",
+          "lecture": 51,
+          "topic": "Data Interpretation Part 2",
+          "youtubeLink": "https://www.youtube.com/watch?v=mnim1l9ljFw",
+          "task": "Watch lecture + solve questions",
+          "isLecture": true
+        },
+        {
+          "id": "day17_aptitude_52",
+          "day": 17,
+          "time": "07:00-08:30",
+          "subject": "Aptitude",
+          "subjectKey": "aptitude",
+          "lecture": 52,
+          "topic": "Data Interpretation Part 3",
+          "youtubeLink": "https://www.youtube.com/watch?v=c7vd8nCOupE",
+          "task": "Watch lecture + solve questions",
+          "isLecture": true
+        },
+        {
+          "id": "day17_cn_8",
+          "day": 17,
+          "time": "10:00-12:00",
+          "subject": "Computer Networks",
+          "subjectKey": "cn",
+          "lecture": 8,
+          "topic": "IPv4 Header Part 01",
+          "youtubeLink": "https://www.youtube.com/watch?v=2FU24DlqK98",
+          "task": "Watch lecture + make short notes",
+          "isLecture": true
+        },
+        {
+          "id": "day17_cd_2",
+          "day": 17,
+          "time": "14:00-16:00",
+          "subject": "Compiler Design",
+          "subjectKey": "cd",
+          "lecture": 2,
+          "topic": "Compiler Design Lecture 2",
+          "youtubeLink": "https://www.youtube.com/live/TNRixXGSSkY?si=dKfUA-T2sQsn23S0",
+          "task": "Watch lecture + make short notes",
+          "isLecture": true
+        },
+        {
+          "id": "day17_practice_105",
+          "day": 17,
+          "time": "18:00-19:00",
+          "subject": "Practice",
+          "subjectKey": "practice",
+          "lecture": null,
+          "topic": "Daily practice / PYQs",
+          "youtubeLink": null,
+          "task": "Solve 15–30 questions",
+          "isLecture": false
+        },
+        {
+          "id": "day17_revision_106",
+          "day": 17,
+          "time": "21:00-21:30",
+          "subject": "Revision",
+          "subjectKey": "revision",
+          "lecture": null,
+          "topic": "Daily revision",
+          "youtubeLink": null,
+          "task": "Review notes + formulas",
+          "isLecture": false
+        }
+      ]
+    },
+    {
+      "day": 18,
+      "dayTitle": "Day 18",
+      "isFinalDay": false,
+      "lectures": [
+        {
+          "id": "day18_aptitude_53",
+          "day": 18,
+          "time": "07:00-08:30",
+          "subject": "Aptitude",
+          "subjectKey": "aptitude",
+          "lecture": 53,
+          "topic": "Triangle Geometry Part 1",
+          "youtubeLink": "https://www.youtube.com/watch?v=kHUHIRkVK8A",
+          "task": "Watch lecture + solve questions",
+          "isLecture": true
+        },
+        {
+          "id": "day18_aptitude_54",
+          "day": 18,
+          "time": "07:00-08:30",
+          "subject": "Aptitude",
+          "subjectKey": "aptitude",
+          "lecture": 54,
+          "topic": "Triangle Geometry Part 2",
+          "youtubeLink": "https://www.youtube.com/watch?v=gOLz0g7Xe1Q",
+          "task": "Watch lecture + solve questions",
+          "isLecture": true
+        },
+        {
+          "id": "day18_cn_9",
+          "day": 18,
+          "time": "10:00-12:00",
+          "subject": "Computer Networks",
+          "subjectKey": "cn",
+          "lecture": 9,
+          "topic": "IPv4 Addressing Part 04",
+          "youtubeLink": "https://www.youtube.com/watch?v=h48jQmUlv-0",
+          "task": "Watch lecture + make short notes",
+          "isLecture": true
+        },
+        {
+          "id": "day18_cd_3",
+          "day": 18,
+          "time": "14:00-16:00",
+          "subject": "Compiler Design",
+          "subjectKey": "cd",
+          "lecture": 3,
+          "topic": "Compiler Design Lecture 3",
+          "youtubeLink": "https://www.youtube.com/live/TNRixXGSSkY?si=dKfUA-T2sQsn23S0",
+          "task": "Watch lecture + make short notes",
+          "isLecture": true
+        },
+        {
+          "id": "day18_practice_111",
+          "day": 18,
+          "time": "18:00-19:00",
+          "subject": "Practice",
+          "subjectKey": "practice",
+          "lecture": null,
+          "topic": "Daily practice / PYQs",
+          "youtubeLink": null,
+          "task": "Solve 15–30 questions",
+          "isLecture": false
+        },
+        {
+          "id": "day18_revision_112",
+          "day": 18,
+          "time": "21:00-21:30",
+          "subject": "Revision",
+          "subjectKey": "revision",
+          "lecture": null,
+          "topic": "Daily revision",
+          "youtubeLink": null,
+          "task": "Review notes + formulas",
+          "isLecture": false
+        }
+      ]
+    },
+    {
+      "day": 19,
+      "dayTitle": "Day 19",
+      "isFinalDay": false,
+      "lectures": [
+        {
+          "id": "day19_aptitude_57",
+          "day": 19,
+          "time": "07:00-08:30",
+          "subject": "Aptitude",
+          "subjectKey": "aptitude",
+          "lecture": 57,
+          "topic": "Triangle Geometry Part 3",
+          "youtubeLink": "https://www.youtube.com/watch?v=u0Lq_j7J-sM",
+          "task": "Watch lecture + solve questions",
+          "isLecture": true
+        },
+        {
+          "id": "day19_aptitude_55",
+          "day": 19,
+          "time": "07:00-08:30",
+          "subject": "Aptitude",
+          "subjectKey": "aptitude",
+          "lecture": 55,
+          "topic": "Triangle Geometry Part 4",
+          "youtubeLink": "https://www.youtube.com/watch?v=QnLIBLzzVEI",
+          "task": "Watch lecture + solve questions",
+          "isLecture": true
+        },
+        {
+          "id": "day19_cn_10",
+          "day": 19,
+          "time": "10:00-12:00",
+          "subject": "Computer Networks",
+          "subjectKey": "cn",
+          "lecture": 10,
+          "topic": "IPv4 Addressing Part 03",
+          "youtubeLink": "https://www.youtube.com/watch?v=anKVtEzRXnM",
+          "task": "Watch lecture + make short notes",
+          "isLecture": true
+        },
+        {
+          "id": "day19_cd_4",
+          "day": 19,
+          "time": "14:00-16:00",
+          "subject": "Compiler Design",
+          "subjectKey": "cd",
+          "lecture": 4,
+          "topic": "Compiler Design Lecture 4",
+          "youtubeLink": "https://www.youtube.com/live/TNRixXGSSkY?si=dKfUA-T2sQsn23S0",
+          "task": "Watch lecture + make short notes",
+          "isLecture": true
+        },
+        {
+          "id": "day19_practice_117",
+          "day": 19,
+          "time": "18:00-19:00",
+          "subject": "Practice",
+          "subjectKey": "practice",
+          "lecture": null,
+          "topic": "Daily practice / PYQs",
+          "youtubeLink": null,
+          "task": "Solve 15–30 questions",
+          "isLecture": false
+        },
+        {
+          "id": "day19_revision_118",
+          "day": 19,
+          "time": "21:00-21:30",
+          "subject": "Revision",
+          "subjectKey": "revision",
+          "lecture": null,
+          "topic": "Daily revision",
+          "youtubeLink": null,
+          "task": "Review notes + formulas",
+          "isLecture": false
+        }
+      ]
+    },
+    {
+      "day": 20,
+      "dayTitle": "Day 20",
+      "isFinalDay": false,
+      "lectures": [
+        {
+          "id": "day20_aptitude_56",
+          "day": 20,
+          "time": "07:00-08:30",
+          "subject": "Aptitude",
+          "subjectKey": "aptitude",
+          "lecture": 56,
+          "topic": "Triangle Geometry Part 5",
+          "youtubeLink": "https://www.youtube.com/watch?v=VRuviXu6lSo",
+          "task": "Watch lecture + solve questions",
+          "isLecture": true
+        },
+        {
+          "id": "day20_aptitude_58",
+          "day": 20,
+          "time": "07:00-08:30",
+          "subject": "Aptitude",
+          "subjectKey": "aptitude",
+          "lecture": 58,
+          "topic": "Triangle Geometry Part 6",
+          "youtubeLink": "https://www.youtube.com/watch?v=JzAjma3iL_o",
+          "task": "Watch lecture + solve questions",
+          "isLecture": true
+        },
+        {
+          "id": "day20_cn_11",
+          "day": 20,
+          "time": "10:00-12:00",
+          "subject": "Computer Networks",
+          "subjectKey": "cn",
+          "lecture": 11,
+          "topic": "IPv4 Addressing Part 02",
+          "youtubeLink": "https://www.youtube.com/watch?v=KOgmXMk_y0A",
+          "task": "Watch lecture + make short notes",
+          "isLecture": true
+        },
+        {
+          "id": "day20_cd_5",
+          "day": 20,
+          "time": "14:00-16:00",
+          "subject": "Compiler Design",
+          "subjectKey": "cd",
+          "lecture": 5,
+          "topic": "Compiler Design Lecture 5",
+          "youtubeLink": "https://www.youtube.com/live/TNRixXGSSkY?si=dKfUA-T2sQsn23S0",
+          "task": "Watch lecture + make short notes",
+          "isLecture": true
+        },
+        {
+          "id": "day20_practice_123",
+          "day": 20,
+          "time": "18:00-19:00",
+          "subject": "Practice",
+          "subjectKey": "practice",
+          "lecture": null,
+          "topic": "Daily practice / PYQs",
+          "youtubeLink": null,
+          "task": "Solve 15–30 questions",
+          "isLecture": false
+        },
+        {
+          "id": "day20_revision_124",
+          "day": 20,
+          "time": "21:00-21:30",
+          "subject": "Revision",
+          "subjectKey": "revision",
+          "lecture": null,
+          "topic": "Daily revision",
+          "youtubeLink": null,
+          "task": "Review notes + formulas",
+          "isLecture": false
+        }
+      ]
+    },
+    {
+      "day": 21,
+      "dayTitle": "Day 21",
+      "isFinalDay": false,
+      "lectures": [
+        {
+          "id": "day21_aptitude_59",
+          "day": 21,
+          "time": "07:00-08:30",
+          "subject": "Aptitude",
+          "subjectKey": "aptitude",
+          "lecture": 59,
+          "topic": "Triangle Geometry Part 7",
+          "youtubeLink": "https://www.youtube.com/watch?v=3zF3w1sV-fo",
+          "task": "Watch lecture + solve questions",
+          "isLecture": true
+        },
+        {
+          "id": "day21_aptitude_60",
+          "day": 21,
+          "time": "07:00-08:30",
+          "subject": "Aptitude",
+          "subjectKey": "aptitude",
+          "lecture": 60,
+          "topic": "Triangle Geometry Part 8",
+          "youtubeLink": "https://www.youtube.com/watch?v=Vh4nvevc70g",
+          "task": "Watch lecture + solve questions",
+          "isLecture": true
+        },
+        {
+          "id": "day21_cn_12",
+          "day": 21,
+          "time": "10:00-12:00",
+          "subject": "Computer Networks",
+          "subjectKey": "cn",
+          "lecture": 12,
+          "topic": "IPv4 Addressing Part 01",
+          "youtubeLink": "https://www.youtube.com/watch?v=-c9iR6bT2GM",
+          "task": "Watch lecture + make short notes",
+          "isLecture": true
+        },
+        {
+          "id": "day21_revision_128",
+          "day": 21,
+          "time": "14:00-16:00",
+          "subject": "Revision / PYQs",
+          "subjectKey": "revision",
+          "lecture": null,
+          "topic": "Core subject revision and GATE PYQs",
+          "youtubeLink": null,
+          "task": "Revise + solve PYQs",
+          "isLecture": false
+        },
+        {
+          "id": "day21_practice_129",
+          "day": 21,
+          "time": "18:00-19:00",
+          "subject": "Practice",
+          "subjectKey": "practice",
+          "lecture": null,
+          "topic": "Daily practice / PYQs",
+          "youtubeLink": null,
+          "task": "Solve 15–30 questions",
+          "isLecture": false
+        },
+        {
+          "id": "day21_revision_130",
+          "day": 21,
+          "time": "21:00-21:30",
+          "subject": "Revision",
+          "subjectKey": "revision",
+          "lecture": null,
+          "topic": "Daily revision",
+          "youtubeLink": null,
+          "task": "Review notes + formulas",
+          "isLecture": false
+        }
+      ]
+    },
+    {
+      "day": 22,
+      "dayTitle": "Day 22",
+      "isFinalDay": false,
+      "lectures": [
+        {
+          "id": "day22_aptitude_62",
+          "day": 22,
+          "time": "07:00-08:30",
+          "subject": "Aptitude",
+          "subjectKey": "aptitude",
+          "lecture": 62,
+          "topic": "Mean, Median & Mode Part 1",
+          "youtubeLink": "https://www.youtube.com/watch?v=vFvYvD2Ozfs",
+          "task": "Watch lecture + solve questions",
+          "isLecture": true
+        },
+        {
+          "id": "day22_aptitude_63",
+          "day": 22,
+          "time": "07:00-08:30",
+          "subject": "Aptitude",
+          "subjectKey": "aptitude",
+          "lecture": 63,
+          "topic": "Mean, Median & Mode Part 2",
+          "youtubeLink": "https://www.youtube.com/watch?v=0L2x4l781ls",
+          "task": "Watch lecture + solve questions",
+          "isLecture": true
+        },
+        {
+          "id": "day22_aptitude_64",
+          "day": 22,
+          "time": "07:00-08:30",
+          "subject": "Aptitude",
+          "subjectKey": "aptitude",
+          "lecture": 64,
+          "topic": "Mean, Median & Mode Part 3",
+          "youtubeLink": "https://www.youtube.com/watch?v=kaDXLdiQlww",
+          "task": "Watch lecture + solve questions",
+          "isLecture": true
+        },
+        {
+          "id": "day22_cn_13",
+          "day": 22,
+          "time": "10:00-12:00",
+          "subject": "Computer Networks",
+          "subjectKey": "cn",
+          "lecture": 13,
+          "topic": "MAC Layer",
+          "youtubeLink": "https://www.youtube.com/watch?v=lwkVa8-UO8c",
+          "task": "Watch lecture + make short notes",
+          "isLecture": true
+        },
+        {
+          "id": "day22_revision_135",
+          "day": 22,
+          "time": "14:00-16:00",
+          "subject": "Revision / PYQs",
+          "subjectKey": "revision",
+          "lecture": null,
+          "topic": "Core subject revision and GATE PYQs",
+          "youtubeLink": null,
+          "task": "Revise + solve PYQs",
+          "isLecture": false
+        },
+        {
+          "id": "day22_practice_136",
+          "day": 22,
+          "time": "18:00-19:00",
+          "subject": "Practice",
+          "subjectKey": "practice",
+          "lecture": null,
+          "topic": "Daily practice / PYQs",
+          "youtubeLink": null,
+          "task": "Solve 15–30 questions",
+          "isLecture": false
+        },
+        {
+          "id": "day22_revision_137",
+          "day": 22,
+          "time": "21:00-21:30",
+          "subject": "Revision",
+          "subjectKey": "revision",
+          "lecture": null,
+          "topic": "Daily revision",
+          "youtubeLink": null,
+          "task": "Review notes + formulas",
+          "isLecture": false
+        }
+      ]
+    },
+    {
+      "day": 23,
+      "dayTitle": "Day 23",
+      "isFinalDay": false,
+      "lectures": [
+        {
+          "id": "day23_aptitude_65",
+          "day": 23,
+          "time": "07:00-08:30",
+          "subject": "Aptitude",
+          "subjectKey": "aptitude",
+          "lecture": 65,
+          "topic": "Set Theory Part 1",
+          "youtubeLink": "https://www.youtube.com/watch?v=g5OQ1JW6Urs",
+          "task": "Watch lecture + solve questions",
+          "isLecture": true
+        },
+        {
+          "id": "day23_aptitude_66",
+          "day": 23,
+          "time": "07:00-08:30",
+          "subject": "Aptitude",
+          "subjectKey": "aptitude",
+          "lecture": 66,
+          "topic": "Set Theory Part 2",
+          "youtubeLink": "https://www.youtube.com/watch?v=_BegBAKoBoc",
+          "task": "Watch lecture + solve questions",
+          "isLecture": true
+        },
+        {
+          "id": "day23_cn_14",
+          "day": 23,
+          "time": "10:00-12:00",
+          "subject": "Computer Networks",
+          "subjectKey": "cn",
+          "lecture": 14,
+          "topic": "Flow Control Part 03",
+          "youtubeLink": "https://www.youtube.com/watch?v=Ik60rTO5eew",
+          "task": "Watch lecture + make short notes",
+          "isLecture": true
+        },
+        {
+          "id": "day23_revision_141",
+          "day": 23,
+          "time": "14:00-16:00",
+          "subject": "Revision / PYQs",
+          "subjectKey": "revision",
+          "lecture": null,
+          "topic": "Core subject revision and GATE PYQs",
+          "youtubeLink": null,
+          "task": "Revise + solve PYQs",
+          "isLecture": false
+        },
+        {
+          "id": "day23_practice_142",
+          "day": 23,
+          "time": "18:00-19:00",
+          "subject": "Practice",
+          "subjectKey": "practice",
+          "lecture": null,
+          "topic": "Daily practice / PYQs",
+          "youtubeLink": null,
+          "task": "Solve 15–30 questions",
+          "isLecture": false
+        },
+        {
+          "id": "day23_revision_143",
+          "day": 23,
+          "time": "21:00-21:30",
+          "subject": "Revision",
+          "subjectKey": "revision",
+          "lecture": null,
+          "topic": "Daily revision",
+          "youtubeLink": null,
+          "task": "Review notes + formulas",
+          "isLecture": false
+        }
+      ]
+    },
+    {
+      "day": 24,
+      "dayTitle": "Day 24",
+      "isFinalDay": false,
+      "lectures": [
+        {
+          "id": "day24_aptitude_67",
+          "day": 24,
+          "time": "07:00-08:30",
+          "subject": "Aptitude",
+          "subjectKey": "aptitude",
+          "lecture": 67,
+          "topic": "Time & Work Part 1",
+          "youtubeLink": "https://www.youtube.com/watch?v=sOnSO567hTQ",
+          "task": "Watch lecture + solve questions",
+          "isLecture": true
+        },
+        {
+          "id": "day24_aptitude_68",
+          "day": 24,
+          "time": "07:00-08:30",
+          "subject": "Aptitude",
+          "subjectKey": "aptitude",
+          "lecture": 68,
+          "topic": "Time & Work Part 2",
+          "youtubeLink": "https://www.youtube.com/watch?v=Wq05oUk9DoQ",
+          "task": "Watch lecture + solve questions",
+          "isLecture": true
+        },
+        {
+          "id": "day24_aptitude_69",
+          "day": 24,
+          "time": "07:00-08:30",
+          "subject": "Aptitude",
+          "subjectKey": "aptitude",
+          "lecture": 69,
+          "topic": "Time & Work Part 3",
+          "youtubeLink": "https://www.youtube.com/watch?v=sLlDlFpvLMA",
+          "task": "Watch lecture + solve questions",
+          "isLecture": true
+        },
+        {
+          "id": "day24_cn_15",
+          "day": 24,
+          "time": "10:00-12:00",
+          "subject": "Computer Networks",
+          "subjectKey": "cn",
+          "lecture": 15,
+          "topic": "Flow Control Part 02",
+          "youtubeLink": "https://www.youtube.com/watch?v=hoQ3jqTxef0",
+          "task": "Watch lecture + make short notes",
+          "isLecture": true
+        },
+        {
+          "id": "day24_revision_148",
+          "day": 24,
+          "time": "14:00-16:00",
+          "subject": "Revision / PYQs",
+          "subjectKey": "revision",
+          "lecture": null,
+          "topic": "Core subject revision and GATE PYQs",
+          "youtubeLink": null,
+          "task": "Revise + solve PYQs",
+          "isLecture": false
+        },
+        {
+          "id": "day24_practice_149",
+          "day": 24,
+          "time": "18:00-19:00",
+          "subject": "Practice",
+          "subjectKey": "practice",
+          "lecture": null,
+          "topic": "Daily practice / PYQs",
+          "youtubeLink": null,
+          "task": "Solve 15–30 questions",
+          "isLecture": false
+        },
+        {
+          "id": "day24_revision_150",
+          "day": 24,
+          "time": "21:00-21:30",
+          "subject": "Revision",
+          "subjectKey": "revision",
+          "lecture": null,
+          "topic": "Daily revision",
+          "youtubeLink": null,
+          "task": "Review notes + formulas",
+          "isLecture": false
+        }
+      ]
+    },
+    {
+      "day": 25,
+      "dayTitle": "Day 25",
+      "isFinalDay": false,
+      "lectures": [
+        {
+          "id": "day25_aptitude_70",
+          "day": 25,
+          "time": "07:00-08:30",
+          "subject": "Aptitude",
+          "subjectKey": "aptitude",
+          "lecture": 70,
+          "topic": "Pipe & Cistern",
+          "youtubeLink": "https://www.youtube.com/watch?v=44-OSceEL8A",
+          "task": "Watch lecture + solve questions",
+          "isLecture": true
+        },
+        {
+          "id": "day25_cn_16",
+          "day": 25,
+          "time": "10:00-12:00",
+          "subject": "Computer Networks",
+          "subjectKey": "cn",
+          "lecture": 16,
+          "topic": "Flow Control Part 01",
+          "youtubeLink": "https://www.youtube.com/watch?v=G1PP8P4ATq8",
+          "task": "Watch lecture + make short notes",
+          "isLecture": true
+        },
+        {
+          "id": "day25_revision_153",
+          "day": 25,
+          "time": "14:00-16:00",
+          "subject": "Revision / PYQs",
+          "subjectKey": "revision",
+          "lecture": null,
+          "topic": "Core subject revision and GATE PYQs",
+          "youtubeLink": null,
+          "task": "Revise + solve PYQs",
+          "isLecture": false
+        },
+        {
+          "id": "day25_practice_154",
+          "day": 25,
+          "time": "18:00-19:00",
+          "subject": "Practice",
+          "subjectKey": "practice",
+          "lecture": null,
+          "topic": "Daily practice / PYQs",
+          "youtubeLink": null,
+          "task": "Solve 15–30 questions",
+          "isLecture": false
+        },
+        {
+          "id": "day25_revision_155",
+          "day": 25,
+          "time": "21:00-21:30",
+          "subject": "Revision",
+          "subjectKey": "revision",
+          "lecture": null,
+          "topic": "Daily revision",
+          "youtubeLink": null,
+          "task": "Review notes + formulas",
+          "isLecture": false
+        }
+      ]
+    },
+    {
+      "day": 26,
+      "dayTitle": "Day 26",
+      "isFinalDay": false,
+      "lectures": [
+        {
+          "id": "day26_aptitude_71",
+          "day": 26,
+          "time": "07:00-08:30",
+          "subject": "Aptitude",
+          "subjectKey": "aptitude",
+          "lecture": 71,
+          "topic": "Average Speed Part 1",
+          "youtubeLink": "https://www.youtube.com/watch?v=mrxgtof5740",
+          "task": "Watch lecture + solve questions",
+          "isLecture": true
+        },
+        {
+          "id": "day26_aptitude_72",
+          "day": 26,
+          "time": "07:00-08:30",
+          "subject": "Aptitude",
+          "subjectKey": "aptitude",
+          "lecture": 72,
+          "topic": "Average Speed Part 2",
+          "youtubeLink": "https://www.youtube.com/watch?v=oxHvF-gjjH0",
+          "task": "Watch lecture + solve questions",
+          "isLecture": true
+        },
+        {
+          "id": "day26_cn_17",
+          "day": 26,
+          "time": "10:00-12:00",
+          "subject": "Computer Networks",
+          "subjectKey": "cn",
+          "lecture": 17,
+          "topic": "Error Control Part 02",
+          "youtubeLink": "https://www.youtube.com/watch?v=xii9rqFAWL4",
+          "task": "Watch lecture + make short notes",
+          "isLecture": true
+        },
+        {
+          "id": "day26_revision_159",
+          "day": 26,
+          "time": "14:00-16:00",
+          "subject": "Revision / PYQs",
+          "subjectKey": "revision",
+          "lecture": null,
+          "topic": "Core subject revision and GATE PYQs",
+          "youtubeLink": null,
+          "task": "Revise + solve PYQs",
+          "isLecture": false
+        },
+        {
+          "id": "day26_practice_160",
+          "day": 26,
+          "time": "18:00-19:00",
+          "subject": "Practice",
+          "subjectKey": "practice",
+          "lecture": null,
+          "topic": "Daily practice / PYQs",
+          "youtubeLink": null,
+          "task": "Solve 15–30 questions",
+          "isLecture": false
+        },
+        {
+          "id": "day26_revision_161",
+          "day": 26,
+          "time": "21:00-21:30",
+          "subject": "Revision",
+          "subjectKey": "revision",
+          "lecture": null,
+          "topic": "Daily revision",
+          "youtubeLink": null,
+          "task": "Review notes + formulas",
+          "isLecture": false
+        }
+      ]
+    },
+    {
+      "day": 27,
+      "dayTitle": "Day 27",
+      "isFinalDay": false,
+      "lectures": [
+        {
+          "id": "day27_aptitude_73",
+          "day": 27,
+          "time": "07:00-08:30",
+          "subject": "Aptitude",
+          "subjectKey": "aptitude",
+          "lecture": 73,
+          "topic": "Boat & Stream",
+          "youtubeLink": "https://www.youtube.com/watch?v=YedxnoFhz8A",
+          "task": "Watch lecture + solve questions",
+          "isLecture": true
+        },
+        {
+          "id": "day27_cn_18",
+          "day": 27,
+          "time": "10:00-12:00",
+          "subject": "Computer Networks",
+          "subjectKey": "cn",
+          "lecture": 18,
+          "topic": "Error Control Part 01",
+          "youtubeLink": "https://www.youtube.com/watch?v=mlH5MnlqAXM",
+          "task": "Watch lecture + make short notes",
+          "isLecture": true
+        },
+        {
+          "id": "day27_revision_164",
+          "day": 27,
+          "time": "14:00-16:00",
+          "subject": "Revision / PYQs",
+          "subjectKey": "revision",
+          "lecture": null,
+          "topic": "Core subject revision and GATE PYQs",
+          "youtubeLink": null,
+          "task": "Revise + solve PYQs",
+          "isLecture": false
+        },
+        {
+          "id": "day27_practice_165",
+          "day": 27,
+          "time": "18:00-19:00",
+          "subject": "Practice",
+          "subjectKey": "practice",
+          "lecture": null,
+          "topic": "Daily practice / PYQs",
+          "youtubeLink": null,
+          "task": "Solve 15–30 questions",
+          "isLecture": false
+        },
+        {
+          "id": "day27_revision_166",
+          "day": 27,
+          "time": "21:00-21:30",
+          "subject": "Revision",
+          "subjectKey": "revision",
+          "lecture": null,
+          "topic": "Daily revision",
+          "youtubeLink": null,
+          "task": "Review notes + formulas",
+          "isLecture": false
+        }
+      ]
+    },
+    {
+      "day": 28,
+      "dayTitle": "Day 28",
+      "isFinalDay": false,
+      "lectures": [
+        {
+          "id": "day28_aptitude_75",
+          "day": 28,
+          "time": "07:00-08:30",
+          "subject": "Aptitude",
+          "subjectKey": "aptitude",
+          "lecture": 75,
+          "topic": "Linear Race",
+          "youtubeLink": "https://www.youtube.com/watch?v=HllhVlwKdKA",
+          "task": "Watch lecture + solve questions",
+          "isLecture": true
+        },
+        {
+          "id": "day28_cn_19",
+          "day": 28,
+          "time": "10:00-12:00",
+          "subject": "Computer Networks",
+          "subjectKey": "cn",
+          "lecture": 19,
+          "topic": "OSI & TCP/IP Model Part 02",
+          "youtubeLink": "https://www.youtube.com/watch?v=Alhb508Ardc",
+          "task": "Watch lecture + make short notes",
+          "isLecture": true
+        },
+        {
+          "id": "day28_revision_169",
+          "day": 28,
+          "time": "14:00-16:00",
+          "subject": "Revision / PYQs",
+          "subjectKey": "revision",
+          "lecture": null,
+          "topic": "Core subject revision and GATE PYQs",
+          "youtubeLink": null,
+          "task": "Revise + solve PYQs",
+          "isLecture": false
+        },
+        {
+          "id": "day28_practice_170",
+          "day": 28,
+          "time": "18:00-19:00",
+          "subject": "Practice",
+          "subjectKey": "practice",
+          "lecture": null,
+          "topic": "Daily practice / PYQs",
+          "youtubeLink": null,
+          "task": "Solve 15–30 questions",
+          "isLecture": false
+        },
+        {
+          "id": "day28_revision_171",
+          "day": 28,
+          "time": "21:00-21:30",
+          "subject": "Revision",
+          "subjectKey": "revision",
+          "lecture": null,
+          "topic": "Daily revision",
+          "youtubeLink": null,
+          "task": "Review notes + formulas",
+          "isLecture": false
+        }
+      ]
+    },
+    {
+      "day": 29,
+      "dayTitle": "Day 29",
+      "isFinalDay": false,
+      "lectures": [
+        {
+          "id": "day29_aptitude_76",
+          "day": 29,
+          "time": "07:00-08:30",
+          "subject": "Aptitude",
+          "subjectKey": "aptitude",
+          "lecture": 76,
+          "topic": "Circular Race",
+          "youtubeLink": "https://www.youtube.com/watch?v=tMKfEFSzDEg",
+          "task": "Watch lecture + solve questions",
+          "isLecture": true
+        },
+        {
+          "id": "day29_cn_20",
+          "day": 29,
+          "time": "10:00-12:00",
+          "subject": "Computer Networks",
+          "subjectKey": "cn",
+          "lecture": 20,
+          "topic": "OSI & TCP/IP Model",
+          "youtubeLink": "https://www.youtube.com/watch?v=hsquGSclV3Y",
+          "task": "Watch lecture + make short notes",
+          "isLecture": true
+        },
+        {
+          "id": "day29_revision_174",
+          "day": 29,
+          "time": "14:00-16:00",
+          "subject": "Revision / PYQs",
+          "subjectKey": "revision",
+          "lecture": null,
+          "topic": "Core subject revision and GATE PYQs",
+          "youtubeLink": null,
+          "task": "Revise + solve PYQs",
+          "isLecture": false
+        },
+        {
+          "id": "day29_practice_175",
+          "day": 29,
+          "time": "18:00-19:00",
+          "subject": "Practice",
+          "subjectKey": "practice",
+          "lecture": null,
+          "topic": "Daily practice / PYQs",
+          "youtubeLink": null,
+          "task": "Solve 15–30 questions",
+          "isLecture": false
+        },
+        {
+          "id": "day29_revision_176",
+          "day": 29,
+          "time": "21:00-21:30",
+          "subject": "Revision",
+          "subjectKey": "revision",
+          "lecture": null,
+          "topic": "Daily revision",
+          "youtubeLink": null,
+          "task": "Review notes + formulas",
+          "isLecture": false
+        }
+      ]
+    },
+    {
+      "day": 30,
+      "dayTitle": "Day 30 — Final Revision Day",
+      "isFinalDay": true,
+      "lectures": [
+        {
+          "id": "day30_aptitude_77",
+          "day": 30,
+          "time": "07:00-08:30",
+          "subject": "Aptitude",
+          "subjectKey": "aptitude",
+          "lecture": 77,
+          "topic": "Clock Part 1",
+          "youtubeLink": "https://www.youtube.com/watch?v=2_at3OstQN4",
+          "task": "Watch lecture + solve questions",
+          "isLecture": true
+        },
+        {
+          "id": "day30_aptitude_78",
+          "day": 30,
+          "time": "07:00-08:30",
+          "subject": "Aptitude",
+          "subjectKey": "aptitude",
+          "lecture": 78,
+          "topic": "Clock Part 2",
+          "youtubeLink": "https://www.youtube.com/watch?v=0G68-UFn8xk",
+          "task": "Watch lecture + solve questions",
+          "isLecture": true
+        },
+        {
+          "id": "day30_aptitude_79",
+          "day": 30,
+          "time": "07:00-08:30",
+          "subject": "Aptitude",
+          "subjectKey": "aptitude",
+          "lecture": 79,
+          "topic": "Clock Part 3",
+          "youtubeLink": "https://www.youtube.com/watch?v=eig_ob43Hqk",
+          "task": "Watch lecture + solve questions",
+          "isLecture": true
+        },
+        {
+          "id": "day30_aptitude_80",
+          "day": 30,
+          "time": "07:00-08:30",
+          "subject": "Aptitude",
+          "subjectKey": "aptitude",
+          "lecture": 80,
+          "topic": "Clock Part 4",
+          "youtubeLink": "https://www.youtube.com/watch?v=BAbIuykkIWI",
+          "task": "Watch lecture + solve questions",
+          "isLecture": true
+        },
+        {
+          "id": "day30_revision_181",
+          "day": 30,
+          "time": "10:00-12:00",
+          "subject": "Revision / PYQs",
+          "subjectKey": "revision",
+          "lecture": null,
+          "topic": "Full-syllabus revision",
+          "youtubeLink": null,
+          "task": "Revise DE/COA/CN/TOC/CD",
+          "isLecture": false
+        },
+        {
+          "id": "day30_mock_182",
+          "day": 30,
+          "time": "14:00-16:00",
+          "subject": "Mock Test",
+          "subjectKey": "mock",
+          "lecture": null,
+          "topic": "Mixed GATE practice test",
+          "youtubeLink": null,
+          "task": "Timed practice + analysis",
+          "isLecture": false
+        },
+        {
+          "id": "day30_practice_183",
+          "day": 30,
+          "time": "18:00-19:00",
+          "subject": "Practice",
+          "subjectKey": "practice",
+          "lecture": null,
+          "topic": "Daily practice / PYQs",
+          "youtubeLink": null,
+          "task": "Solve 15–30 questions",
+          "isLecture": false
+        },
+        {
+          "id": "day30_revision_184",
+          "day": 30,
+          "time": "21:00-21:30",
+          "subject": "Revision",
+          "subjectKey": "revision",
+          "lecture": null,
+          "topic": "Daily revision",
+          "youtubeLink": null,
+          "task": "Review notes + formulas",
+          "isLecture": false
+        }
+      ]
+    }
+  ]
+};
+})(typeof window !== "undefined" ? window : global);

@@ -1,0 +1,186 @@
+Day,Time,Subject,Lecture,Topic,YouTube_Link,Task
+1,07:00-08:30,Aptitude,11,Logarithms Basics Part 1,https://www.youtube.com/watch?v=uVnd48hTx_I,Watch lecture + solve questions
+1,07:00-08:30,Aptitude,12,Logarithms Basics Part 2,https://www.youtube.com/watch?v=HzksdNZLgi4,Watch lecture + solve questions
+1,10:00-12:00,Digital Electronics,1,Boolean Theorems & Logic Gates Part 1,https://www.youtube.com/watch?v=iuw4Wfa70xs,Watch lecture + make short notes
+1,14:00-16:00,COA,1,Disk Organization & Memory Organization,https://www.youtube.com/watch?v=Ow6nOdrBvTw,Watch lecture + make short notes
+1,18:00-19:00,Practice,-,Daily practice / PYQs,,Solve 15–30 questions
+1,21:00-21:30,Revision,-,Daily revision,,Review notes + formulas
+2,07:00-08:30,Aptitude,13,AP & GP Part 1,https://www.youtube.com/watch?v=Vj5Mj5yZnbo,Watch lecture + solve questions
+2,07:00-08:30,Aptitude,14,AP & GP Part 2,https://www.youtube.com/watch?v=hI3aWy42-Y8,Watch lecture + solve questions
+2,07:00-08:30,Aptitude,15,AP & GP Part 3,https://www.youtube.com/watch?v=srKDOjV6yvA,Watch lecture + solve questions
+2,10:00-12:00,Digital Electronics,2,Boolean Theorems & Logic Gates Part 2,https://www.youtube.com/watch?v=P4mydbZ6Jos,Watch lecture + make short notes
+2,14:00-16:00,COA,2,IO Organization,https://www.youtube.com/watch?v=3PH9_SB-1p8,Watch lecture + make short notes
+2,18:00-19:00,Practice,-,Daily practice / PYQs,,Solve 15–30 questions
+2,21:00-21:30,Revision,-,Daily revision,,Review notes + formulas
+3,07:00-08:30,Aptitude,16,Quadratic Equations Part 1,https://www.youtube.com/watch?v=ttQ6taiAn0A,Watch lecture + solve questions
+3,07:00-08:30,Aptitude,17,Quadratic Equations Part 2,https://www.youtube.com/watch?v=sg-0o8M1i84,Watch lecture + solve questions
+3,07:00-08:30,Aptitude,18,Quadratic Equations Part 3,https://www.youtube.com/watch?v=4H4lRm4w-SA,Watch lecture + solve questions
+3,10:00-12:00,Digital Electronics,3,Boolean Theorems & Logic Gates Part 3,https://www.youtube.com/watch?v=65shNCMIK1s,Watch lecture + make short notes
+3,14:00-16:00,COA,3,CPU & Control Unit,https://www.youtube.com/watch?v=ijShHmA8nDU,Watch lecture + make short notes
+3,18:00-19:00,Practice,-,Daily practice / PYQs,,Solve 15–30 questions
+3,21:00-21:30,Revision,-,Daily revision,,Review notes + formulas
+4,07:00-08:30,Aptitude,19,Average Part 1,https://www.youtube.com/watch?v=aS6uj3AbUnQ,Watch lecture + solve questions
+4,07:00-08:30,Aptitude,20,Average Part 2,https://www.youtube.com/watch?v=PYpPVM3XKaA,Watch lecture + solve questions
+4,07:00-08:30,Aptitude,21,Average Part 3,https://www.youtube.com/watch?v=NEH_dBaXh1Y,Watch lecture + solve questions
+4,10:00-12:00,Digital Electronics,4,Boolean Theorems & Logic Gates Part 4,https://www.youtube.com/watch?v=5gMl47US00M,Watch lecture + make short notes
+4,14:00-16:00,COA,4,Instructions & Addressing Modes,https://www.youtube.com/watch?v=CGOHx9jNUPM,Watch lecture + make short notes
+4,18:00-19:00,Practice,-,Daily practice / PYQs,,Solve 15–30 questions
+4,21:00-21:30,Revision,-,Daily revision,,Review notes + formulas
+5,07:00-08:30,Aptitude,22,Percentage Part 1,https://www.youtube.com/watch?v=j5Nyzmpu_2Q,Watch lecture + solve questions
+5,07:00-08:30,Aptitude,23,Percentage Part 2,https://www.youtube.com/watch?v=O39uUviWPrU,Watch lecture + solve questions
+5,07:00-08:30,Aptitude,24,Percentage Part 3,https://www.youtube.com/watch?v=P4SkJ5U7NFc,Watch lecture + solve questions
+5,10:00-12:00,Digital Electronics,5,Boolean Theorems & Logic Gates Part 5,https://www.youtube.com/watch?v=n8mh_jM9fyg,Watch lecture + make short notes
+5,14:00-16:00,COA,5,Pipeline Processing & Floating Point Representation,https://www.youtube.com/watch?v=zFDJYWdahI0,Watch lecture + make short notes
+5,18:00-19:00,Practice,-,Daily practice / PYQs,,Solve 15–30 questions
+5,21:00-21:30,Revision,-,Daily revision,,Review notes + formulas
+6,07:00-08:30,Aptitude,25,Ratio & Proportion Part 1,https://www.youtube.com/watch?v=pMte5DBNApI,Watch lecture + solve questions
+6,07:00-08:30,Aptitude,26,Ratio & Proportion Part 2,https://www.youtube.com/watch?v=N-Y0QM8lf2w,Watch lecture + solve questions
+6,07:00-08:30,Aptitude,27,Ratio & Proportion Part 3,https://www.youtube.com/watch?v=1mFrK_nb0u4,Watch lecture + solve questions
+6,10:00-12:00,Digital Electronics,6,Boolean Theorems & Logic Gates Part 6,https://www.youtube.com/watch?v=OqstieQEkuo,Watch lecture + make short notes
+6,14:00-16:00,COA,6,Pipeline Processing,https://www.youtube.com/watch?v=XN8upbvUxCQ,Watch lecture + make short notes
+6,18:00-19:00,Practice,-,Daily practice / PYQs,,Solve 15–30 questions
+6,21:00-21:30,Revision,-,Daily revision,,Review notes + formulas
+7,07:00-08:30,Aptitude,28,Profit & Loss Part 1,https://www.youtube.com/watch?v=RQ7SuM_9Wcc,Watch lecture + solve questions
+7,07:00-08:30,Aptitude,29,Profit & Loss Part 2,https://www.youtube.com/watch?v=cP5rpxSeL3Q,Watch lecture + solve questions
+7,10:00-12:00,Digital Electronics,7,Combinational Circuits Part 1,https://www.youtube.com/watch?v=QULC5Aa5yhc,Watch lecture + make short notes
+7,14:00-16:00,COA,7,Cache Mapping Part 02,https://www.youtube.com/watch?v=fOqYRaawTUs,Watch lecture + make short notes
+7,18:00-19:00,Practice,-,Daily practice / PYQs,,Solve 15–30 questions
+7,21:00-21:30,Revision,-,Daily revision,,Review notes + formulas
+8,07:00-08:30,Aptitude,30,Profit & Loss Part 3,https://www.youtube.com/watch?v=XrxTfgDtK2c,Watch lecture + solve questions
+8,07:00-08:30,Aptitude,31,Profit & Loss Part 4,https://www.youtube.com/watch?v=7EfjSVUCaa4,Watch lecture + solve questions
+8,10:00-12:00,Digital Electronics,8,Combinational Circuits Part 2,https://www.youtube.com/watch?v=jNWvnL3figg,Watch lecture + make short notes
+8,14:00-16:00,COA,8,Cache Mapping Part 01,https://www.youtube.com/watch?v=2__ztBUEkkw,Watch lecture + make short notes
+8,18:00-19:00,Practice,-,Daily practice / PYQs,,Solve 15–30 questions
+8,21:00-21:30,Revision,-,Daily revision,,Review notes + formulas
+9,07:00-08:30,Aptitude,32,Mixture & Alligation Part 1,https://www.youtube.com/watch?v=E-0tCz22C88,Watch lecture + solve questions
+9,07:00-08:30,Aptitude,33,Mixture & Alligation Part 2,https://www.youtube.com/watch?v=fSZs8xXEINo,Watch lecture + solve questions
+9,10:00-12:00,Digital Electronics,9,Combinational Circuits Part 3,https://www.youtube.com/watch?v=e-1qqAT1-eA,Watch lecture + make short notes
+9,14:00-16:00,COA,9,Cache Memory - Introduction,https://www.youtube.com/watch?v=ISfo8pGCpe0,Watch lecture + make short notes
+9,18:00-19:00,Practice,-,Daily practice / PYQs,,Solve 15–30 questions
+9,21:00-21:30,Revision,-,Daily revision,,Review notes + formulas
+10,07:00-08:30,Aptitude,34,Mixture & Alligation Part 3,https://www.youtube.com/watch?v=ibH00R_X55w,Watch lecture + solve questions
+10,07:00-08:30,Aptitude,35,Mixture & Alligation Part 4,https://www.youtube.com/watch?v=MkZaHnX3aUA,Watch lecture + solve questions
+10,10:00-12:00,Computer Networks,1,Application Layer Part 02,https://www.youtube.com/watch?v=haIZgThg4F0,Watch lecture + make short notes
+10,14:00-16:00,COA,10,Basics of COA & CPU Registers,https://www.youtube.com/watch?v=js8aA0OAqDk,Watch lecture + make short notes
+10,18:00-19:00,Practice,-,Daily practice / PYQs,,Solve 15–30 questions
+10,21:00-21:30,Revision,-,Daily revision,,Review notes + formulas
+11,07:00-08:30,Aptitude,36,Interest Calculation Part 1,https://www.youtube.com/watch?v=OjvLitM6i0Q,Watch lecture + solve questions
+11,07:00-08:30,Aptitude,37,Interest Calculation Part 2,https://www.youtube.com/watch?v=V9lQnSbDKeI,Watch lecture + solve questions
+11,10:00-12:00,Computer Networks,2,Application Layer Part 01,https://www.youtube.com/watch?v=v_7K_pJfOwU,Watch lecture + make short notes
+11,14:00-16:00,TOC,1,TOC Lecture 1,https://www.youtube.com/live/Y0UpuWYOHd8?si=tpXxcYxH3kE3cxiV,Watch lecture + make short notes
+11,18:00-19:00,Practice,-,Daily practice / PYQs,,Solve 15–30 questions
+11,21:00-21:30,Revision,-,Daily revision,,Review notes + formulas
+12,07:00-08:30,Aptitude,38,Interest Calculation Part 3,https://www.youtube.com/watch?v=W36Ux60Of-c,Watch lecture + solve questions
+12,07:00-08:30,Aptitude,39,Interest Calculation Part 4,https://www.youtube.com/watch?v=NVkBHwp3X0U,Watch lecture + solve questions
+12,10:00-12:00,Computer Networks,3,TCP Part 03,https://www.youtube.com/watch?v=0b3yvoF4TbU,Watch lecture + make short notes
+12,14:00-16:00,TOC,2,TOC Lecture 2,https://www.youtube.com/live/Y0UpuWYOHd8?si=tpXxcYxH3kE3cxiV,Watch lecture + make short notes
+12,18:00-19:00,Practice,-,Daily practice / PYQs,,Solve 15–30 questions
+12,21:00-21:30,Revision,-,Daily revision,,Review notes + formulas
+13,07:00-08:30,Aptitude,41,Blood Relation,https://www.youtube.com/watch?v=Xry7nrwpIFE,Watch lecture + solve questions
+13,07:00-08:30,Aptitude,42,Dice,https://www.youtube.com/watch?v=zYRDSvbUE_M,Watch lecture + solve questions
+13,10:00-12:00,Computer Networks,4,TCP Part 02,https://www.youtube.com/watch?v=3c437uRgo_I,Watch lecture + make short notes
+13,14:00-16:00,TOC,3,TOC Lecture 3,https://www.youtube.com/live/Y0UpuWYOHd8?si=tpXxcYxH3kE3cxiV,Watch lecture + make short notes
+13,18:00-19:00,Practice,-,Daily practice / PYQs,,Solve 15–30 questions
+13,21:00-21:30,Revision,-,Daily revision,,Review notes + formulas
+14,07:00-08:30,Aptitude,43,Seating Arrangement Part 1,https://www.youtube.com/watch?v=e8wUzEsJd6w,Watch lecture + solve questions
+14,07:00-08:30,Aptitude,44,Seating Arrangement Part 2,https://www.youtube.com/watch?v=fTnSeByvyIo,Watch lecture + solve questions
+14,10:00-12:00,Computer Networks,5,TCP Part 01,https://www.youtube.com/watch?v=RPN7cQkZPoI,Watch lecture + make short notes
+14,14:00-16:00,TOC,4,TOC Lecture 4,https://www.youtube.com/live/Y0UpuWYOHd8?si=tpXxcYxH3kE3cxiV,Watch lecture + make short notes
+14,18:00-19:00,Practice,-,Daily practice / PYQs,,Solve 15–30 questions
+14,21:00-21:30,Revision,-,Daily revision,,Review notes + formulas
+15,07:00-08:30,Aptitude,45,Seating Arrangement Part 3,https://www.youtube.com/watch?v=Vaq1NPoW7ic,Watch lecture + solve questions
+15,10:00-12:00,Computer Networks,6,Routing,https://www.youtube.com/watch?v=_-ecLJmOyq8,Watch lecture + make short notes
+15,14:00-16:00,TOC,5,TOC Lecture 5,https://www.youtube.com/live/Y0UpuWYOHd8?si=tpXxcYxH3kE3cxiV,Watch lecture + make short notes
+15,18:00-19:00,Practice,-,Daily practice / PYQs,,Solve 15–30 questions
+15,21:00-21:30,Revision,-,Daily revision,,Review notes + formulas
+16,07:00-08:30,Aptitude,46,Direction & Distance Part 1,https://www.youtube.com/watch?v=2stQzKmspTY,Watch lecture + solve questions
+16,07:00-08:30,Aptitude,47,Direction & Distance Part 2,https://www.youtube.com/watch?v=VPrM11zbLmM,Watch lecture + solve questions
+16,10:00-12:00,Computer Networks,7,IPv4 Header Part 02,https://www.youtube.com/watch?v=GHJ3Ez-SSnE,Watch lecture + make short notes
+16,14:00-16:00,Compiler Design,1,Compiler Design Lecture 1,https://www.youtube.com/live/TNRixXGSSkY?si=dKfUA-T2sQsn23S0,Watch lecture + make short notes
+16,18:00-19:00,Practice,-,Daily practice / PYQs,,Solve 15–30 questions
+16,21:00-21:30,Revision,-,Daily revision,,Review notes + formulas
+17,07:00-08:30,Aptitude,50,Data Interpretation Part 1,https://www.youtube.com/watch?v=5lfjN5NTRck,Watch lecture + solve questions
+17,07:00-08:30,Aptitude,51,Data Interpretation Part 2,https://www.youtube.com/watch?v=mnim1l9ljFw,Watch lecture + solve questions
+17,07:00-08:30,Aptitude,52,Data Interpretation Part 3,https://www.youtube.com/watch?v=c7vd8nCOupE,Watch lecture + solve questions
+17,10:00-12:00,Computer Networks,8,IPv4 Header Part 01,https://www.youtube.com/watch?v=2FU24DlqK98,Watch lecture + make short notes
+17,14:00-16:00,Compiler Design,2,Compiler Design Lecture 2,https://www.youtube.com/live/TNRixXGSSkY?si=dKfUA-T2sQsn23S0,Watch lecture + make short notes
+17,18:00-19:00,Practice,-,Daily practice / PYQs,,Solve 15–30 questions
+17,21:00-21:30,Revision,-,Daily revision,,Review notes + formulas
+18,07:00-08:30,Aptitude,53,Triangle Geometry Part 1,https://www.youtube.com/watch?v=kHUHIRkVK8A,Watch lecture + solve questions
+18,07:00-08:30,Aptitude,54,Triangle Geometry Part 2,https://www.youtube.com/watch?v=gOLz0g7Xe1Q,Watch lecture + solve questions
+18,10:00-12:00,Computer Networks,9,IPv4 Addressing Part 04,https://www.youtube.com/watch?v=h48jQmUlv-0,Watch lecture + make short notes
+18,14:00-16:00,Compiler Design,3,Compiler Design Lecture 3,https://www.youtube.com/live/TNRixXGSSkY?si=dKfUA-T2sQsn23S0,Watch lecture + make short notes
+18,18:00-19:00,Practice,-,Daily practice / PYQs,,Solve 15–30 questions
+18,21:00-21:30,Revision,-,Daily revision,,Review notes + formulas
+19,07:00-08:30,Aptitude,57,Triangle Geometry Part 3,https://www.youtube.com/watch?v=u0Lq_j7J-sM,Watch lecture + solve questions
+19,07:00-08:30,Aptitude,55,Triangle Geometry Part 4,https://www.youtube.com/watch?v=QnLIBLzzVEI,Watch lecture + solve questions
+19,10:00-12:00,Computer Networks,10,IPv4 Addressing Part 03,https://www.youtube.com/watch?v=anKVtEzRXnM,Watch lecture + make short notes
+19,14:00-16:00,Compiler Design,4,Compiler Design Lecture 4,https://www.youtube.com/live/TNRixXGSSkY?si=dKfUA-T2sQsn23S0,Watch lecture + make short notes
+19,18:00-19:00,Practice,-,Daily practice / PYQs,,Solve 15–30 questions
+19,21:00-21:30,Revision,-,Daily revision,,Review notes + formulas
+20,07:00-08:30,Aptitude,56,Triangle Geometry Part 5,https://www.youtube.com/watch?v=VRuviXu6lSo,Watch lecture + solve questions
+20,07:00-08:30,Aptitude,58,Triangle Geometry Part 6,https://www.youtube.com/watch?v=JzAjma3iL_o,Watch lecture + solve questions
+20,10:00-12:00,Computer Networks,11,IPv4 Addressing Part 02,https://www.youtube.com/watch?v=KOgmXMk_y0A,Watch lecture + make short notes
+20,14:00-16:00,Compiler Design,5,Compiler Design Lecture 5,https://www.youtube.com/live/TNRixXGSSkY?si=dKfUA-T2sQsn23S0,Watch lecture + make short notes
+20,18:00-19:00,Practice,-,Daily practice / PYQs,,Solve 15–30 questions
+20,21:00-21:30,Revision,-,Daily revision,,Review notes + formulas
+21,07:00-08:30,Aptitude,59,Triangle Geometry Part 7,https://www.youtube.com/watch?v=3zF3w1sV-fo,Watch lecture + solve questions
+21,07:00-08:30,Aptitude,60,Triangle Geometry Part 8,https://www.youtube.com/watch?v=Vh4nvevc70g,Watch lecture + solve questions
+21,10:00-12:00,Computer Networks,12,IPv4 Addressing Part 01,https://www.youtube.com/watch?v=-c9iR6bT2GM,Watch lecture + make short notes
+21,14:00-16:00,Revision / PYQs,-,Core subject revision and GATE PYQs,,Revise + solve PYQs
+21,18:00-19:00,Practice,-,Daily practice / PYQs,,Solve 15–30 questions
+21,21:00-21:30,Revision,-,Daily revision,,Review notes + formulas
+22,07:00-08:30,Aptitude,62,"Mean, Median & Mode Part 1",https://www.youtube.com/watch?v=vFvYvD2Ozfs,Watch lecture + solve questions
+22,07:00-08:30,Aptitude,63,"Mean, Median & Mode Part 2",https://www.youtube.com/watch?v=0L2x4l781ls,Watch lecture + solve questions
+22,07:00-08:30,Aptitude,64,"Mean, Median & Mode Part 3",https://www.youtube.com/watch?v=kaDXLdiQlww,Watch lecture + solve questions
+22,10:00-12:00,Computer Networks,13,MAC Layer,https://www.youtube.com/watch?v=lwkVa8-UO8c,Watch lecture + make short notes
+22,14:00-16:00,Revision / PYQs,-,Core subject revision and GATE PYQs,,Revise + solve PYQs
+22,18:00-19:00,Practice,-,Daily practice / PYQs,,Solve 15–30 questions
+22,21:00-21:30,Revision,-,Daily revision,,Review notes + formulas
+23,07:00-08:30,Aptitude,65,Set Theory Part 1,https://www.youtube.com/watch?v=g5OQ1JW6Urs,Watch lecture + solve questions
+23,07:00-08:30,Aptitude,66,Set Theory Part 2,https://www.youtube.com/watch?v=_BegBAKoBoc,Watch lecture + solve questions
+23,10:00-12:00,Computer Networks,14,Flow Control Part 03,https://www.youtube.com/watch?v=Ik60rTO5eew,Watch lecture + make short notes
+23,14:00-16:00,Revision / PYQs,-,Core subject revision and GATE PYQs,,Revise + solve PYQs
+23,18:00-19:00,Practice,-,Daily practice / PYQs,,Solve 15–30 questions
+23,21:00-21:30,Revision,-,Daily revision,,Review notes + formulas
+24,07:00-08:30,Aptitude,67,Time & Work Part 1,https://www.youtube.com/watch?v=sOnSO567hTQ,Watch lecture + solve questions
+24,07:00-08:30,Aptitude,68,Time & Work Part 2,https://www.youtube.com/watch?v=Wq05oUk9DoQ,Watch lecture + solve questions
+24,07:00-08:30,Aptitude,69,Time & Work Part 3,https://www.youtube.com/watch?v=sLlDlFpvLMA,Watch lecture + solve questions
+24,10:00-12:00,Computer Networks,15,Flow Control Part 02,https://www.youtube.com/watch?v=hoQ3jqTxef0,Watch lecture + make short notes
+24,14:00-16:00,Revision / PYQs,-,Core subject revision and GATE PYQs,,Revise + solve PYQs
+24,18:00-19:00,Practice,-,Daily practice / PYQs,,Solve 15–30 questions
+24,21:00-21:30,Revision,-,Daily revision,,Review notes + formulas
+25,07:00-08:30,Aptitude,70,Pipe & Cistern,https://www.youtube.com/watch?v=44-OSceEL8A,Watch lecture + solve questions
+25,10:00-12:00,Computer Networks,16,Flow Control Part 01,https://www.youtube.com/watch?v=G1PP8P4ATq8,Watch lecture + make short notes
+25,14:00-16:00,Revision / PYQs,-,Core subject revision and GATE PYQs,,Revise + solve PYQs
+25,18:00-19:00,Practice,-,Daily practice / PYQs,,Solve 15–30 questions
+25,21:00-21:30,Revision,-,Daily revision,,Review notes + formulas
+26,07:00-08:30,Aptitude,71,Average Speed Part 1,https://www.youtube.com/watch?v=mrxgtof5740,Watch lecture + solve questions
+26,07:00-08:30,Aptitude,72,Average Speed Part 2,https://www.youtube.com/watch?v=oxHvF-gjjH0,Watch lecture + solve questions
+26,10:00-12:00,Computer Networks,17,Error Control Part 02,https://www.youtube.com/watch?v=xii9rqFAWL4,Watch lecture + make short notes
+26,14:00-16:00,Revision / PYQs,-,Core subject revision and GATE PYQs,,Revise + solve PYQs
+26,18:00-19:00,Practice,-,Daily practice / PYQs,,Solve 15–30 questions
+26,21:00-21:30,Revision,-,Daily revision,,Review notes + formulas
+27,07:00-08:30,Aptitude,73,Boat & Stream,https://www.youtube.com/watch?v=YedxnoFhz8A,Watch lecture + solve questions
+27,10:00-12:00,Computer Networks,18,Error Control Part 01,https://www.youtube.com/watch?v=mlH5MnlqAXM,Watch lecture + make short notes
+27,14:00-16:00,Revision / PYQs,-,Core subject revision and GATE PYQs,,Revise + solve PYQs
+27,18:00-19:00,Practice,-,Daily practice / PYQs,,Solve 15–30 questions
+27,21:00-21:30,Revision,-,Daily revision,,Review notes + formulas
+28,07:00-08:30,Aptitude,75,Linear Race,https://www.youtube.com/watch?v=HllhVlwKdKA,Watch lecture + solve questions
+28,10:00-12:00,Computer Networks,19,OSI & TCP/IP Model Part 02,https://www.youtube.com/watch?v=Alhb508Ardc,Watch lecture + make short notes
+28,14:00-16:00,Revision / PYQs,-,Core subject revision and GATE PYQs,,Revise + solve PYQs
+28,18:00-19:00,Practice,-,Daily practice / PYQs,,Solve 15–30 questions
+28,21:00-21:30,Revision,-,Daily revision,,Review notes + formulas
+29,07:00-08:30,Aptitude,76,Circular Race,https://www.youtube.com/watch?v=tMKfEFSzDEg,Watch lecture + solve questions
+29,10:00-12:00,Computer Networks,20,OSI & TCP/IP Model,https://www.youtube.com/watch?v=hsquGSclV3Y,Watch lecture + make short notes
+29,14:00-16:00,Revision / PYQs,-,Core subject revision and GATE PYQs,,Revise + solve PYQs
+29,18:00-19:00,Practice,-,Daily practice / PYQs,,Solve 15–30 questions
+29,21:00-21:30,Revision,-,Daily revision,,Review notes + formulas
+30,07:00-08:30,Aptitude,77,Clock Part 1,https://www.youtube.com/watch?v=2_at3OstQN4,Watch lecture + solve questions
+30,07:00-08:30,Aptitude,78,Clock Part 2,https://www.youtube.com/watch?v=0G68-UFn8xk,Watch lecture + solve questions
+30,07:00-08:30,Aptitude,79,Clock Part 3,https://www.youtube.com/watch?v=eig_ob43Hqk,Watch lecture + solve questions
+30,07:00-08:30,Aptitude,80,Clock Part 4,https://www.youtube.com/watch?v=BAbIuykkIWI,Watch lecture + solve questions
+30,10:00-12:00,Revision / PYQs,-,Full-syllabus revision,,Revise DE/COA/CN/TOC/CD
+30,14:00-16:00,Mock Test,-,Mixed GATE practice test,,Timed practice + analysis
+30,18:00-19:00,Practice,-,Daily practice / PYQs,,Solve 15–30 questions
+30,21:00-21:30,Revision,-,Daily revision,,Review notes + formulas

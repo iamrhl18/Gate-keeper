@@ -3,11 +3,11 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Gatekeeper — GATE Prep Tracker</title>
-<meta name="description" content="A day-by-day lecture tracker for GATE CS preparation. Tick off lectures, hold your streak, don't leave the gate unguarded." />
+<title>Gatekeeper — 30-Day GATE CSE Study Plan</title>
+<meta name="description" content="A premium 30-day lecture tracker and productivity dashboard for GATE CS preparation. Digital Electronics, COA, CN, TOC, CD, and Aptitude." />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -19,96 +19,169 @@
       <a href="index.html" class="active">Home</a>
       <a href="tracker.html">Tracker</a>
       <a href="stats.html">Stats</a>
-      <a href="tracker.html" class="nav-cta">Open today</a>
+      <a href="tracker.html" class="nav-cta">Open Today</a>
       <span id="authArea"></span>
     </div>
   </div>
 </nav>
 
 <div class="wrap">
+  <!-- Hero Section with Today's Mission Card -->
   <header class="hero-land">
-    <span class="eyebrow">GATE CS · Sep 3 – Oct 11</span>
-    <h1>Show up daily.<br><em>Don't break the gate.</em></h1>
-    <p class="sub">A day-by-day lecture tracker built from your own study plan — Engineering Maths, OS, Data Structures, Algorithms and DBMS, one lecture at a time, with a streak that keeps you honest.</p>
-    <div class="hero-actions">
-      <a href="tracker.html" class="btn btn-primary">Open today's lectures</a>
-      <a href="stats.html" class="btn btn-ghost">View progress</a>
-    </div>
+    <div class="hero-split">
+      <div class="hero-left">
+        <span class="eyebrow">⚡ 30-DAY GATE CSE CRASH PLAN • 2026</span>
+        <h1>Show up daily.<br><span class="gold-gradient">Don't break the gate.</span></h1>
+        <p class="sub">A focused 30-day roadmap covering Digital Electronics, COA, Computer Networks, TOC, Compiler Design, and Aptitude — with live lecture links and daily streak accountability.</p>
+        
+        <div class="hero-actions">
+          <a href="tracker.html" class="btn btn-primary">Start Today's Plan</a>
+          <a href="tracker.html#ledger" class="btn btn-ghost">View 30-Day Plan</a>
+        </div>
 
-    <div class="hero-stats" id="heroStats">
-      <div class="cell"><div class="num" id="hsStreak">0</div><div class="lbl">Current streak</div></div>
-      <div class="cell"><div class="num" id="hsBest">0</div><div class="lbl">Best streak</div></div>
-      <div class="cell"><div class="num" id="hsDone">0</div><div class="lbl">Lectures cleared</div></div>
-      <div class="cell"><div class="num" id="hsDays">39</div><div class="lbl">Days in this plan</div></div>
-    </div>
-  </header>
-
-  <section class="how">
-    <h2 class="section-title">How it works</h2>
-    <div class="how-grid">
-      <div class="step">
-        <span class="n">01</span>
-        <h3>Open today</h3>
-        <p>The tracker shows exactly what's scheduled for the real date — no scrolling to find your place.</p>
-      </div>
-      <div class="step">
-        <span class="n">02</span>
-        <h3>Tick as you finish</h3>
-        <p>Mark each lecture done with one tap. The playlist link sits right next to it, so there's no hunting.</p>
-      </div>
-      <div class="step">
-        <span class="n">03</span>
-        <h3>Hold the streak</h3>
-        <p>Clear every lecture in a day and the streak grows. Miss a day and it resets — that's the whole system.</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="coverage">
-    <h2 class="section-title">What's covered</h2>
-    <div class="subj-pill-grid" id="subjPillGrid"></div>
-  </section>
-
-  <section class="extend">
-    <div class="extend-box">
-      <h2>When Month 2 is ready, add it here</h2>
-      <p>This plan currently runs Sep 3 – Oct 11. When you plan the next block — Computer Networks, TOC, COA, whatever comes next — paste it below as JSON and it slots straight into the tracker, stats page, and streak calculation. Nothing here needs code edits.</p>
-
-      <div class="extend-form">
-        <textarea id="extraInput" placeholder='[
-  {
-    "date": "2026-10-12",
-    "lectures": [
-      { "subjectKey": "cn", "name": "CN", "label": "Lec-1", "link": "https://youtube.com/..." }
-    ]
-  }
-]'></textarea>
-        <div class="extend-actions">
-          <button class="btn btn-primary btn-sm" id="addDaysBtn">Add to schedule</button>
-          <button class="btn btn-ghost btn-sm" id="clearAddedBtn">Remove all added days</button>
-          <span class="extend-msg" id="extraMsg"></span>
+        <div class="motivation-pill" id="heroMotivationPill">
+          <span class="sparkle">✦</span>
+          <span id="heroMotivationText">Day 1 starts now. The gate opens with consistency.</span>
         </div>
       </div>
 
-      <details>
-        <summary>Field reference</summary>
-        <pre>date        "YYYY-MM-DD", must not already exist on the schedule
-lectures    array, at least one entry
-  subjectKey  short id, e.g. "cn", "toc" — reused subjects (math/os/ds/algo/dbms) keep their color
-  name        display name, e.g. "Computer Networks"
-  label       e.g. "Lec-1" or "Revision"
-  link        optional — playlist / video URL</pre>
-      </details>
+      <!-- Right: Today's Mission Card -->
+      <div class="hero-right">
+        <div class="mission-card" id="missionCard">
+          <div class="mission-header">
+            <span class="mission-day-badge" id="mDayBadge">DAY 01</span>
+            <span class="mission-date-str" id="mDateStr">Today</span>
+          </div>
+
+          <div class="mission-progress-center">
+            <div class="mission-ring-wrap">
+              <svg viewBox="0 0 72 72">
+                <circle class="mission-ring-bg" cx="36" cy="36" r="30"></circle>
+                <circle class="mission-ring-bar" id="mRingBar" cx="36" cy="36" r="30" stroke-dasharray="188.5" stroke-dashoffset="188.5"></circle>
+              </svg>
+              <span class="mission-ring-text" id="mRingText">0%</span>
+            </div>
+            <div class="mission-stat-info">
+              <h4 id="mSessionsTitle">Today's Progress</h4>
+              <p id="mSessionsRatio">0 / 6 sessions cleared</p>
+            </div>
+          </div>
+
+          <div class="mission-next-box" id="mNextBox">
+            <span class="mission-next-tag">▶ Next Up To Watch</span>
+            <h5 id="mNextTitle">Loading lecture...</h5>
+            <p id="mNextSub">Stay focused and tick off today's milestones.</p>
+            <a href="#" id="mNextBtn" class="btn btn-yt" target="_blank" rel="noopener noreferrer">▶ Watch Lecture</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4 Statistics Cards -->
+    <div class="stats-4grid" id="stats4Grid">
+      <div class="stat-card">
+        <div class="card-top">
+          <span class="lbl">Total Days</span>
+          <span class="card-icon">📅</span>
+        </div>
+        <div class="num" id="s4Days">30</div>
+        <div class="sub-lbl">Day 1 → Day 30</div>
+      </div>
+
+      <div class="stat-card">
+        <div class="card-top">
+          <span class="lbl">Sessions</span>
+          <span class="card-icon">⚡</span>
+        </div>
+        <div class="num" id="s4Sessions">185</div>
+        <div class="sub-lbl" id="s4ClearedSub">0 cleared • 114 lectures</div>
+      </div>
+
+      <div class="stat-card">
+        <div class="card-top">
+          <span class="lbl">Overall Progress</span>
+          <span class="card-icon">📈</span>
+        </div>
+        <div class="num" id="s4Progress">0%</div>
+        <div class="sub-lbl" id="s4RatioSub">0 / 185 total items</div>
+      </div>
+
+      <div class="stat-card">
+        <div class="card-top">
+          <span class="lbl">Current Streak</span>
+          <span class="card-icon">🔥</span>
+        </div>
+        <div class="num" id="s4Streak">0</div>
+        <div class="sub-lbl" id="s4BestSub">Best streak: 0 days</div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Today's Schedule Vertical Timeline -->
+  <section class="timeline-section">
+    <div class="timeline-head">
+      <div class="timeline-head-left">
+        <h2><span class="dot" style="--sub:var(--gold);"></span> Today's Learning Timeline <span class="subject-badge" id="tlDayBadge" style="--sub:var(--gold); font-size:12px;">DAY 1</span></h2>
+      </div>
+      <div class="timeline-head-right">
+        <span id="tlDateStr" style="color:var(--muted);">—</span>
+        <span id="tlProgressPct" style="color:var(--moss); font-weight:700;">0% COMPLETE</span>
+      </div>
+    </div>
+    
+    <div class="timeline-body">
+      <div class="v-timeline" id="timelineList">Loading today's schedule...</div>
+      
+      <div style="margin-top: 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 14px; border-top: 1px solid var(--border); padding-top: 18px;">
+        <span style="font-size:13.5px; color:var(--muted);">Check off sessions as you finish them to build your daily streak.</span>
+        <a href="tracker.html" class="btn btn-primary btn-sm">Open Full 30-Day Tracker →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6 Core Areas Covered -->
+  <section class="coverage">
+    <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:12px; flex-wrap:wrap; gap:10px;">
+      <h2>6 Core Areas Covered</h2>
+      <a href="stats.html" style="font-size:13.5px; font-weight:600;">View detailed stats breakdown →</a>
+    </div>
+    <p style="color:var(--muted); font-size:14.5px; margin:0 0 20px;">Structured high-yield syllabus coverage built for rapid concept mastery and GATE problem solving.</p>
+    
+    <div class="subj-pill-grid" id="subjPillGrid"></div>
+  </section>
+
+  <!-- Blueprint / How it works -->
+  <section class="how">
+    <h2>The 30-Day Blueprint</h2>
+    <div class="how-grid">
+      <div class="step">
+        <span class="n">01</span>
+        <h3>5 Daily Time Slots</h3>
+        <p>A focused daily routine: 07:00 Aptitude, 10:00 Core 1, 14:00 Core 2 / Revision, 18:00 Practice, and 21:00 Daily Revision.</p>
+      </div>
+      <div class="step">
+        <span class="n">02</span>
+        <h3>1-Click Video Access</h3>
+        <p>Every single lecture card contains direct, verified YouTube links to the exact lectures from the syllabus.</p>
+      </div>
+      <div class="step">
+        <span class="n">03</span>
+        <h3>Hold the Streak</h3>
+        <p>Clear sessions daily, build your streak momentum, and finish strong on Day 30: the Final Revision and Mock Test Day.</p>
+      </div>
     </div>
   </section>
 </div>
 
 <footer class="site-footer">
   <div class="wrap">
-    <div class="f-left">Progress lives only in this browser's storage. Clearing site data, or opening on another device, starts fresh.</div>
+    <div class="f-left">
+      Gatekeeper 30-Day Plan · Progress is saved locally in this browser. Sign in to sync your ledger across your phone, tablet, and laptop.
+    </div>
     <div class="f-links">
       <a href="tracker.html">Tracker</a>
       <a href="stats.html">Stats</a>
+      <a href="auth.html">Account</a>
     </div>
   </div>
 </footer>
@@ -116,61 +189,228 @@ lectures    array, at least one entry
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="js/config.js"></script>
 <script src="js/auth.js"></script>
+<script src="js/planData.js"></script>
 <script src="js/schedule.js"></script>
 <script>
 (function(){
   "use strict";
+
+  function fmtDate(d){
+    return d.toLocaleDateString("en-US", { weekday: "short", month: "short", day: "numeric", year: "numeric" });
+  }
+
   function renderHome(){
     const stats = Gatekeeper.computeStats();
-    document.getElementById("hsStreak").textContent = stats.current;
-    document.getElementById("hsBest").textContent = stats.best;
-    document.getElementById("hsDone").textContent = stats.done;
-    document.getElementById("hsDays").textContent = stats.daysTotal;
 
-    const grid = document.getElementById("subjPillGrid");
-    grid.innerHTML = "";
-    Object.keys(stats.bySubjectTotal).forEach(key => {
-    const meta = Gatekeeper.metaFor(key);
-    const total = stats.bySubjectTotal[key];
-    const done = stats.bySubjectDone[key] || 0;
-    const pill = document.createElement("div");
-    pill.className = "subj-pill";
-    pill.style.setProperty("--sub", meta.color);
-    pill.innerHTML =
-      '<span class="left"><span class="dot"></span>' + meta.name + '</span>' +
-      '<span class="count">' + done + ' / ' + total + '</span>';
-      grid.appendChild(pill);
+    // 4 Statistics Cards
+    document.getElementById("s4Days").textContent = stats.totalDays;
+    document.getElementById("s4Sessions").textContent = stats.total;
+    document.getElementById("s4ClearedSub").textContent = stats.done + " cleared • " + stats.totalLectures + " lectures";
+    document.getElementById("s4Progress").textContent = stats.overallPct + "%";
+    document.getElementById("s4RatioSub").textContent = stats.done + " / " + stats.total + " total items";
+    document.getElementById("s4Streak").textContent = stats.current;
+    document.getElementById("s4BestSub").textContent = "Best streak: " + stats.best + " days";
+
+    // Motivational Pill
+    const msg = Gatekeeper.getMotivationalMessage(stats.overallPct);
+    document.getElementById("heroMotivationText").textContent = msg;
+
+    // Mission Card on Right
+    const activeDay = stats.activeDaySchedule;
+    const dayPad = String(activeDay.day).padStart(2, "0");
+    document.getElementById("mDayBadge").textContent = "DAY " + dayPad + (activeDay.isFinalDay ? " 🔥" : "");
+    const dayDate = new Date(activeDay.date + "T00:00:00");
+    document.getElementById("mDateStr").textContent = fmtDate(dayDate);
+    
+    const tp = stats.todayProgress;
+    document.getElementById("mRingText").textContent = tp.pct + "%";
+    document.getElementById("mSessionsRatio").textContent = tp.done + " / " + tp.total + " sessions cleared";
+
+    // Update circular SVG ring
+    const radius = 30;
+    const circumference = 2 * Math.PI * radius; // 188.49
+    const offset = circumference - (tp.pct / 100) * circumference;
+    const ringBar = document.getElementById("mRingBar");
+    if(ringBar) {
+      ringBar.style.strokeDashoffset = offset;
+      if(tp.pct === 100) ringBar.style.stroke = "var(--moss)";
+      else ringBar.style.stroke = "var(--gold)";
+    }
+
+    // Next Lecture Card
+    const nextLec = stats.nextLecture;
+    const nuTitle = document.getElementById("mNextTitle");
+    const nuSub = document.getElementById("mNextSub");
+    const nuBtn = document.getElementById("mNextBtn");
+
+    if (nextLec) {
+      nuTitle.textContent = (nextLec.meta ? nextLec.meta.shortName : nextLec.subject) + (nextLec.lecture ? " Lec " + nextLec.lecture : "") + ": " + nextLec.topic;
+      nuSub.textContent = "Day " + nextLec.day + " · " + nextLec.time + (nextLec.task ? " · " + nextLec.task : "");
+      nuBtn.style.display = "inline-flex";
+      nuBtn.href = nextLec.youtubeLink;
+    } else {
+      nuTitle.textContent = "🎉 All Lectures Cleared!";
+      nuSub.textContent = "Outstanding work. You've completed every video lecture in the 30-day plan.";
+      nuBtn.style.display = "none";
+    }
+
+    // Timeline Header
+    document.getElementById("tlDayBadge").textContent = "DAY " + dayPad;
+    document.getElementById("tlDateStr").textContent = fmtDate(dayDate);
+    document.getElementById("tlProgressPct").textContent = tp.pct + "% COMPLETE";
+    if(tp.pct === 100) document.getElementById("tlProgressPct").style.color = "var(--moss)";
+    else document.getElementById("tlProgressPct").style.color = "var(--gold)";
+
+    // Timeline List
+    const timelineList = document.getElementById("timelineList");
+    timelineList.innerHTML = "";
+
+    const slots = [
+      { time: "07:00-08:30", name: "Aptitude Slot", icon: "🧠" },
+      { time: "10:00-12:00", name: "Core Subject 1", icon: "💻" },
+      { time: "14:00-16:00", name: "Core Subject 2 / Revision", icon: "🖥️" },
+      { time: "18:00-19:00", name: "Practice / PYQs", icon: "⚡" },
+      { time: "21:00-21:30", name: "Daily Revision", icon: "🔄" }
+    ];
+
+    slots.forEach(slot => {
+      const itemsInSlot = activeDay.lectures.filter(l => l.time === slot.time);
+      if (itemsInSlot.length > 0) {
+        const grp = document.createElement("div");
+        grp.className = "v-timeline-group";
+        grp.style.setProperty("--node-color", itemsInSlot[0].meta ? itemsInSlot[0].meta.color : "var(--gold)");
+
+        const node = document.createElement("div");
+        node.className = "v-timeline-node";
+        grp.appendChild(node);
+
+        const slotHead = document.createElement("div");
+        slotHead.className = "timeline-slot-header";
+        slotHead.innerHTML = 
+          '<span class="timeline-time-badge">' + slot.time + '</span>' +
+          '<span class="timeline-slot-title">' + slot.icon + ' ' + slot.name + '</span>';
+        grp.appendChild(slotHead);
+
+        itemsInSlot.forEach(lec => {
+          const card = document.createElement("div");
+          const done = Gatekeeper.isDone(lec.id);
+          card.className = "lecture-card" + (done ? " is-done" : "");
+
+          const left = document.createElement("div");
+          left.className = "lec-left";
+
+          const cb = document.createElement("input");
+          cb.type = "checkbox";
+          cb.className = "chk";
+          cb.checked = done;
+          cb.setAttribute("aria-label", lec.subject + " " + lec.topic);
+          cb.addEventListener("change", () => {
+            Gatekeeper.setDone(lec.id, cb.checked);
+            cb.classList.add("stamp");
+            renderHome();
+          });
+          left.appendChild(cb);
+
+          const main = document.createElement("div");
+          main.className = "lec-main";
+
+          const badgeRow = document.createElement("div");
+          badgeRow.className = "lec-badge-row";
+
+          const badge = document.createElement("span");
+          badge.className = "subject-badge";
+          badge.style.setProperty("--sub", lec.meta.color);
+          badge.style.setProperty("--tag-bg", lec.meta.tagBg);
+          badge.style.setProperty("--sub-border", lec.meta.border);
+          badge.textContent = lec.meta ? lec.meta.shortName : lec.subject;
+          badgeRow.appendChild(badge);
+
+          if (lec.lecture) {
+            const numTag = document.createElement("span");
+            numTag.className = "lec-num-tag";
+            numTag.textContent = "Lecture " + lec.lecture;
+            badgeRow.appendChild(numTag);
+          }
+
+          main.appendChild(badgeRow);
+
+          const topic = document.createElement("span");
+          topic.className = "lec-topic";
+          topic.textContent = lec.topic;
+          main.appendChild(topic);
+
+          if (lec.task) {
+            const task = document.createElement("span");
+            task.className = "lec-task-desc";
+            task.innerHTML = '<span>↳</span>' + lec.task;
+            main.appendChild(task);
+          }
+
+          left.appendChild(main);
+          card.appendChild(left);
+
+          const right = document.createElement("div");
+          right.className = "lec-right";
+
+          if (lec.youtubeLink) {
+            const yt = document.createElement("a");
+            yt.className = "btn-yt";
+            yt.href = lec.youtubeLink;
+            yt.target = "_blank";
+            yt.rel = "noopener noreferrer";
+            yt.innerHTML = '▶ Watch';
+            right.appendChild(yt);
+          } else {
+            const noVid = document.createElement("span");
+            noVid.className = "no-video-note";
+            noVid.textContent = "Self Study";
+            right.appendChild(noVid);
+          }
+
+          card.appendChild(right);
+          grp.appendChild(card);
+        });
+
+        timelineList.appendChild(grp);
+      }
+    });
+
+    // 6 Core Areas Grid
+    const subjGrid = document.getElementById("subjPillGrid");
+    subjGrid.innerHTML = "";
+
+    const subjects = [
+      { key: "de", icon: "💻" },
+      { key: "coa", icon: "🖥️" },
+      { key: "cn", icon: "🌐" },
+      { key: "toc", icon: "⚙️" },
+      { key: "cd", icon: "📝" },
+      { key: "aptitude", icon: "🧠" }
+    ];
+
+    subjects.forEach(sub => {
+      const meta = Gatekeeper.metaFor(sub.key);
+      const total = stats.bySubjectTotal[sub.key] || 0;
+      const done = stats.bySubjectDone[sub.key] || 0;
+      const pct = total > 0 ? Math.round((done / total) * 100) : 0;
+
+      const card = document.createElement("div");
+      card.className = "subj-stat-card";
+      card.innerHTML =
+        '<div class="subj-card-top">' +
+          '<span class="subj-card-title"><span class="dot" style="--sub:' + meta.color + '"></span>' + sub.icon + ' ' + meta.name + '</span>' +
+          '<span class="subj-card-count">' + done + ' / ' + total + ' (' + pct + '%)</span>' +
+        '</div>' +
+        '<div class="progress-track">' +
+          '<div class="progress-fill" style="width:' + pct + '%; background:' + meta.color + '"></div>' +
+        '</div>';
+      subjGrid.appendChild(card);
     });
   }
+
   renderHome();
   window.addEventListener("gatekeeper:progress-ready", renderHome);
-
-  const msg = document.getElementById("extraMsg");
-  document.getElementById("addDaysBtn").addEventListener("click", () => {
-    const text = document.getElementById("extraInput").value.trim();
-    if(!text){ msg.textContent = "Paste some JSON first."; msg.className = "extend-msg err"; return; }
-    const res = Gatekeeper.addExtraDays(text);
-    if(res.ok){
-      msg.textContent = "Added " + res.count + " day(s). Check the tracker.";
-      msg.className = "extend-msg ok";
-      document.getElementById("extraInput").value = "";
-      const s = Gatekeeper.computeStats();
-      document.getElementById("hsDays").textContent = s.daysTotal;
-    } else {
-      msg.textContent = res.error;
-      msg.className = "extend-msg err";
-    }
-  });
-  document.getElementById("clearAddedBtn").addEventListener("click", () => {
-    if(!Gatekeeper.hasExtraDays()){ msg.textContent = "Nothing added yet."; msg.className = "extend-msg"; return; }
-    if(confirm("Remove every day you've added beyond the original plan?")){
-      Gatekeeper.resetExtraDays();
-      msg.textContent = "Added days removed.";
-      msg.className = "extend-msg ok";
-      const s = Gatekeeper.computeStats();
-      document.getElementById("hsDays").textContent = s.daysTotal;
-    }
-  });
+  window.addEventListener("gatekeeper:active-day-changed", renderHome);
 })();
 </script>
 </body>

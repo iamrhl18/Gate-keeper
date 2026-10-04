@@ -3,10 +3,11 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Tracker — Gatekeeper</title>
+<title>30-Day Daily Tracker — Gatekeeper</title>
+<meta name="description" content="Track every day of your 30-Day GATE CSE Study Plan with live video lectures, daily streaks, and subject mastery." />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -24,69 +25,124 @@
 </nav>
 
 <div class="wrap">
-  <header class="page-head">
-    <div class="top-row">
+  <!-- Top Section: Header & Horizontal Day Navigator -->
+  <header class="tracker-top-section">
+    <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px;">
       <div>
-        <h1>Tracker</h1>
-        <p class="sub">Tick off today's lectures, or catch up on any day in the ledger below.</p>
+        <h1 style="font-size:28px;">30-Day GATE Tracker</h1>
+        <p style="color:var(--muted); font-size:14.5px; margin:4px 0 0;">Select your active day below to view its schedule and check off lectures as you complete them.</p>
       </div>
-      <div class="today-chip">
-        <span class="big" id="todayDateBig">—</span>
-        <span id="todayDayLabel">—</span>
+      <div style="display:flex; align-items:center; gap:12px;">
+        <span class="motivation-pill" id="trackerMotivationPill" style="margin:0;">
+          <span class="sparkle">✦</span>
+          <span id="trackerMotivationText">Day 1 starts now. Consistency is key.</span>
+        </span>
       </div>
+    </div>
+
+    <!-- Horizontal Day Navigator Ribbon -->
+    <div class="day-nav-wrapper" id="dayNavigator">
+      <button class="day-scroll-arrow" id="scrollLeftBtn" title="Scroll left" aria-label="Scroll left">←</button>
+      <span class="day-nav-label">30-Day Journey:</span>
+      <div class="day-nav-scroll" id="dayNavScroll"></div>
+      <button class="day-scroll-arrow" id="scrollRightBtn" title="Scroll right" aria-label="Scroll right">→</button>
     </div>
   </header>
 
-  <section class="hero">
-    <div class="stat-grid">
-      <div class="stat" id="streakFlame">
-        <div class="num"><span id="statStreak">0</span><span class="unit">days</span></div>
-        <div class="label">Current streak</div>
-      </div>
-      <div class="stat">
-        <div class="num"><span id="statBest">0</span><span class="unit">days</span></div>
-        <div class="label">Best streak</div>
-      </div>
-      <div class="stat">
-        <div class="num"><span id="statDone">0</span><span class="unit" id="statDoneUnit">/ 71</span></div>
-        <div class="label">Lectures cleared</div>
+  <!-- Streak & Week Accountability Bar -->
+  <section class="streak-card" id="streakCard">
+    <div class="streak-info-left">
+      <div class="streak-flame-icon" id="streakFlameIcon">🔥</div>
+      <div class="streak-text">
+        <h3 id="streakTitle">0 Day Streak</h3>
+        <p id="streakSub">Complete all sessions in a day to build and protect your streak.</p>
       </div>
     </div>
-    <div class="quote-panel">
-      <span class="quote-eyebrow">For today</span>
-      <blockquote id="quoteText">Loading…</blockquote>
-      <span class="quote-sub" id="quoteSub"></span>
+
+    <!-- 7-Day Visual Week Dots -->
+    <div class="week-dots-strip" id="weekDotsStrip"></div>
+  </section>
+
+  <!-- Active Day Header Banner -->
+  <section class="day-view-header" id="dayViewHeader">
+    <div class="day-view-info">
+      <h2 id="dvTitle">DAY 01 <span class="subject-badge" id="dvStatusBadge">In Progress</span></h2>
+      <p id="dvSubtitle">Logarithms Basics + Digital Electronics + COA</p>
+      
+      <div style="display:flex; align-items:center; gap:14px; margin-top:12px;">
+        <div class="progress-track" style="width:180px;">
+          <div class="progress-fill" id="dvProgressBar" style="width:0%;"></div>
+        </div>
+        <span id="dvProgressPct" style="font-family:'IBM Plex Mono',monospace; font-size:13px; font-weight:700; color:var(--text-bright);">0% (0 / 6 done)</span>
+      </div>
+    </div>
+
+    <div class="day-nav-actions">
+      <button class="btn btn-ghost btn-sm" id="prevDayBtn">← Previous Day</button>
+      <button class="btn btn-primary btn-sm" id="nextDayBtn">Next Day →</button>
     </div>
   </section>
 
-  <section class="today-block">
-    <div class="today-head">
-      <h2 id="todayTitle">Today</h2>
-      <span class="date-str" id="todayDateStr"></span>
+  <!-- Day Completed Celebration Banner (shown when day is 100% complete) -->
+  <section class="day-complete-banner" id="dayCompleteBanner" style="display:none;">
+    <div class="day-complete-text">
+      <h3 id="dcHeading">✓ DAY COMPLETE</h3>
+      <p id="dcSub">Outstanding work. Every scheduled session for this day is cleared.</p>
     </div>
-    <div class="today-body" id="todayBody"></div>
+    <button class="btn btn-primary btn-sm" id="dcNextDayBtn">Continue to Next Day →</button>
   </section>
 
-  <section class="subjects">
-    <h2 class="section-title">By subject</h2>
-    <div class="subj-grid" id="subjGrid"></div>
+  <!-- Schedule by Subject & Time Slots -->
+  <section id="dayScheduleContainer"></section>
+
+  <!-- Search & Filter Controls -->
+  <section class="control-bar">
+    <div class="control-bar-row">
+      <div class="search-box-wrap">
+        <span class="search-box-icon">🔍</span>
+        <input type="text" id="searchInput" placeholder="Search lectures by topic or lecture #..." aria-label="Search lectures" />
+      </div>
+      <div class="pill-group" id="statusPills">
+        <button class="pill-filter-btn active" data-status="all">All Status</button>
+        <button class="pill-filter-btn" data-status="pending">Pending</button>
+        <button class="pill-filter-btn" data-status="completed">Completed</button>
+      </div>
+    </div>
+
+    <div class="pill-group" id="subjectPills">
+      <button class="pill-filter-btn active" data-subject="all">All Subjects</button>
+      <button class="pill-filter-btn" data-subject="aptitude">🧠 Aptitude</button>
+      <button class="pill-filter-btn" data-subject="de">💻 Digital Electronics</button>
+      <button class="pill-filter-btn" data-subject="coa">🖥️ COA</button>
+      <button class="pill-filter-btn" data-subject="cn">🌐 Computer Networks</button>
+      <button class="pill-filter-btn" data-subject="toc">⚙️ TOC</button>
+      <button class="pill-filter-btn" data-subject="cd">📝 Compiler Design</button>
+      <button class="pill-filter-btn" data-subject="practice">⚡ Practice & Revision</button>
+    </div>
   </section>
 
-  <section class="ledger">
-    <div class="ledger-head">
-      <h2 class="section-title" style="margin:0;">Full schedule</h2>
-      <button class="btn btn-ghost btn-sm" id="resetBtn">Reset all progress</button>
+  <!-- 30-Day Full Ledger View (Filtered or full search view) -->
+  <section id="ledger" style="margin-top:20px;">
+    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:16px; flex-wrap:wrap; gap:12px;">
+      <h3 style="font-size:18px;">Full 30-Day Roadmap (All Days Overview)</h3>
+      <div style="display:flex; gap:10px;">
+        <button class="btn btn-ghost btn-sm" id="exportBtn" title="Download your progress as a JSON backup">Backup JSON</button>
+        <button class="btn btn-danger btn-sm" id="resetBtn">Reset Progress</button>
+      </div>
     </div>
-    <div class="ledger-list" id="ledgerList"></div>
+    <div id="fullLedgerList"></div>
   </section>
 </div>
 
 <footer class="site-footer">
   <div class="wrap">
-    <div class="f-left">Progress is stored only in this browser (localStorage). Clearing site data or switching devices starts fresh.</div>
+    <div class="f-left">
+      Gatekeeper 30-Day Plan · Progress is saved locally in localStorage. Log in to sync across all your devices.
+    </div>
     <div class="f-links">
       <a href="index.html">Home</a>
       <a href="stats.html">Stats</a>
+      <a href="auth.html">Account</a>
     </div>
   </div>
 </footer>
@@ -94,219 +150,462 @@
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="js/config.js"></script>
 <script src="js/auth.js"></script>
+<script src="js/planData.js"></script>
 <script src="js/schedule.js"></script>
 <script>
 (function(){
   "use strict";
 
-  const QUOTES = [
-    ["The syllabus doesn't care how you feel. Show up anyway.", "on discipline"],
-    ["One lecture a day is a plan. Zero lectures a day is a habit too.", "on consistency"],
-    ["You don't need a perfect week. You need today.", "on momentum"],
-    ["Rank is decided in silence, months before the result.", "on the long game"],
-    ["Nobody sees the 6 AM lecture. Everybody sees the rank.", "on invisible work"],
-    ["A streak isn't motivation. It's a system that doesn't ask how you feel.", "on systems"],
-    ["Skipping one day is a rest. Skipping two is a pattern.", "on the second miss"],
-    ["Your competition is asleep or scrolling. Either way, you're ahead right now.", "on showing up"],
-    ["Understand it slow today so you don't relearn it in panic later.", "on pacing"],
-    ["The playlist doesn't move on its own. Neither does the rank.", "on starting"],
-  ];
+  let currentSubjectFilter = "all";
+  let currentStatusFilter = "all";
+  let searchQuery = "";
 
-  function fmtDate(d){ return d.toLocaleDateString("en-US", { weekday:"short", month:"short", day:"numeric", year:"numeric" }); }
-  function fmtDateShort(d){ return d.toLocaleDateString("en-US", { month:"short", day:"numeric" }); }
-
-  function renderHeader(stats){
-    const now = new Date();
-    document.getElementById("todayDateBig").textContent = fmtDateShort(now);
-    document.getElementById("todayDayLabel").textContent = now.toLocaleDateString("en-US",{ weekday:"long" });
-    document.getElementById("statStreak").textContent = stats.current;
-    document.getElementById("statBest").textContent = stats.best;
-    document.getElementById("statDone").textContent = stats.done;
-    document.getElementById("statDoneUnit").textContent = "/ " + stats.total;
-    const flame = document.getElementById("streakFlame");
-    if(stats.current >= 3) flame.classList.add("hot"); else flame.classList.remove("hot");
+  function fmtDate(d){
+    return d.toLocaleDateString("en-US", { weekday: "short", month: "short", day: "numeric", year: "numeric" });
+  }
+  function fmtDateShort(d){
+    return d.toLocaleDateString("en-US", { month: "short", day: "numeric" });
   }
 
-  function renderQuote(){
-    const dayIndex = Math.floor(Date.now() / 86400000);
-    const q = QUOTES[dayIndex % QUOTES.length];
-    document.getElementById("quoteText").textContent = "\u201C" + q[0] + "\u201D";
-    document.getElementById("quoteSub").textContent = q[1];
+  // Render Horizontal Day Navigator
+  function renderDayNav(stats){
+    const container = document.getElementById("dayNavScroll");
+    container.innerHTML = "";
+
+    stats.schedule.forEach(day => {
+      const btn = document.createElement("button");
+      const dayProg = Gatekeeper.getDayProgress(day);
+      const isComplete = dayProg.isComplete;
+      const isActive = day.day === stats.activeDayNum;
+
+      btn.className = "day-pill-btn" + 
+        (isActive ? " active" : "") + 
+        (isComplete ? " completed" : "") +
+        (day.isFinalDay ? " final-day-pill" : "");
+      
+      const dayPad = String(day.day).padStart(2, "0");
+      btn.innerHTML = day.isFinalDay ? '🔥' : dayPad;
+      btn.title = "Day " + day.day + (day.isFinalDay ? " (Final Revision Day)" : "") + " — " + dayProg.done + "/" + dayProg.total + " done";
+
+      btn.addEventListener("click", () => {
+        Gatekeeper.setActiveDay(day.day);
+        renderTracker();
+      });
+
+      container.appendChild(btn);
+    });
+
+    // Auto-scroll active pill into view
+    const activeBtn = container.querySelector(".day-pill-btn.active");
+    if(activeBtn){
+      activeBtn.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
+    }
   }
 
-  function renderLectureRow(lec){
-    const meta = Gatekeeper.metaFor(lec.subjectKey, lec.name);
-    const row = document.createElement("div");
-    row.className = "lecture-row";
-    row.style.setProperty("--sub", meta.color);
+  // Render Streak Card & Week Dot Strip
+  function renderStreak(stats){
+    const streakTitle = document.getElementById("streakTitle");
+    const streakSub = document.getElementById("streakSub");
+    const flameIcon = document.getElementById("streakFlameIcon");
 
-    const tag = document.createElement("span");
-    tag.className = "dot";
-    row.appendChild(tag);
+    streakTitle.textContent = stats.current + " Day Streak";
+    if(stats.current >= 3){
+      flameIcon.className = "streak-flame-icon hot";
+      streakSub.textContent = "You're on fire! Keep holding the gate and building momentum.";
+    } else if(stats.current > 0){
+      flameIcon.className = "streak-flame-icon";
+      streakSub.textContent = "Great consistency! Every completed day strengthens your streak.";
+    } else {
+      flameIcon.className = "streak-flame-icon";
+      streakSub.textContent = "Complete all sessions today to build and protect your streak.";
+    }
 
-    const label = document.createElement("label");
+    // Week dot strip (7 days)
+    const weekStrip = document.getElementById("weekDotsStrip");
+    weekStrip.innerHTML = "";
+    const weekDays = Gatekeeper.getWeekStreak();
+
+    weekDays.forEach(w => {
+      const col = document.createElement("div");
+      col.className = "week-dot-col";
+      col.innerHTML = 
+        '<span class="week-dot-lbl">' + w.dayOfWeek + '</span>' +
+        '<div class="week-dot' + (w.isComplete ? ' done' : '') + (w.isCurrent ? ' today' : '') + '">' +
+          (w.isComplete ? '✓' : (w.isCurrent ? '•' : '')) +
+        '</div>';
+      weekStrip.appendChild(col);
+    });
+  }
+
+  // Create lecture card element
+  function createLectureCard(lec, onToggle){
+    const card = document.createElement("div");
     const done = Gatekeeper.isDone(lec.id);
-    if(done) label.classList.add("done");
+    card.className = "lecture-card" + (done ? " is-done" : "");
+
+    const left = document.createElement("div");
+    left.className = "lec-left";
+
     const cb = document.createElement("input");
     cb.type = "checkbox";
     cb.className = "chk";
     cb.checked = done;
-    cb.setAttribute("aria-label", lec.name + " " + lec.label);
+    cb.setAttribute("aria-label", lec.subject + " " + lec.topic);
     cb.addEventListener("change", () => {
       Gatekeeper.setDone(lec.id, cb.checked);
       cb.classList.add("stamp");
-      renderAll();
+      if(onToggle) onToggle();
+      else renderTracker();
     });
-    label.appendChild(cb);
+    left.appendChild(cb);
 
-    const subj = document.createElement("span");
-    subj.className = "subj";
-    subj.textContent = lec.name;
-    label.appendChild(subj);
+    const main = document.createElement("div");
+    main.className = "lec-main";
 
-    const name = document.createElement("span");
-    name.className = "lec-name";
-    name.textContent = lec.label;
-    label.appendChild(name);
+    const badgeRow = document.createElement("div");
+    badgeRow.className = "lec-badge-row";
 
-    row.appendChild(label);
+    const badge = document.createElement("span");
+    badge.className = "subject-badge";
+    badge.style.setProperty("--sub", lec.meta.color);
+    badge.style.setProperty("--tag-bg", lec.meta.tagBg);
+    badge.style.setProperty("--sub-border", lec.meta.border);
+    badge.textContent = (lec.meta ? (lec.meta.icon + " " + lec.meta.shortName) : lec.subject);
+    badgeRow.appendChild(badge);
 
-    if(lec.link){
-      const a = document.createElement("a");
-      a.className = "link";
-      a.href = lec.link;
-      a.target = "_blank";
-      a.rel = "noopener noreferrer";
-      a.textContent = (lec.link.includes("list=") && !lec.link.includes("watch?v=")) ? "open playlist" : "watch lecture";
-      row.appendChild(a);
+    if (lec.lecture) {
+      const numTag = document.createElement("span");
+      numTag.className = "lec-num-tag";
+      numTag.textContent = "Lecture " + lec.lecture;
+      badgeRow.appendChild(numTag);
+    }
+
+    if (lec.time) {
+      const timeTag = document.createElement("span");
+      timeTag.className = "lec-num-tag";
+      timeTag.textContent = "• " + lec.time;
+      badgeRow.appendChild(timeTag);
+    }
+
+    main.appendChild(badgeRow);
+
+    const topic = document.createElement("span");
+    topic.className = "lec-topic";
+    topic.textContent = lec.topic;
+    main.appendChild(topic);
+
+    if (lec.task) {
+      const task = document.createElement("span");
+      task.className = "lec-task-desc";
+      task.innerHTML = '<span>↳</span>' + lec.task;
+      main.appendChild(task);
+    }
+
+    left.appendChild(main);
+    card.appendChild(left);
+
+    const right = document.createElement("div");
+    right.className = "lec-right";
+
+    if (lec.youtubeLink) {
+      const yt = document.createElement("a");
+      yt.className = "btn-yt";
+      yt.href = lec.youtubeLink;
+      yt.target = "_blank";
+      yt.rel = "noopener noreferrer";
+      yt.innerHTML = '▶ Watch Lecture';
+      right.appendChild(yt);
     } else {
-      const span = document.createElement("span");
-      span.className = "no-link";
-      span.textContent = "no link";
-      row.appendChild(span);
+      const noVid = document.createElement("span");
+      noVid.className = "no-video-note";
+      noVid.textContent = "Self Study / PYQ";
+      right.appendChild(noVid);
     }
-    return row;
+
+    card.appendChild(right);
+    return card;
   }
 
-  function renderToday(stats){
-    const titleEl = document.getElementById("todayTitle");
-    const dateStrEl = document.getElementById("todayDateStr");
-    const body = document.getElementById("todayBody");
-    body.innerHTML = "";
-    const schedule = stats.schedule;
-    const todayISO = stats.todayISO;
-    const exactDay = schedule.find(d => d.date === todayISO);
+  // Render Active Day Schedule
+  function renderActiveDaySchedule(stats){
+    const activeDay = stats.activeDaySchedule;
+    const dayProg = stats.todayProgress;
+    const isComplete = dayProg.isComplete;
+    const dayPad = String(activeDay.day).padStart(2, "0");
 
-    if(exactDay){
-      titleEl.textContent = "Today" + (exactDay.dayCount ? " — Day " + exactDay.dayCount : "");
-      dateStrEl.textContent = fmtDate(new Date(todayISO + "T00:00:00"));
-      exactDay.lectures.forEach(lec => body.appendChild(renderLectureRow(lec)));
-    } else if(schedule.length && todayISO < schedule[0].date){
-      titleEl.textContent = "Not started yet";
-      dateStrEl.textContent = "Schedule begins " + fmtDate(new Date(schedule[0].date + "T00:00:00"));
-      const p = document.createElement("p");
-      p.className = "empty-note";
-      p.textContent = "First lecture day hasn't arrived. The ledger below is ready when you are.";
-      body.appendChild(p);
-    } else if(schedule.length){
-      titleEl.textContent = "No lectures scheduled today";
-      dateStrEl.textContent = fmtDate(new Date(todayISO + "T00:00:00"));
-      const p = document.createElement("p");
-      p.className = "empty-note";
-      p.textContent = "Nothing planned for today. Check the ledger, or add the next block from the home page.";
-      body.appendChild(p);
+    // Day Header
+    const header = document.getElementById("dayViewHeader");
+    const dvTitle = document.getElementById("dvTitle");
+    const dvSubtitle = document.getElementById("dvSubtitle");
+    const dvStatusBadge = document.getElementById("dvStatusBadge");
+    const dvProgressBar = document.getElementById("dvProgressBar");
+    const dvProgressPct = document.getElementById("dvProgressPct");
+
+    if (activeDay.isFinalDay) {
+      header.className = "day-view-header is-final-day";
+      dvTitle.innerHTML = '🔥 DAY 30 — FINAL REVISION & MOCK DAY <span class="subject-badge" id="dvStatusBadge" style="--sub:var(--flame);">Final Day</span>';
+    } else {
+      header.className = "day-view-header";
+      dvTitle.innerHTML = 'DAY ' + dayPad + ' <span class="subject-badge" id="dvStatusBadge" style="--sub:' + (isComplete ? 'var(--moss)' : 'var(--gold)') + ';">' + (isComplete ? '✓ Cleared' : 'In Progress') + '</span>';
     }
-  }
 
-  function renderSubjects(stats){
-    const grid = document.getElementById("subjGrid");
-    grid.innerHTML = "";
-    Object.keys(stats.bySubjectTotal).forEach(key => {
-      const meta = Gatekeeper.metaFor(key);
-      const total = stats.bySubjectTotal[key];
-      const done = stats.bySubjectDone[key] || 0;
-      const pct = Math.round((done/total)*100);
-      const card = document.createElement("div");
-      card.className = "subj-card";
-      card.style.setProperty("--sub", meta.color);
-      card.innerHTML =
-        '<div class="row1">' +
-          '<span class="name"><span class="dot"></span>' + meta.name + '</span>' +
-          '<span class="count">' + done + ' / ' + total + '</span>' +
-        '</div>' +
-        '<div class="bar"><span style="width:' + pct + '%"></span></div>';
-      grid.appendChild(card);
+    // Subtitle summary of subjects
+    const uniqueSubjects = Array.from(new Set(activeDay.lectures.map(l => l.meta ? l.meta.shortName : l.subject)));
+    dvSubtitle.textContent = uniqueSubjects.join(" • ") + " (" + activeDay.lectures.length + " total sessions)";
+
+    dvProgressBar.style.width = dayProg.pct + "%";
+    if(dayProg.pct === 100) dvProgressBar.style.background = "var(--moss)";
+    else dvProgressBar.style.background = "var(--gold)";
+
+    dvProgressPct.textContent = dayProg.pct + "% (" + dayProg.done + " / " + dayProg.total + " done)";
+
+    // Day Complete Celebration Banner
+    const completeBanner = document.getElementById("dayCompleteBanner");
+    if (isComplete && dayProg.total > 0) {
+      completeBanner.style.display = "flex";
+      document.getElementById("dcHeading").textContent = "✓ DAY " + dayPad + " COMPLETE";
+      document.getElementById("dcSub").textContent = activeDay.isFinalDay 
+        ? "🎉 Outstanding achievement! You have completed all 30 days of the GATE CSE plan."
+        : "Amazing work. Day " + dayPad + " is fully cleared. Keep your momentum going.";
+      
+      const dcNextBtn = document.getElementById("dcNextDayBtn");
+      if (activeDay.day < 30) {
+        dcNextBtn.style.display = "inline-flex";
+        dcNextBtn.textContent = "Continue to Day " + String(activeDay.day + 1).padStart(2, "0") + " →";
+        dcNextBtn.onclick = () => {
+          Gatekeeper.setActiveDay(activeDay.day + 1);
+          renderTracker();
+        };
+      } else {
+        dcNextBtn.textContent = "View All Statistics →";
+        dcNextBtn.onclick = () => { location.href = "stats.html"; };
+      }
+    } else {
+      completeBanner.style.display = "none";
+    }
+
+    // Navigation buttons
+    document.getElementById("prevDayBtn").disabled = activeDay.day <= 1;
+    document.getElementById("prevDayBtn").onclick = () => {
+      Gatekeeper.navigateDay(-1);
+      renderTracker();
+    };
+
+    document.getElementById("nextDayBtn").disabled = activeDay.day >= 30;
+    document.getElementById("nextDayBtn").onclick = () => {
+      Gatekeeper.navigateDay(1);
+      renderTracker();
+    };
+
+    // Render schedule grouped by subject
+    const container = document.getElementById("dayScheduleContainer");
+    container.innerHTML = "";
+
+    // Group active day lectures by subjectKey
+    const groupsMap = {};
+    activeDay.lectures.forEach(l => {
+      const key = l.subjectKey;
+      if (!groupsMap[key]) {
+        groupsMap[key] = {
+          meta: l.meta,
+          subject: l.subject,
+          lectures: []
+        };
+      }
+      groupsMap[key].lectures.push(l);
     });
-  }
 
-  function renderLedger(stats){
-    const list = document.getElementById("ledgerList");
-    list.innerHTML = "";
-    stats.schedule.forEach(day => {
-      const complete = Gatekeeper.isDayComplete(day);
-      const row = document.createElement("div");
-      row.className = "day-row" + (complete ? " complete" : "") + (day.added ? " added" : "");
+    Object.keys(groupsMap).forEach(key => {
+      const grp = groupsMap[key];
+      const section = document.createElement("div");
+      section.style.marginBottom = "24px";
 
-      const dateCol = document.createElement("div");
-      dateCol.className = "date-col";
-      const dt = new Date(day.date + "T00:00:00");
-      dateCol.innerHTML = fmtDateShort(dt) + (day.dayCount ? '<br><span class="day-n">Day ' + day.dayCount + '</span>' : "");
-      row.appendChild(dateCol);
+      const header = document.createElement("div");
+      header.style.display = "flex";
+      header.style.alignItems = "center";
+      header.style.justifyContent = "space-between";
+      header.style.padding = "0 0 10px";
+      header.style.borderBottom = "1px solid var(--border)";
+      header.style.marginBottom = "12px";
 
-      const lecCol = document.createElement("div");
-      lecCol.className = "lec-col";
-      day.lectures.forEach(lec => {
-        const meta = Gatekeeper.metaFor(lec.subjectKey, lec.name);
-        const done = Gatekeeper.isDone(lec.id);
-        const chip = document.createElement("label");
-        chip.className = "chip" + (done ? " done" : "");
-        chip.style.setProperty("--sub", meta.color);
-        const cb = document.createElement("input");
-        cb.type = "checkbox";
-        cb.checked = done;
-        cb.addEventListener("change", () => {
-          Gatekeeper.setDone(lec.id, cb.checked);
-          renderAll();
-        });
-        chip.appendChild(cb);
-        const dot = document.createElement("span");
-        dot.className = "dot";
-        chip.appendChild(dot);
-        const lbl = document.createElement("span");
-        lbl.className = "lbl";
-        lbl.textContent = lec.name + " " + lec.label;
-        chip.appendChild(lbl);
-        lecCol.appendChild(chip);
+      const title = document.createElement("span");
+      title.style.fontSize = "15px";
+      title.style.fontWeight = "700";
+      title.style.display = "flex";
+      title.style.alignItems = "center";
+      title.style.gap = "8px";
+      title.innerHTML = '<span class="dot" style="--sub:' + grp.meta.color + '"></span>' + grp.meta.icon + ' ' + grp.meta.name;
+      header.appendChild(title);
+
+      const count = document.createElement("span");
+      count.style.fontFamily = "'IBM Plex Mono', monospace";
+      count.style.fontSize = "12.5px";
+      count.style.color = "var(--muted)";
+      count.textContent = grp.lectures.length + (grp.lectures.length === 1 ? " session" : " sessions");
+      header.appendChild(count);
+
+      section.appendChild(header);
+
+      grp.lectures.forEach(lec => {
+        section.appendChild(createLectureCard(lec, renderTracker));
       });
-      row.appendChild(lecCol);
 
-      const statusCol = document.createElement("div");
-      statusCol.className = "status-col";
-      statusCol.textContent = complete ? "cleared" : "pending";
-      row.appendChild(statusCol);
-
-      list.appendChild(row);
+      container.appendChild(section);
     });
   }
 
-  function renderAll(){
-    const stats = Gatekeeper.computeStats();
-    renderHeader(stats);
-    renderToday(stats);
-    renderSubjects(stats);
-    renderLedger(stats);
-  }
-  window.addEventListener("gatekeeper:progress-ready", renderAll);
-
-  document.getElementById("resetBtn").addEventListener("click", () => {
-    if(confirm("Reset all ticked lectures and streaks? This can't be undone.")){
-      Gatekeeper.resetTicks();
-      renderAll();
+  // Filter Match helper
+  function matchFilter(lec){
+    if (currentSubjectFilter !== "all") {
+      if (currentSubjectFilter === "practice") {
+        if (lec.subjectKey !== "practice" && lec.subjectKey !== "revision" && lec.subjectKey !== "mock") return false;
+      } else if (lec.subjectKey !== currentSubjectFilter) {
+        return false;
+      }
     }
-  });
+    if (currentStatusFilter === "pending" && Gatekeeper.isDone(lec.id)) return false;
+    if (currentStatusFilter === "completed" && !Gatekeeper.isDone(lec.id)) return false;
 
-  renderQuote();
-  renderAll();
+    if (searchQuery) {
+      const q = searchQuery.toLowerCase();
+      const matchTopic = lec.topic.toLowerCase().includes(q);
+      const matchSubj = lec.subject.toLowerCase().includes(q);
+      const matchLec = String(lec.lecture || "").includes(q);
+      if (!matchTopic && !matchSubj && !matchLec) return false;
+    }
+    return true;
+  }
+
+  // Render Full 30-Day Ledger List
+  function renderFullLedger(stats){
+    const container = document.getElementById("fullLedgerList");
+    container.innerHTML = "";
+
+    stats.schedule.forEach(day => {
+      const matched = day.lectures.filter(matchFilter);
+      if (matched.length === 0 && (currentSubjectFilter !== "all" || currentStatusFilter !== "all" || searchQuery)) {
+        return; // Hide day if nothing matches filter
+      }
+
+      const dayProg = Gatekeeper.getDayProgress(day);
+      const isComplete = dayProg.isComplete;
+      const dayPad = String(day.day).padStart(2, "0");
+
+      const card = document.createElement("div");
+      card.className = "day-card" + (isComplete ? " day-completed" : "") + (day.isFinalDay ? " final-day" : "");
+      card.id = "ledgerDay_" + day.day;
+      card.style.marginBottom = "14px";
+
+      const head = document.createElement("div");
+      head.className = "day-card-head";
+      head.title = "Click to set Day " + day.day + " as Active Day";
+      head.style.cursor = "pointer";
+      head.addEventListener("click", () => {
+        Gatekeeper.setActiveDay(day.day);
+        renderTracker();
+        window.scrollTo({ top: document.getElementById("dayViewHeader").offsetTop - 80, behavior: "smooth" });
+      });
+
+      head.innerHTML = 
+        '<div class="day-card-title">' +
+          '<h3>' + (day.isFinalDay ? '🔥 DAY 30 — FINAL REVISION & MOCK DAY' : 'DAY ' + dayPad) + '</h3>' +
+          '<span class="day-date">' + fmtDateShort(new Date(day.date + "T00:00:00")) + '</span>' +
+        '</div>' +
+        '<div class="day-card-progress">' +
+          '<span>' + dayProg.done + ' / ' + dayProg.total + ' cleared</span>' +
+          '<span style="color:' + (isComplete ? 'var(--moss)' : 'var(--gold)') + '; font-weight:700;">' + dayProg.pct + '%</span>' +
+        '</div>';
+
+      card.appendChild(head);
+
+      const body = document.createElement("div");
+      body.className = "day-card-body";
+
+      matched.forEach(lec => {
+        body.appendChild(createLectureCard(lec, renderTracker));
+      });
+
+      card.appendChild(body);
+      container.appendChild(card);
+    });
+
+    if (container.children.length === 0) {
+      container.innerHTML = '<div style="padding:36px; text-align:center; color:var(--muted); background:var(--surface); border:1px dashed var(--border); border-radius:var(--radius);">No lectures match your active search / subject filters. Try resetting your filter pills above.</div>';
+    }
+  }
+
+  function renderTracker(){
+    const stats = Gatekeeper.computeStats();
+    
+    // Motivation message
+    document.getElementById("trackerMotivationText").textContent = Gatekeeper.getMotivationalMessage(stats.overallPct);
+
+    renderDayNav(stats);
+    renderStreak(stats);
+    renderActiveDaySchedule(stats);
+    renderFullLedger(stats);
+  }
+
+  // Setup Filters
+  function initFilterHandlers(){
+    const subjPills = document.querySelectorAll("#subjectPills .pill-filter-btn");
+    subjPills.forEach(pill => {
+      pill.addEventListener("click", () => {
+        subjPills.forEach(p => p.classList.remove("active"));
+        pill.classList.add("active");
+        currentSubjectFilter = pill.getAttribute("data-subject");
+        renderFullLedger(Gatekeeper.computeStats());
+      });
+    });
+
+    const statusPills = document.querySelectorAll("#statusPills .pill-filter-btn");
+    statusPills.forEach(pill => {
+      pill.addEventListener("click", () => {
+        statusPills.forEach(p => p.classList.remove("active"));
+        pill.classList.add("active");
+        currentStatusFilter = pill.getAttribute("data-status");
+        renderFullLedger(Gatekeeper.computeStats());
+      });
+    });
+
+    const searchInput = document.getElementById("searchInput");
+    searchInput.addEventListener("input", (e) => {
+      searchQuery = e.target.value.trim();
+      renderFullLedger(Gatekeeper.computeStats());
+    });
+
+    // Arrow scroll for day ribbon
+    document.getElementById("scrollLeftBtn").addEventListener("click", () => {
+      document.getElementById("dayNavScroll").scrollBy({ left: -200, behavior: "smooth" });
+    });
+    document.getElementById("scrollRightBtn").addEventListener("click", () => {
+      document.getElementById("dayNavScroll").scrollBy({ left: 200, behavior: "smooth" });
+    });
+
+    // Reset and Backup actions
+    document.getElementById("resetBtn").addEventListener("click", () => {
+      if(confirm("Are you sure you want to reset all ticked lectures and streak for this 30-day plan? This action cannot be undone.")){
+        Gatekeeper.resetTicks();
+        renderTracker();
+      }
+    });
+
+    document.getElementById("exportBtn").addEventListener("click", () => {
+      const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(Gatekeeper.exportProgress());
+      const downloadAnchor = document.createElement("a");
+      downloadAnchor.setAttribute("href", dataStr);
+      downloadAnchor.setAttribute("download", "gatekeeper_30day_backup_" + Gatekeeper.todayLocalISO() + ".json");
+      document.body.appendChild(downloadAnchor);
+      downloadAnchor.click();
+      downloadAnchor.remove();
+    });
+  }
+
+  initFilterHandlers();
+  renderTracker();
+
+  window.addEventListener("gatekeeper:progress-ready", renderTracker);
+  window.addEventListener("gatekeeper:active-day-changed", renderTracker);
 })();
 </script>
 </body>

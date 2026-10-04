@@ -3,33 +3,46 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Sign in — Gatekeeper</title>
+<title>Account & Sync — Gatekeeper</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-<nav class="site-nav"><div class="wrap">
-  <a class="brand" href="index.html"><span class="glyph">▚</span>Gatekeeper</a>
-  <div class="nav-links"><a href="index.html">Home</a><a href="tracker.html">Tracker</a><a href="stats.html">Stats</a></div>
-</div></nav>
+
+<nav class="site-nav">
+  <div class="wrap">
+    <a class="brand" href="index.html"><span class="glyph">▚</span>Gatekeeper</a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="tracker.html">Tracker</a>
+      <a href="stats.html">Stats</a>
+    </div>
+  </div>
+</nav>
+
 <main class="wrap auth-page">
   <section class="auth-box">
     <span class="eyebrow">YOUR PRIVATE LEDGER</span>
-    <h1 id="authTitle">Sign in</h1>
-    <p class="sub" id="authIntro">Keep your lectures and streak synced across devices.</p>
+    <h1 id="authTitle">Sign In</h1>
+    <p class="sub" id="authIntro">Keep your 30-day plan, progress, and streaks synced across all your devices.</p>
+    
     <form id="authForm">
-      <label for="email">Email</label>
+      <label for="email">Email address</label>
       <input id="email" type="email" autocomplete="email" required placeholder="you@example.com">
+      
       <label for="password">Password</label>
       <input id="password" type="password" autocomplete="current-password" minlength="6" required placeholder="At least 6 characters">
-      <button class="btn btn-primary" id="submitBtn" type="submit">Sign in</button>
+      
+      <button class="btn btn-primary" id="submitBtn" type="submit">Sign In</button>
     </form>
+    
     <p class="auth-message" id="authMessage" role="status"></p>
     <button class="auth-switch" id="switchBtn" type="button">Need an account? Create one</button>
   </section>
 </main>
+
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="js/config.js"></script>
 <script src="js/auth.js"></script>
@@ -42,7 +55,7 @@
   let signup = false;
 
   if (!GatekeeperAuth.isConfigured()) {
-    message.textContent = "Add your Supabase URL and anon key in js/auth.js before using accounts.";
+    message.textContent = "Add your Supabase URL and anon key in js/auth.js before using cloud accounts.";
     message.className = "auth-message err";
     form.querySelector("button").disabled = true;
     switchBtn.disabled = true;
@@ -50,9 +63,9 @@
 
   switchBtn.addEventListener("click", () => {
     signup = !signup;
-    document.getElementById("authTitle").textContent = signup ? "Create account" : "Sign in";
-    document.getElementById("authIntro").textContent = signup ? "One account for your plan, wherever you study." : "Keep your lectures and streak synced across devices.";
-    document.getElementById("submitBtn").textContent = signup ? "Create account" : "Sign in";
+    document.getElementById("authTitle").textContent = signup ? "Create Account" : "Sign In";
+    document.getElementById("authIntro").textContent = signup ? "One account for your 30-day plan, wherever you study." : "Keep your 30-day plan, progress, and streaks synced across all your devices.";
+    document.getElementById("submitBtn").textContent = signup ? "Create Account" : "Sign In";
     switchBtn.textContent = signup ? "Already have an account? Sign in" : "Need an account? Create one";
     document.getElementById("password").autocomplete = signup ? "new-password" : "current-password";
     message.textContent = "";
