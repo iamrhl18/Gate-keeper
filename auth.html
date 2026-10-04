@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Account & Sync — Gatekeeper</title>
+<title>Account & Cloud Sync — Gatekeeper</title>
 <meta name="description" content="Sign in or create an account to sync your 30-Day GATE CSE Study Plan progress across all your devices." />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -30,8 +30,14 @@
     <h1 id="authTitle">Sign In</h1>
     <p class="sub" id="authIntro">Keep your 30-day plan, progress, and streaks synced across all your devices.</p>
 
-    <!-- Already logged in view -->
-    <div id="loggedInView" style="display:none; text-align:center; padding:12px 0 20px;">
+    <!-- Connection Status Banner -->
+    <div id="connStatusBox" style="font-size:12px; font-family:'IBM Plex Mono',monospace; padding:8px 12px; border-radius:var(--radius-sm); margin-bottom:18px; display:flex; align-items:center; justify-content:space-between; background:var(--surface-2); border:1px solid var(--border);">
+      <span id="connStatusText">Checking cloud connection...</span>
+      <button id="testConnBtn" type="button" class="btn btn-ghost btn-sm" style="padding:2px 8px; font-size:11px;">Test</button>
+    </div>
+
+    <!-- Already Logged In View -->
+    <div id="loggedInView" style="display:none; text-align:center; padding:10px 0 20px;">
       <div style="font-size:36px; margin-bottom:12px;">👤</div>
       <h3 style="font-size:18px; margin:0 0 6px;">Currently Signed In</h3>
       <p style="color:var(--muted); font-family:'IBM Plex Mono',monospace; font-size:13px; margin:0 0 24px;" id="loggedInEmail">—</p>
@@ -59,6 +65,27 @@
       <button class="auth-switch" id="switchBtn" type="button">Need an account? Create one</button>
       <a href="tracker.html" style="font-size:13px; color:var(--muted);">Continue offline →</a>
     </div>
+
+    <!-- Collapsible Cloud Connection Settings -->
+    <details style="margin-top:24px; border-top:1px dashed var(--border); padding-top:16px; font-size:13px;">
+      <summary style="cursor:pointer; color:var(--gold); font-weight:600; font-family:'IBM Plex Mono',monospace; font-size:12.5px;">⚡ Cloud Sync & Supabase Credentials</summary>
+      <div style="margin-top:14px; display:flex; flex-direction:column; gap:10px;">
+        <p style="color:var(--muted); font-size:12px; margin:0; line-height:1.5;">
+          Free Supabase projects automatically pause after 7 days of inactivity. If paused, log in to <a href="https://supabase.com/dashboard" target="_blank" rel="noopener noreferrer">supabase.com</a> and click <strong>"Restore Project"</strong>, or update with new credentials below.
+        </p>
+        
+        <label for="customUrl" style="font-size:12px; color:var(--muted); margin:0;">Supabase Project URL</label>
+        <input id="customUrl" type="url" placeholder="https://your-project.supabase.co" style="font-size:12px; padding:8px 10px; background:var(--surface-2); border:1px solid var(--border); color:var(--text); border-radius:var(--radius-sm);" />
+        
+        <label for="customKey" style="font-size:12px; color:var(--muted); margin:0;">Supabase Anon Public Key</label>
+        <input id="customKey" type="text" placeholder="eyJhbGci..." style="font-size:12px; padding:8px 10px; background:var(--surface-2); border:1px solid var(--border); color:var(--text); border-radius:var(--radius-sm);" />
+        
+        <div style="display:flex; gap:8px; margin-top:6px;">
+          <button type="button" id="saveCredsBtn" class="btn btn-primary btn-sm" style="padding:6px 12px; font-size:12px;">Save & Reconnect</button>
+          <button type="button" id="resetCredsBtn" class="btn btn-ghost btn-sm" style="padding:6px 12px; font-size:12px;">Reset Default</button>
+        </div>
+      </div>
+    </details>
   </section>
 </main>
 
@@ -81,34 +108,61 @@
 <script>
 (function(){
   "use strict";
+
   const form = document.getElementById("authForm");
   const message = document.getElementById("authMessage");
   const switchBtn = document.getElementById("switchBtn");
   const loggedInView = document.getElementById("loggedInView");
   const loggedInEmail = document.getElementById("loggedInEmail");
+  const connStatusText = document.getElementById("connStatusText");
+  const testConnBtn = document.getElementById("testConnBtn");
+  const customUrlInput = document.getElementById("customUrl");
+  const customKeyInput = document.getElementById("customKey");
   let isSignup = false;
 
-  // Check if already signed in
+  // Populate custom creds input
+  const cfg = GatekeeperAuth.getConfig();
+  if (cfg.supabaseUrl) customUrlInput.value = cfg.supabaseUrl;
+  if (cfg.supabaseAnonKey) customKeyInput.value = cfg.supabaseAnonKey;
+
+  // Check connection status
+  function checkConnection(){
+    connStatusText.textContent = "Testing connection...";
+    connStatusText.style.color = "var(--muted)";
+    
+    GatekeeperAuth.testConnection().then(res => {
+      if (res.ok) {
+        connStatusText.textContent = "● Cloud Connected & Ready";
+        connStatusText.style.color = "var(--moss)";
+      } else {
+        connStatusText.textContent = "▲ " + (res.error || "Connection Issue");
+        connStatusText.style.color = "var(--gold)";
+      }
+    });
+  }
+
+  checkConnection();
+  testConnBtn.addEventListener("click", checkConnection);
+
+  // Check if user is already signed in
   if (GatekeeperAuth.isConfigured()) {
     GatekeeperAuth.getUser().then(user => {
       if (user) {
         form.style.display = "none";
         switchBtn.style.display = "none";
-        document.getElementById("authTitle").textContent = "Account Settings";
+        document.getElementById("authTitle").textContent = "Account Active";
         document.getElementById("authIntro").textContent = "Your 30-day plan and progress are synced to the cloud.";
         loggedInEmail.textContent = user.email || "Signed In";
         loggedInView.style.display = "block";
       }
     });
-  } else {
-    message.textContent = "Supabase cloud credentials not set. You can still use the 30-day tracker in local browser mode.";
-    message.className = "auth-message ok";
   }
 
   document.getElementById("signOutPageBtn").addEventListener("click", () => {
     GatekeeperAuth.signOut().then(() => location.reload());
   });
 
+  // Switch between Sign In and Create Account
   switchBtn.addEventListener("click", () => {
     isSignup = !isSignup;
     document.getElementById("authTitle").textContent = isSignup ? "Create Account" : "Sign In";
@@ -121,10 +175,11 @@
     message.textContent = "";
   });
 
+  // Form Submit
   form.addEventListener("submit", async (event) => {
     event.preventDefault();
     message.className = "auth-message";
-    message.textContent = "Working...";
+    message.textContent = "Authenticating with cloud...";
     
     const email = document.getElementById("email").value.trim();
     const password = document.getElementById("password").value;
@@ -134,13 +189,13 @@
       : await GatekeeperAuth.signIn(email, password);
     
     if (result.error) {
-      message.textContent = result.error.message;
+      message.textContent = result.error.message || "Authentication failed. Please check your credentials or Supabase project status.";
       message.className = "auth-message err";
       return;
     }
     
     if (isSignup && !result.data.session) {
-      message.textContent = "Account created successfully! Check your email to confirm, then sign in.";
+      message.textContent = "Account created successfully! If email confirmation is enabled, check your inbox to confirm, then sign in.";
       message.className = "auth-message ok";
       return;
     }
@@ -150,6 +205,23 @@
     setTimeout(() => {
       location.href = "tracker.html";
     }, 600);
+  });
+
+  // Custom credentials save & reset
+  document.getElementById("saveCredsBtn").addEventListener("click", () => {
+    const url = customUrlInput.value.trim();
+    const key = customKeyInput.value.trim();
+    if (!url || !key) {
+      alert("Please provide both Supabase Project URL and Anon Key.");
+      return;
+    }
+    GatekeeperAuth.setCredentials(url, key);
+  });
+
+  document.getElementById("resetCredsBtn").addEventListener("click", () => {
+    if (confirm("Reset to default Supabase configuration?")) {
+      GatekeeperAuth.resetCredentials();
+    }
   });
 })();
 </script>
