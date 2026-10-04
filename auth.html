@@ -4,6 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Account & Sync — Gatekeeper</title>
+<meta name="description" content="Sign in or create an account to sync your 30-Day GATE CSE Study Plan progress across all your devices." />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -18,30 +19,61 @@
       <a href="index.html">Home</a>
       <a href="tracker.html">Tracker</a>
       <a href="stats.html">Stats</a>
+      <a href="tracker.html" class="nav-cta">Open Tracker</a>
     </div>
   </div>
 </nav>
 
 <main class="wrap auth-page">
-  <section class="auth-box">
+  <section class="auth-box" id="authBox">
     <span class="eyebrow">YOUR PRIVATE LEDGER</span>
     <h1 id="authTitle">Sign In</h1>
     <p class="sub" id="authIntro">Keep your 30-day plan, progress, and streaks synced across all your devices.</p>
-    
+
+    <!-- Already logged in view -->
+    <div id="loggedInView" style="display:none; text-align:center; padding:12px 0 20px;">
+      <div style="font-size:36px; margin-bottom:12px;">👤</div>
+      <h3 style="font-size:18px; margin:0 0 6px;">Currently Signed In</h3>
+      <p style="color:var(--muted); font-family:'IBM Plex Mono',monospace; font-size:13px; margin:0 0 24px;" id="loggedInEmail">—</p>
+      
+      <div style="display:flex; flex-direction:column; gap:10px;">
+        <a href="tracker.html" class="btn btn-primary">Go to 30-Day Tracker →</a>
+        <button class="btn btn-ghost" id="signOutPageBtn">Sign Out of Account</button>
+      </div>
+    </div>
+
+    <!-- Sign In / Sign Up Form -->
     <form id="authForm">
-      <label for="email">Email address</label>
-      <input id="email" type="email" autocomplete="email" required placeholder="you@example.com">
+      <label for="email">Email Address</label>
+      <input id="email" type="email" autocomplete="email" required placeholder="you@example.com" />
       
       <label for="password">Password</label>
-      <input id="password" type="password" autocomplete="current-password" minlength="6" required placeholder="At least 6 characters">
+      <input id="password" type="password" autocomplete="current-password" minlength="6" required placeholder="At least 6 characters" />
       
       <button class="btn btn-primary" id="submitBtn" type="submit">Sign In</button>
     </form>
     
     <p class="auth-message" id="authMessage" role="status"></p>
-    <button class="auth-switch" id="switchBtn" type="button">Need an account? Create one</button>
+    
+    <div style="display:flex; justify-content:space-between; align-items:center; margin-top:16px; flex-wrap:wrap; gap:10px; border-top:1px solid var(--border); padding-top:16px;">
+      <button class="auth-switch" id="switchBtn" type="button">Need an account? Create one</button>
+      <a href="tracker.html" style="font-size:13px; color:var(--muted);">Continue offline →</a>
+    </div>
   </section>
 </main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="f-left">
+      Gatekeeper 30-Day Plan · Progress is saved locally in this browser. Sign in to sync your ledger across your phone, tablet, and laptop.
+    </div>
+    <div class="f-links">
+      <a href="index.html">Home</a>
+      <a href="tracker.html">Tracker</a>
+      <a href="stats.html">Stats</a>
+    </div>
+  </div>
+</footer>
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="js/config.js"></script>
@@ -52,22 +84,40 @@
   const form = document.getElementById("authForm");
   const message = document.getElementById("authMessage");
   const switchBtn = document.getElementById("switchBtn");
-  let signup = false;
+  const loggedInView = document.getElementById("loggedInView");
+  const loggedInEmail = document.getElementById("loggedInEmail");
+  let isSignup = false;
 
-  if (!GatekeeperAuth.isConfigured()) {
-    message.textContent = "Add your Supabase URL and anon key in js/auth.js before using cloud accounts.";
-    message.className = "auth-message err";
-    form.querySelector("button").disabled = true;
-    switchBtn.disabled = true;
+  // Check if already signed in
+  if (GatekeeperAuth.isConfigured()) {
+    GatekeeperAuth.getUser().then(user => {
+      if (user) {
+        form.style.display = "none";
+        switchBtn.style.display = "none";
+        document.getElementById("authTitle").textContent = "Account Settings";
+        document.getElementById("authIntro").textContent = "Your 30-day plan and progress are synced to the cloud.";
+        loggedInEmail.textContent = user.email || "Signed In";
+        loggedInView.style.display = "block";
+      }
+    });
+  } else {
+    message.textContent = "Supabase cloud credentials not set. You can still use the 30-day tracker in local browser mode.";
+    message.className = "auth-message ok";
   }
 
+  document.getElementById("signOutPageBtn").addEventListener("click", () => {
+    GatekeeperAuth.signOut().then(() => location.reload());
+  });
+
   switchBtn.addEventListener("click", () => {
-    signup = !signup;
-    document.getElementById("authTitle").textContent = signup ? "Create Account" : "Sign In";
-    document.getElementById("authIntro").textContent = signup ? "One account for your 30-day plan, wherever you study." : "Keep your 30-day plan, progress, and streaks synced across all your devices.";
-    document.getElementById("submitBtn").textContent = signup ? "Create Account" : "Sign In";
-    switchBtn.textContent = signup ? "Already have an account? Sign in" : "Need an account? Create one";
-    document.getElementById("password").autocomplete = signup ? "new-password" : "current-password";
+    isSignup = !isSignup;
+    document.getElementById("authTitle").textContent = isSignup ? "Create Account" : "Sign In";
+    document.getElementById("authIntro").textContent = isSignup 
+      ? "Create a free account to sync your 30-day progress across devices." 
+      : "Keep your 30-day plan, progress, and streaks synced across all your devices.";
+    document.getElementById("submitBtn").textContent = isSignup ? "Create Account" : "Sign In";
+    switchBtn.textContent = isSignup ? "Already have an account? Sign in" : "Need an account? Create one";
+    document.getElementById("password").autocomplete = isSignup ? "new-password" : "current-password";
     message.textContent = "";
   });
 
@@ -75,20 +125,31 @@
     event.preventDefault();
     message.className = "auth-message";
     message.textContent = "Working...";
+    
     const email = document.getElementById("email").value.trim();
     const password = document.getElementById("password").value;
-    const result = signup ? await GatekeeperAuth.signUp(email, password) : await GatekeeperAuth.signIn(email, password);
+    
+    const result = isSignup 
+      ? await GatekeeperAuth.signUp(email, password) 
+      : await GatekeeperAuth.signIn(email, password);
+    
     if (result.error) {
       message.textContent = result.error.message;
       message.className = "auth-message err";
       return;
     }
-    if (signup && !result.data.session) {
-      message.textContent = "Account created. Check your email to confirm it, then sign in.";
+    
+    if (isSignup && !result.data.session) {
+      message.textContent = "Account created successfully! Check your email to confirm, then sign in.";
       message.className = "auth-message ok";
       return;
     }
-    location.href = "tracker.html";
+    
+    message.textContent = "Signed in successfully. Redirecting...";
+    message.className = "auth-message ok";
+    setTimeout(() => {
+      location.href = "tracker.html";
+    }, 600);
   });
 })();
 </script>
