@@ -107,7 +107,13 @@
         ticks: ticks || {},
         extra_days: extraDays || [],
         updated_at: new Date().toISOString()
-      }).catch(() => {});
+      }, { onConflict: "user_id" })
+        .then(result => {
+          if (result && result.error) {
+            console.warn("Gatekeeper: saveProgress error:", result.error);
+          }
+        })
+        .catch(err => console.warn("Gatekeeper: saveProgress failed:", err));
     });
   }
 
@@ -158,12 +164,20 @@
         if (session && session.user) {
           loadProgress().then(data => {
             if (data && data.ticks && global.Gatekeeper) {
-              Object.keys(data.ticks).forEach(k => {
-                if (data.ticks[k]) global.Gatekeeper.setDone(k, true);
-              });
+              // Use importTicks to atomically replace the full ticks object.
+              // Do NOT use setDone() in a loop — it only marks true (never clears
+              // unchecked items) and triggers a redundant syncProgress() per key.
+              if (typeof global.Gatekeeper.importTicks === "function") {
+                global.Gatekeeper.importTicks(data.ticks);
+              } else {
+                // Fallback for older versions
+                Object.keys(data.ticks).forEach(k => {
+                  if (data.ticks[k]) global.Gatekeeper.setDone(k, true);
+                });
+              }
               global.dispatchEvent(new Event("gatekeeper:progress-ready"));
             }
-          });
+          }).catch(err => console.warn("Gatekeeper: loadProgress error:", err));
         }
       });
     } catch (e) {}

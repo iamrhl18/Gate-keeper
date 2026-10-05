@@ -266,6 +266,17 @@
     return nextVal;
   }
 
+  // Replace the entire ticks object from cloud data.
+  // Does NOT call syncProgress() to avoid re-uploading what we just downloaded.
+  function importTicks(newTicks) {
+    if (!newTicks || typeof newTicks !== "object") return;
+    ticks = {};
+    Object.keys(newTicks).forEach(k => {
+      if (newTicks[k]) ticks[k] = true;
+    });
+    saveJSON(TICKS_KEY, ticks);
+  }
+
   function isDayComplete(dayOrDayNum) {
     const schedule = getSchedule();
     const targetDay = typeof dayOrDayNum === "number"
@@ -476,6 +487,7 @@
     isDone,
     setDone,
     toggleDone,
+    importTicks,
     isDayComplete,
     getDayProgress,
     getNextLecture,
